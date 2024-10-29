@@ -1,0 +1,45 @@
+[
+
+    {"id" : 2, "nome" : "Clínica de Radioterapia Osolando J. Machado Catete" , "bairro": "catete" , "latitude": "-22.929390300565576", "logintude": "-43.17976484766591", "procedimentos": [] },
+    {"id" : 3, "nome" : "SMS CMS Manoel José Ferreira Ap 21" , "bairro": "catete" , "latitude": "-22.925940838884618", "logintude": "-43.17873197650132","procedimentos": [] },
+
+    
+    {"id" : 4, "nome" : "SMS Cf Cantagalo Pavão Pavãozinho Ap 21" , "bairro": "copacabana" ,"latitude": "-22.981334046655164", "logintude": "-43.1964655341703", "procedimentos": [] },
+    {"id" : 5, "nome" : "SMS CMS João Barros Barreto Ap 21" , "bairro": "copacabana" ,"latitude": "-22.9668863419182", "logintude": "-43.18740866300609", "procedimentos": [] },
+    {"id" : 6, "nome" : "UPA 24h Copacabana" , "bairro": "copacabana" ,"latitude": "-22.967190569124043", "logintude": "-43.18737290348814", "procedimentos": [] },
+
+    {"id" : 7, "nome" : "FIOTEC IFF Instituto Fernandes Figueira" , "bairro": "flamengo" ,"latitude": "-22.94208899565438", "logintude": "-43.17412288814737", "procedimentos": [] },
+
+    {"id" : 8, "nome" : "SMSDC Rio Hospital Municipal Miguel Couto" , "bairro": "gavea" ,"latitude": "-22.97735509284817", "logintude": "-43.2238197304756", "procedimentos": [] },
+    {"id" : 9, "nome" : "SMS CMS Pindaro de C Rodrigues Ap 21" , "bairro": "gavea" ,"latitude": "-22.97957422740854", "logintude": "-43.22955763232298", "procedimentos": [] },
+
+    {"id" : 10, "nome" : "SES RJ Inst. Est. de Cardiologia FALMED" , "bairro": "humaita" ,"latitude": "-22.95298704418401", "logintude": "-43.199557003488295", "procedimentos": [] },
+    {"id" : 11, "nome" : "IECAC - Instituto Estadual de Cardiologia Aloysio de Castro" , "bairro": "humaita" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+
+
+    {"id" : 1, "nome" : "MS Hospital de Ipanema" , "bairro": "ipanema" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+
+
+    {"id" : 12, "nome" : "Abbr" , "bairro": "jardim botanico" , "procedimentos": [] },
+    {"id" : 13, "nome" : "MS Hospital Federal da Lagoa" , "bairro": "jardim botanico" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+
+    {"id" : 14, "nome" : "Smsdc Rio Padi Miguel Couto" , "bairro": "lagoa" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+
+    {"id" : 15, "nome" : "Maternidade Escola da UFRJ" , "bairro": "laranjeiras" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+    {"id" : 16, "nome" : "MS Inc Instituto Nacional de Cardiologia" , "bairro": "laranjeiras" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+
+    {"id" : 17, "nome" : "SMSDC Rio Coordenação de Emergência Regional Leblon" , "bairro": "leblon" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+
+    {"id" : 17, "nome" : "SMS CMS Chapéu Mang Babilônia Ap 21" , "bairro": "leme" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+
+    {"id" : 17, "nome" : "SMS CAPS Maria do Socorro Santos Ap 21" , "bairro": "rocinha" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+    {"id" : 17, "nome" : "SMSdc Cf Maria do Socorro Rocinha Ap 21" , "bairro": "rocinha" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+    {"id" : 17, "nome" : "SMSdc CMS Dr. Albert Sabin Ap 21" , "bairro": "rocinha" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+    {"id" : 17, "nome" : "SMSDC Rio UPA 24h Rocinha Ap 21" , "bairro": "rocinha" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+
+    {"id" : 17, "nome" : "SMS Cf Rinaldo de Lamare Ap 21" , "bairro": "sao conrado" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+    {"id" : 17, "nome" : "SMS CMS Vila Canoas Ap 21" , "bairro": "sao conrado" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] },
+
+    {"id" : 17, "nome" : "SMS CMS Rodolpho Perisse Vidigal Ap 21" , "bairro": "vidigal" ,"latitude": "-22.929410", "logintude": "-43.179679", "procedimentos": [] }
+
+]
