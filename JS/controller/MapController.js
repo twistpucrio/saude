@@ -1,9 +1,13 @@
+//MapController.js
+
 const MapController = ((model, view) => {
 
     let isGeolocationEnabled = false;
 
     const init = () => {
         setupToggleGeolocationButton();  // Chama a função para configurar o botão de geolocalização
+        setupProcedureCheckboxes();
+
         model.loadMapScript()
             .then(() => {
                 renderMapBasedOnGeolocation();
@@ -36,7 +40,7 @@ const MapController = ((model, view) => {
                     }
 
                     // Atualiza o botão se o status da permissão mudar
-                    permissionStatus.onchange = () => {
+                    PermissionStatus.onchange = () => {
                         checkGeolocationPermission();
                     }
                 })
@@ -69,8 +73,39 @@ const MapController = ((model, view) => {
         })
     }
 
+    const setupProcedureCheckboxes = () => {
+        // Obtém todos os checkboxes de procedimentos
+        const checkboxes = document.querySelectorAll("input[name='procedimento']");
+
+        // Adiciona um evento de 'change' em cada checkbox, mas não faz nada agora
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener("change", () => {
+                // Não faz nada por enquanto, pois a atualização dos marcadores será
+                // feita apenas pelo botão de busca
+            });
+        });
+    };
+
+    const buscarHospitais = () => {
+        // Obtém os IDs dos checkboxes marcados
+        const selectedProcedures = Array.from(document.querySelectorAll("input[name='procedimento']:checked"))
+            .map(checkbox => checkbox.id);
+
+        // Carrega os hospitais e filtra de acordo com os procedimentos selecionados
+        model.carregarHospitais().then(() => {
+            const hospitals = selectedProcedures.flatMap(procedureId => model.getHospitalsByProcedure(procedureId));
+
+            // Atualiza os marcadores no mapa
+            view.addHospitalMarkers(hospitals);
+        });
+    };
+    
+
+
+
     return {
         init,
+        buscarHospitais
     };
 
 })(MapModel, MapView);

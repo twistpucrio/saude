@@ -1,5 +1,8 @@
+//MapModel.js
+
 const MapModel = (() => {
     const apiKey = "AIzaSyAlcDBqiCO7sV_Uvtg4LxN0eTPO1KsAqOw"; // Substitua pela chave da API
+    let hospitals = [];
 
     const loadMapScript = () => {
         return new Promise((resolve, reject) => {
@@ -43,9 +46,30 @@ const MapModel = (() => {
         return { lat: -22.928784393500653, lng: -43.235268365305984 }; // Posição default
     }; 
 
+
+    //Parte de marcar os hospitais com tal procedimento no mapa
+
+    const carregarHospitais = () => {
+        return fetch('hospitais.json')
+            .then(response => response.json())
+            .then(data => {
+                hospitals = data;
+                return hospitals;
+            })
+            .catch(error => {
+                console.error("Erro ao carregar hospitais:", error);
+            });
+    };
+    
+    const getHospitalsByProcedure = (procedureId) => {
+        return hospitals.filter(hospital => hospital.procedimentos.includes(procedureId));
+    };
+
     return {
         loadMapScript,
         getUserPosition,
         getDefaultPosition,
+        getHospitalsByProcedure,
+        carregarHospitais
     };
 })();
