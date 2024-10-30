@@ -1,6 +1,10 @@
 //app.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    MapController.init();
+    
+
+    const btn_buscar = document.getElementById("buscar");
+    btn_buscar.addEventListener("onclick", buscaPorTexto);
+    initMap();
 });
 

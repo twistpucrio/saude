@@ -7,7 +7,7 @@ const MapModel = (() => {
     const loadMapScript = () => {
         return new Promise((resolve, reject) => {
             const script = document.createElement('script');
-            script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+            script.src=`https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async&libraries=places&callback=initMap`;
             script.async = true;
             script.defer = true;
             script.onerror = () => reject(new Error("Erro ao carregar script do Google Maps."));
