@@ -7,4 +7,10 @@ html, body{
 #map{
     height: 400px;
     width: 600px;
+    display: flex;
+}
+
+#test{
+    display: block;
+    margin-left: 1300px;
 }

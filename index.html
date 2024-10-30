@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>saudeFacil</title>
-
+    <link rel="stylesheet" href="CSS/index.css">
     <link rel="stylesheet" href="CSS/map.css">
    
 
@@ -13,13 +13,15 @@
     <header>SaudeFacil.com</header>
     <nav></nav>
     <section id="main">
-        
-        <button id="toggle-geolocation" class="custom-map-control-button">Ativar Geolocalização</button>
-        <label for="local">ou digitar localização:</label>
-        <input type="text" name="local" id="local">
-
-        <h3>Demo Maps</h3>
+        <div id="btnMapa">
+            <button id="toggle-geolocation" class="custom-map-control-button">Ativar Geolocalização</button>
+            <label for="local">ou digitar localização:</label>
+            <input type="text" name="local" id="local">
+        </div>
+        <div id="test">
+        <h3>Demo Maps</h3> 
         <div id="map"></div>
+        </div>
         <input type="checkbox" name="procedimento" id="procedimento1">
         <label for="procedimento1">P1</label>
 
@@ -32,6 +34,9 @@
         <input type="checkbox" name="procedimento" id="procedimento4">
         <label for="procedimento4">P4</label>
 
+        <label for="buscar">Buscar</label>
+        <input type="button" value="buscar">
+
 
     </section>
     <footer></footer>
@@ -43,6 +48,8 @@
     <script src="JS/view/MapView.js"></script>
 
     <script src="JS/controller/MapController.js"></script>
+
+    <script src="JS/model/pesquisa.js"></script>
     
     <script src="JS/app.js"></script>
     
