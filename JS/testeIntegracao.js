@@ -1,3 +1,4 @@
+
 // Função para carregar o script do Google Maps
 const loadMapScript = (apiKey, libraries = []) => {
     return new Promise((resolve, reject) => {
