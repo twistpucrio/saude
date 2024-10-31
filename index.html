@@ -1,63 +1,42 @@
 
 <!-- index.html -->
-
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>saudeFacil</title>
-    <link rel="stylesheet" href="CSS/index.css">
-    <link rel="stylesheet" href="CSS/map.css">
-   
-
-</head>
-<body>
-    <header>SaudeFacil.com</header>
-    <nav></nav>
-    <section id="main">
-        <div id="btnMapa">
-            <button id="toggle-geolocation" class="custom-map-control-button">Ativar Geolocalização</button>
-            <label for="local">ou digitar localização:</label>
-            <input type="text" name="local" id="local">
-        </div>
-        <div id="test">
-        <h3>Demo Maps</h3> 
-        <div id="map"></div>
-        </div>
-        <input type="checkbox" name="procedimento" id="procedimento1">
-        <label for="procedimento1">P1</label>
-
-        <input type="checkbox" name="procedimento" id="procedimento2">
-        <label for="procedimento2">P2</label>
-
-        <input type="checkbox" name="procedimento" id="procedimento3">
-        <label for="procedimento3">P3</label>
+        <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>saudeFacil</title>
+            <link rel="stylesheet" href="CSS/index.css">
+            <link rel="stylesheet" href="CSS/map.css">
+        </head>
+        <body>
+            <header>SaudeFacil.com</header>
+            <section id="main">
+                <div id="map"></div>
         
-        <input type="checkbox" name="procedimento" id="procedimento4">
-        <label for="procedimento4">P4</label>
-
-        <button id="btnBusca" onclick="MapController.buscarHospitais()">Buscar</button>
-
-
-
-
-    </section>
-    <footer></footer>
-
-
-    <!-- scripts -->
-    <!-- <script src="JS/model/MapModel.js"></script>
-
-    <script src="JS/view/MapView.js"></script>
-
-    <script src="JS/controller/MapController.js"></script>
-
-    <script src="JS/model/pesquisa.js"></script>
-    
-    <script src="JS/app.js"></script> -->
-    <script src="JS/geolocalizacao.js"></script>
-    <script src="JS/app.js"></script>
-    
-</body>
-</html>
+                <div id="controls">
+                    <button id="toggle-geolocation" class="custom-map-control-button">Ativar Geolocalização</button>
+                    <label for="local">ou digitar localização:</label>
+                    <input type="text" name="local" id="local">
+                    <div class="checkbox-group">
+                        <input type="checkbox" name="procedimento" id="procedimento1">
+                        <label for="procedimento1">P1</label>
+                        <input type="checkbox" name="procedimento" id="procedimento2">
+                        <label for="procedimento2">P2</label>
+                        <input type="checkbox" name="procedimento" id="procedimento3">
+                        <label for="procedimento3">P3</label>
+                        <input type="checkbox" name="procedimento" id="procedimento4">
+                        <label for="procedimento4">P4</label>
+                    </div>
+                    <button id="btnBusca" onclick="buscarHospitais()">Buscar</button>
+                </div>
+            </section>
+        
+            <footer></footer>
+        
+            <!-- scripts -->
+            <!-- <script src="JS/geolocalizacao.js"></script> -->
+            <script src="JS/testeIntegracao.js"></script>
+            
+        </body>
+        </html>
