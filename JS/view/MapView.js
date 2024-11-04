@@ -1,32 +1,55 @@
-//MapView.js
+// MapView.js
 
 const MapView = (() => {
-
     let map;
-    const hospitalMarkers = []; // Array para armazenar os marcadores de hospitais
+    const hospitalMarkers = [];
 
+    // Inicializa o mapa e salva a instância
+    const initMap = (position, mapElementId, mapOptions) => {
+        
+        map = new google.maps.Map(document.getElementById(mapElementId), {
+            zoom: mapOptions.zoom,
+            center: position,
+            mapId: mapOptions.mapId,
+        });
+
+        // Inicializa o serviço de locais após o mapa estar pronto
+        service = new google.maps.places.PlacesService(map);
+    };
+
+    const getPlacesService = () => {
+        return service; // Expor a instância de PlacesService para o Controller
+    };
+
+    // Adiciona marcadores de hospitais ao mapa
     const addHospitalMarkers = (hospitals) => {
-        clearHospitalMarkers(); // Limpa os marcadores antes de adicionar novos
-
+        clearHospitalMarkers();
         hospitals.forEach(hospital => {
             const marker = new google.maps.Marker({
                 position: { lat: parseFloat(hospital.latitude), lng: parseFloat(hospital.longitude) },
                 map: map,
                 title: hospital.nome,
             });
-            hospitalMarkers.push(marker); // Armazena o marcador no array
+            hospitalMarkers.push(marker);
         });
     };
 
-    // Função para remover todos os marcadores de hospitais
+    // Remove todos os marcadores
     const clearHospitalMarkers = () => {
-        hospitalMarkers.forEach(marker => marker.setMap(null)); // Remove cada marcador do mapa
-        hospitalMarkers.length = 0; // Limpa o array de marcadores
+        hospitalMarkers.forEach(marker => marker.setMap(null));
+        hospitalMarkers.length = 0;
     };
 
+    // Centraliza o mapa em uma posição específica
+    const centerMap = (position) => {
+        map.setCenter(position);
+    };
 
     return {
+        initMap,
         addHospitalMarkers,
-        clearHospitalMarkers
+        getPlacesService, 
+        clearHospitalMarkers,
+        centerMap
     };
 })();

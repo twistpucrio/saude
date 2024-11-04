@@ -1,3 +1,84 @@
+// MapView, MapModel, MapController e funções de inicialização do mapa combinadas
+
+const MapView = (() => {
+    let map;
+    const hospitalMarkers = []; // Array para armazenar os marcadores de hospitais
+
+    const addHospitalMarkers = (hospitals) => {
+        clearHospitalMarkers(); // Limpa os marcadores antes de adicionar novos
+
+        hospitals.forEach(hospital => {
+            const marker = new google.maps.Marker({
+                position: { lat: parseFloat(hospital.latitude), lng: parseFloat(hospital.longitude) },
+                map: map,
+                title: hospital.nome,
+            });
+            hospitalMarkers.push(marker); // Armazena o marcador no array
+        });
+    };
+
+    const clearHospitalMarkers = () => {
+        hospitalMarkers.forEach(marker => marker.setMap(null)); // Remove cada marcador do mapa
+        hospitalMarkers.length = 0; // Limpa o array de marcadores
+    };
+
+    const setMapInstance = (mapInstance) => {
+        map = mapInstance;
+    };
+
+    return {
+        addHospitalMarkers,
+        clearHospitalMarkers,
+        setMapInstance
+    };
+})();
+
+const MapModel = (() => {
+    let hospitals = [];
+
+    const carregarHospitais = () => {
+        return fetch('hospitais.json')
+            .then(response => response.json())
+            .then(data => {
+                hospitals = data;
+                return hospitals;
+            })
+            .catch(error => {
+                console.error("Erro ao carregar hospitais:", error);
+            });
+    };
+    
+    const getHospitalsByProcedure = (procedureId) => {
+        return hospitals.filter(hospital => hospital.procedimentos.includes(procedureId));
+    };
+
+    return {
+        getHospitalsByProcedure,
+        carregarHospitais
+    };
+})();
+
+const MapController = ((model, view) => {
+    const buscarHospitais = () => {
+        const selectedProcedures = Array.from(document.querySelectorAll("input[name='procedimento']:checked"))
+            .map(checkbox => checkbox.id);
+
+        model.carregarHospitais().then(() => {
+            const hospitals = selectedProcedures.flatMap(procedureId => model.getHospitalsByProcedure(procedureId));
+            view.addHospitalMarkers(hospitals);
+        });
+    };
+    
+    const init = () => {
+        console.log("MapController inicializado");
+    };
+    
+    return {
+        buscarHospitais,
+        init
+    };
+})(MapModel, MapView);
+
 // Função para carregar o script do Google Maps
 const loadMapScript = (apiKey, libraries = []) => {
     return new Promise((resolve, reject) => {
@@ -34,15 +115,7 @@ async function initMap() {
         mapId: "DEMO_MAP_ID",
     });
 
-
-    /*
-    Níveis de zoom:
-        1: Mundo
-        5: terra ou continente
-        10: cidade
-        15: ruas
-        20: construções
-    */
+    MapView.setMapInstance(map); // Configura a instância do mapa no MapView
 
     const marker = new AdvancedMarkerElement({
         map: map,
@@ -117,3 +190,8 @@ loadMapScript("AIzaSyAlcDBqiCO7sV_Uvtg4LxN0eTPO1KsAqOw", ["places"])
     .catch((error) => {
         console.error(error.message);
     });
+
+// Carrega o controller quando a página estiver pronta
+document.addEventListener('DOMContentLoaded', () => {
+    MapController.init();
+});
