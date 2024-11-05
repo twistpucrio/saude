@@ -3,7 +3,7 @@
 const MapView = (() => {
     let map;
     const hospitalMarkers = [];
-
+    let localPartida;
     // Inicializa o mapa e salva a instância
     const initMap = (position, mapElementId, mapOptions) => {
         
@@ -38,11 +38,25 @@ const MapView = (() => {
         });
     };
 
+    const meuLocalDePartida = (place) => {
+        if(localPartida != null){
+            localPartida.setMap(null);
+        }
+        const marker = new google.maps.Marker({
+            position: place.geometry.location,
+            map: map, 
+            title: place.name,
+        });
+        localPartida = marker;
+
+    }
+
     // Remove todos os marcadores
     const clearHospitalMarkers = () => {
         hospitalMarkers.forEach(marker => marker.setMap(null));
         hospitalMarkers.length = 0;
     };
+
 
     // Centraliza o mapa em uma posição específica
     const centerMap = (position) => {
@@ -55,6 +69,7 @@ const MapView = (() => {
         getPlacesService, 
         clearHospitalMarkers,
         centerMap,
-        getMapInstance
+        getMapInstance,
+        meuLocalDePartida
     };
 })();

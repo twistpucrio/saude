@@ -56,7 +56,6 @@ const MapController = ((model, view) => {
     const buscaPorTexto = () => {
         const locationInput = document.getElementById("local").value;
         const service = view.getPlacesService();  // Obtém a instância do PlacesService da View
-        
         const request = {
             query: locationInput,
             fields: ["name", "geometry"],
@@ -66,11 +65,7 @@ const MapController = ((model, view) => {
             if (status === google.maps.places.PlacesServiceStatus.OK && results) {
                 const place = results[0];
                 view.centerMap(place.geometry.location);
-                new google.maps.Marker({
-                    position: place.geometry.location,
-                    map: view.getMapInstance(), 
-                    title: place.name,
-                });
+                view.meuLocalDePartida(place);
             } else {
                 alert("Local não encontrado. Tente uma nova pesquisa.");
             }
