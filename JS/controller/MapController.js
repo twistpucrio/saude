@@ -53,11 +53,9 @@ const MapController = ((model, view) => {
                         lng: position.coords.longitude,
                     };
                     view.centerMap(userPosition);
-                    new google.maps.Marker({
-                        position: userPosition,
-                        map: view.getMapInstance(),
-                        title: "Minha localização",
-                    });
+                    view.meuLocalDePartidaLocAtual(userPosition);
+
+                    
                 },
                 () => {
                     alert("Erro ao obter localização. Verifique as permissões do navegador.");
@@ -94,6 +92,9 @@ const MapController = ((model, view) => {
         const toggleButton = document.getElementById("toggle-geolocation")
         toggleButton.addEventListener("click", () => {
             isGeolocationEnabled = !isGeolocationEnabled;
+            if(!isGeolocationEnabled){
+                view.invisivel();
+            }
             toggleButton.textContent = isGeolocationEnabled ? "Desativar Geolocalização" : "Ativar Geolocalização";
             getUserLocation();
         })

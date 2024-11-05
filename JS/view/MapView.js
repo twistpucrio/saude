@@ -47,7 +47,7 @@ const MapView = (() => {
 
     const meuLocalDePartida = (place) => {
         if(localPartida != null){
-            localPartida.setMap(null);
+            invisivel();
         }
         const marker = new google.maps.Marker({
             position: place.geometry.location,
@@ -64,11 +64,27 @@ const MapView = (() => {
         hospitalMarkers.length = 0;
     };
 
+    const invisivel = () =>{
+        localPartida.setMap(null);
+    }
 
     // Centraliza o mapa em uma posição específica
     const centerMap = (position) => {
         map.setCenter(position);
     };
+
+    const meuLocalDePartidaLocAtual = (userPosition) =>{
+        if(localPartida != null){
+            invisivel();
+
+        }
+        const marker = new google.maps.Marker({
+            position: userPosition,
+            map: map,
+            title: "Minha localização",
+        });
+        localPartida = marker;
+    }
 
     return {
         initMap,
@@ -77,6 +93,8 @@ const MapView = (() => {
         clearHospitalMarkers,
         centerMap,
         getMapInstance,
-        meuLocalDePartida
+        meuLocalDePartida,
+        meuLocalDePartidaLocAtual,
+        invisivel
     };
 })();
