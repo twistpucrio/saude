@@ -4,6 +4,8 @@ const MapView = (() => {
     let map;
     const hospitalMarkers = [];
     let localPartida;
+
+
     // Inicializa o mapa e salva a instância
     const initMap = (position, mapElementId, mapOptions) => {
         
@@ -31,14 +33,23 @@ const MapView = (() => {
         });
     }
 
+    
+
     // Adiciona marcadores de hospitais ao mapa
     const addHospitalMarkers = (hospitals) => {
         clearHospitalMarkers();
+        
+        const pinIcon = {
+            url: '/img/hospital.png', // Caminho para o ícone personalizado
+            scaledSize: new google.maps.Size(30, 30), // Tamanho escalado do ícone
+        };
+        
         hospitals.forEach(hospital => {
             const marker = new google.maps.Marker({
                 position: { lat: parseFloat(hospital.latitude), lng: parseFloat(hospital.longitude) },
                 map: map,
                 title: hospital.nome,
+                icon: pinIcon
             });
             hospitalMarkers.push(marker);
             addClickEventToMarker(marker, hospital.id);
