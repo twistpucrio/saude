@@ -8,6 +8,8 @@ const MapController = ((model, view) => {
 
         model.carregarHospitais().then(() => {
             const hospitals = selectedProcedures.flatMap(procedureId => model.getHospitalsByProcedure(procedureId));
+            localStorage.removeItem("hospitaisFiltrados");
+            localStorage.setItem("hospitaisFiltrados", JSON.stringify(hospitals));
             view.addHospitalMarkers(hospitals);
         });
     };
@@ -22,6 +24,13 @@ const MapController = ((model, view) => {
         };
 
         view.initMap(initialPosition, mapElementId, mapOptions);
+
+         // Verifica se há hospitais salvos no localStorage
+        const hospitaisSalvos = localStorage.getItem("hospitaisFiltrados");
+        if (hospitaisSalvos) {
+            const hospitals = JSON.parse(hospitaisSalvos);
+            view.addHospitalMarkers(hospitals);
+        }
 
         document.getElementById("toggle-geolocation").addEventListener("click", getUserLocation);
         document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
@@ -60,7 +69,7 @@ const MapController = ((model, view) => {
             query: locationInput,
             fields: ["name", "geometry"],
         };
-
+        
         service.findPlaceFromQuery(request, (results, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK && results) {
                 const place = results[0];

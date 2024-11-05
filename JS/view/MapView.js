@@ -25,6 +25,12 @@ const MapView = (() => {
         return service; // Expor a instância de PlacesService para o Controller
     };
 
+    const addClickEventToMarker = (maker, hospitalId) => {
+        google.maps.event.addListener(maker, 'click', () =>{
+            window.location.href = `detalhesHospital.html?id=${hospitalId}`;
+        });
+    }
+
     // Adiciona marcadores de hospitais ao mapa
     const addHospitalMarkers = (hospitals) => {
         clearHospitalMarkers();
@@ -35,6 +41,7 @@ const MapView = (() => {
                 title: hospital.nome,
             });
             hospitalMarkers.push(marker);
+            addClickEventToMarker(marker, hospital.id);
         });
     };
 
