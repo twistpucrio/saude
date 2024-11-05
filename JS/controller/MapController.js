@@ -39,7 +39,7 @@ const MapController = ((model, view) => {
                     view.centerMap(userPosition);
                     new google.maps.Marker({
                         position: userPosition,
-                        map: view.getMapInstance(),
+                        map: view.getMapInstance(), //erro
                         title: "Minha localização",
                     });
                 },
@@ -68,7 +68,7 @@ const MapController = ((model, view) => {
                 view.centerMap(place.geometry.location);
                 new google.maps.Marker({
                     position: place.geometry.location,
-                    map: view.getMapInstance(),
+                    map: view.getMapInstance(), //erro
                     title: place.name,
                 });
             } else {
