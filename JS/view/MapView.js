@@ -3,7 +3,7 @@
 const MapView = (() => {
     let map;
     const hospitalMarkers = [];
-
+    let localPartida;
     // Inicializa o mapa e salva a instância
     const initMap = (position, mapElementId, mapOptions) => {
         
@@ -25,6 +25,12 @@ const MapView = (() => {
         return service; // Expor a instância de PlacesService para o Controller
     };
 
+    const addClickEventToMarker = (maker, hospitalId) => {
+        google.maps.event.addListener(maker, 'click', () =>{
+            window.location.href = `detalhesHospital.html?id=${hospitalId}`;
+        });
+    }
+
     // Adiciona marcadores de hospitais ao mapa
     const addHospitalMarkers = (hospitals) => {
         clearHospitalMarkers();
@@ -35,14 +41,29 @@ const MapView = (() => {
                 title: hospital.nome,
             });
             hospitalMarkers.push(marker);
+            addClickEventToMarker(marker, hospital.id);
         });
     };
+
+    const meuLocalDePartida = (place) => {
+        if(localPartida != null){
+            localPartida.setMap(null);
+        }
+        const marker = new google.maps.Marker({
+            position: place.geometry.location,
+            map: map, 
+            title: place.name,
+        });
+        localPartida = marker;
+
+    }
 
     // Remove todos os marcadores
     const clearHospitalMarkers = () => {
         hospitalMarkers.forEach(marker => marker.setMap(null));
         hospitalMarkers.length = 0;
     };
+
 
     // Centraliza o mapa em uma posição específica
     const centerMap = (position) => {
@@ -55,6 +76,7 @@ const MapView = (() => {
         getPlacesService, 
         clearHospitalMarkers,
         centerMap,
-        getMapInstance
+        getMapInstance,
+        meuLocalDePartida
     };
 })();

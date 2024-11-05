@@ -11,6 +11,8 @@ const MapController = ((model, view) => {
 
         model.carregarHospitais().then(() => {
             const hospitals = selectedProcedures.flatMap(procedureId => model.getHospitalsByProcedure(procedureId));
+            localStorage.removeItem("hospitaisFiltrados");
+            localStorage.setItem("hospitaisFiltrados", JSON.stringify(hospitals));
             view.addHospitalMarkers(hospitals);
         });
     };
@@ -29,6 +31,15 @@ const MapController = ((model, view) => {
         view.initMap(initialPosition, mapElementId, mapOptions);
 
         // document.getElementById("toggle-geolocation").addEventListener("click", getUserLocation);
+
+         // Verifica se há hospitais salvos no localStorage
+        const hospitaisSalvos = localStorage.getItem("hospitaisFiltrados");
+        if (hospitaisSalvos) {
+            const hospitals = JSON.parse(hospitaisSalvos);
+            view.addHospitalMarkers(hospitals);
+        }
+
+ 
         document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
     };
 
@@ -61,21 +72,18 @@ const MapController = ((model, view) => {
     const buscaPorTexto = () => {
         const locationInput = document.getElementById("local").value;
         const service = view.getPlacesService();  // Obtém a instância do PlacesService da View
-        
         const request = {
             query: locationInput,
             fields: ["name", "geometry"],
         };
-
+        
         service.findPlaceFromQuery(request, (results, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK && results) {
                 const place = results[0];
                 view.centerMap(place.geometry.location);
-                new google.maps.Marker({
-                    position: place.geometry.location,
-                    map: view.getMapInstance(),
-                    title: place.name,
-                });
+
+                view.meuLocalDePartida(place);
+
             } else {
                 alert("Local não encontrado. Tente uma nova pesquisa.");
             }

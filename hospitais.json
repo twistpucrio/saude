@@ -2,7 +2,7 @@
 
 [
 
-    {"id" : 1, "nome" : "Clínica de Radioterapia Osolando J. Machado Catete" , "bairro": ["catete"] , "latitude": "-22.929390300565576", "longitude": "-43.17976484766591", "procedimentos": ["procedimento2"], "endereco":["Rua Bento Lisboa, 160 - Catete, Rio de Janeiro"] },
+    {"id" : 1, "nome" : "Clínica de Radioterapia Osolando J. Machado Catete" , "bairro": ["catete"] , "latitude": "-22.929390300565576", "longitude": "-43.17976484766591", "procedimentos": ["procedimento2"], "endereco":["Rua Bento Lisboa, 160 - Catete, Rio de Janeiro"], "descrição": "" },
     {"id" : 2, "nome" : "SMS CMS Manoel José Ferreira Ap 21" , "bairro": "catete" , "latitude": "-22.925940838884618", "longitude": "-43.17873197650132","procedimentos": ["procedimento3"],"endereco":["Rua Silveira Martins, 161 - Catete, Rio de Janeiro"] },
 
     
