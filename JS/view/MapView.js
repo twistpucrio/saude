@@ -17,6 +17,10 @@ const MapView = (() => {
         service = new google.maps.places.PlacesService(map);
     };
 
+    const getMapInstance = () => {
+        return map; // Retorna a instância do mapa
+    };
+
     const getPlacesService = () => {
         return service; // Expor a instância de PlacesService para o Controller
     };
@@ -50,6 +54,7 @@ const MapView = (() => {
         addHospitalMarkers,
         getPlacesService, 
         clearHospitalMarkers,
-        centerMap
+        centerMap,
+        getMapInstance
     };
 })();
