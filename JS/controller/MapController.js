@@ -47,6 +47,8 @@ const MapController = ((model, view) => {
 
         }
 
+
+        
         const localSalvoGeo = localStorage.getItem("localFiltradoGeo");
         if (localSalvoGeo) {
             const localGeo = JSON.parse(localSalvoGeo);
