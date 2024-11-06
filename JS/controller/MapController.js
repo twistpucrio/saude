@@ -39,6 +39,17 @@ const MapController = ((model, view) => {
             view.addHospitalMarkers(hospitals);
         }
 
+        const localSalvo = localStorage.getItem("localFiltrado");
+        if (localSalvo) {
+            const local = JSON.parse(localSalvo);
+            view.meuLocalDePartida(local);
+        }
+
+        const localSalvoGeo = localStorage.getItem("localFiltradoGeo");
+        if (localSalvoGeo) {
+            const localGeo = JSON.parse(localSalvoGeo);
+            view.meuLocalDePartidaLocAtual(localGeo);
+        }
  
         document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
     };
@@ -79,7 +90,16 @@ const MapController = ((model, view) => {
                     // view.centerMap(userPosition);
                     geocodeLatLng(userPosition);  // Converte para texto e adiciona marcador
                     view.meuLocalDePartidaLocAtual(userPosition);
+                    if(localStorage.getItem("localFiltrado")){
+                        localStorage.removeItem("localFiltrado");
+                    }
 
+                    if (localStorage.getItem("localFiltradoGeo")) {
+                        localStorage.removeItem("localFiltradoGeo");
+                    }
+
+
+                    localStorage.setItem("localFiltradoGeo", JSON.stringify(userPosition));
                     
                 },
                 () => {
@@ -106,6 +126,16 @@ const MapController = ((model, view) => {
                 view.centerMap(place.geometry.location);
 
                 view.meuLocalDePartida(place);
+
+                if(localStorage.getItem("localFiltrado")){
+                    localStorage.removeItem("localFiltrado");
+                }
+
+                if (localStorage.getItem("localFiltradoGeo")) {
+                    localStorage.removeItem("localFiltradoGeo");
+                }
+                localStorage.setItem("localFiltrado", JSON.stringify(place));
+
 
             } else {
                 alert("Local não encontrado. Tente uma nova pesquisa.");
