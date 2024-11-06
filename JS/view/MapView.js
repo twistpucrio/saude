@@ -143,6 +143,7 @@ const MapView = (() => {
             position: userPosition,
             map: map,
             title: "Minha localização",
+            label: "V"
         });
         localPartida = marker;
     }
