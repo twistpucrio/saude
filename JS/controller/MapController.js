@@ -43,12 +43,15 @@ const MapController = ((model, view) => {
         if (localSalvo) {
             const local = JSON.parse(localSalvo);
             view.meuLocalDePartida(local);
+            view.centerMap(local.geometry.location);
+
         }
 
         const localSalvoGeo = localStorage.getItem("localFiltradoGeo");
         if (localSalvoGeo) {
             const localGeo = JSON.parse(localSalvoGeo);
             view.meuLocalDePartidaLocAtual(localGeo);
+            view.centerMap(localGeo);
         }
  
         document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
