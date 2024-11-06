@@ -66,7 +66,6 @@ const MapView = (() => {
             title: place.name,
         });
         localPartida = marker;
-
     }
 
     // Remove todos os marcadores
@@ -93,6 +92,7 @@ const MapView = (() => {
             position: userPosition,
             map: map,
             title: "Minha localização",
+            label: "V"
         });
         localPartida = marker;
     }
