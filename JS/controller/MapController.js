@@ -43,6 +43,30 @@ const MapController = ((model, view) => {
         document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
     };
 
+
+    let localGeoloc = "";
+
+    // Função para converter lat/lng em endereço de texto e exibir no mapa
+    const geocodeLatLng = (latlng) => {
+        const geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode({ location: latlng }).then((response) => {
+            if (response.results[0]) {
+                // Define o endereço no campo de busca
+                document.getElementById("local").value = response.results[0].formatted_address;
+                
+                localGeoloc = response.results[0].formatted_address;
+              
+                // Centraliza o mapa e adiciona o marcador
+                view.centerMap(latlng);
+                view.meuLocalDePartidaLocAtual(latlng);
+
+            } else {
+                alert("Nenhum resultado encontrado");
+            }
+        }).catch((error) => alert("Erro na geolocalização: " + error));
+    };
+
     // Função para obter a geolocalização do usuário e centralizar o mapa
     const getUserLocation = () => {
         if (isGeolocationEnabled && navigator.geolocation) {
@@ -52,7 +76,8 @@ const MapController = ((model, view) => {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
                     };
-                    view.centerMap(userPosition);
+                    // view.centerMap(userPosition);
+                    geocodeLatLng(userPosition);  // Converte para texto e adiciona marcador
                     view.meuLocalDePartidaLocAtual(userPosition);
 
                     
@@ -90,12 +115,26 @@ const MapController = ((model, view) => {
 
     const setupToggleGeolocationButton = () => {
         const toggleButton = document.getElementById("toggle-geolocation")
+        const campoTexto = document.getElementById("local");
+
         toggleButton.addEventListener("click", () => {
             isGeolocationEnabled = !isGeolocationEnabled;
-            if(!isGeolocationEnabled){
-                view.invisivel();
+            if(isGeolocationEnabled){
+                toggleButton.textContent = "Desativar Geolocalização";
+                getUserLocation();
+
+                
+
+                if (campoTexto.value != localGeoloc){
+                    toggleButton.textContent = "Ativar Geolocalização";
+                }
             }
-            toggleButton.textContent = isGeolocationEnabled ? "Desativar Geolocalização" : "Ativar Geolocalização";
+            else{
+                toggleButton.textContent = "Ativar Geolocalização";
+                view.invisivel();  
+                campoTexto.value = "";  // Limpa o texto da caixa de busca
+            }
+            // toggleButton.textContent = isGeolocationEnabled ? "Desativar Geolocalização" : "Ativar Geolocalização";
             getUserLocation();
         })
     }
