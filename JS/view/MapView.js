@@ -19,6 +19,8 @@ const MapView = (() => {
         service = new google.maps.places.PlacesService(map);
     };
 
+    
+
     const getMapInstance = () => {
         return map; // Retorna a instância do mapa
     };
@@ -44,6 +46,7 @@ const MapView = (() => {
             scaledSize: new google.maps.Size(30, 30), // Tamanho escalado do ícone
         };
         
+        
         hospitals.forEach(hospital => {
             const marker = new google.maps.Marker({
                 position: { lat: parseFloat(hospital.latitude), lng: parseFloat(hospital.longitude) },
@@ -60,10 +63,15 @@ const MapView = (() => {
         if(localPartida != null){
             invisivel();
         }
+        const pinLocalIcon = {
+            url: '/img/meuLocal.png', // Caminho para o ícone personalizado
+            scaledSize: new google.maps.Size(150, 80), // Tamanho escalado do ícone
+        };
         const marker = new google.maps.Marker({
             position: place.geometry.location,
             map: map, 
             title: place.name,
+            icon: pinLocalIcon
         });
         localPartida = marker;
 
@@ -89,10 +97,16 @@ const MapView = (() => {
             invisivel();
 
         }
+        const pinLocalIcon = {
+            url: '/img/meuLocal.png', // Caminho para o ícone personalizado
+            scaledSize: new google.maps.Size(150, 80), // Tamanho escalado do ícone
+        };
         const marker = new google.maps.Marker({
             position: userPosition,
             map: map,
             title: "Minha localização",
+            icon: pinLocalIcon
+
         });
         localPartida = marker;
     }
