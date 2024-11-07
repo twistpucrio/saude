@@ -35,6 +35,53 @@ const MapView = (() => {
         });
     }
 
+    const zoomMap = () => {
+        // Verifica se há hospitalMarkers definidos e se contêm pelo menos um item
+        if ((!hospitalMarkers || hospitalMarkers.length === 0) && !localPartida) {
+            return; // Não faz nada se não houver marcadores nem localização definida
+        }
+    
+        // Define o objeto para ajustar os limites do mapa
+        //Uma instância de LatLngBounds representa um retângulo em coordenadas geográficas, incluindo a que cruza o meridiano longitudinal de 180 graus.
+        const bounds = new google.maps.LatLngBounds();
+    
+        // Adiciona a posição de cada marcador de hospital aos limites
+        //marker.getPosition():retorna a posição geográfica de um marcador específico no mapa, como um objeto LatLng.
+                             //Esse método recupera as coordenadas para que possam ser incluídas na área que os limites cobrem.
+        
+        //bounds.extend(marker.getPosition()): adiciona a posição do marcador específico aos limites do LatLngBounds
+        hospitalMarkers.forEach(marker => bounds.extend(marker.getPosition()));
+    
+        // Adiciona a posição do marcador de localização (localPartida) aos limites, se existir
+        if (localPartida) {
+            bounds.extend(localPartida.getPosition());
+        }
+    
+        //Define a janela de visualização para que contenha os limites fornecidos.
+        map.fitBounds(bounds);
+    
+        // zoom mínimo de 10
+        const minZoom = 10;
+
+        //zoom máximo de 15
+        const maxZoom = 15;
+
+        //bounds_changed:Este evento é disparado quando os limites da janela de visualização são alterados.
+        //addListenerOnce: Adiciona um ouvinte de evento que dispara apenas uma vez durante a mudança dos limites do mapa (evento bounds_changed).
+        google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
+            if (map.getZoom() < minZoom){
+                map.setZoom(minZoom);
+            }
+
+            if (map.getZoom() > maxZoom){
+                map.setZoom(maxZoom);
+            }
+
+
+        });
+    };
+    
+    
     
 
     // Adiciona marcadores de hospitais ao mapa
@@ -57,6 +104,8 @@ const MapView = (() => {
             hospitalMarkers.push(marker);
             addClickEventToMarker(marker, hospital.id);
         });
+
+        zoomMap();
     };
 
     const meuLocalDePartida = (place) => {
@@ -75,6 +124,7 @@ const MapView = (() => {
         });
         localPartida = marker;
 
+        zoomMap();
     }
 
     // Remove todos os marcadores
@@ -105,7 +155,9 @@ const MapView = (() => {
             position: userPosition,
             map: map,
             title: "Minha localização",
+
             icon: pinLocalIcon
+
 
         });
         localPartida = marker;

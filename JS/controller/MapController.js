@@ -2,8 +2,6 @@
 
 const MapController = ((model, view) => {
 
-    let isGeolocationEnabled = false;
-
     // Função que busca os hospitais baseados no procedimento selecionado
     const buscarHospitais = () => {
         const selectedProcedures = Array.from(document.querySelectorAll("input[name='procedimento']:checked"))
@@ -19,7 +17,7 @@ const MapController = ((model, view) => {
 
     // Função para inicializar o mapa e configurar geolocalização e busca
     const init = () => {
-        setupToggleGeolocationButton();  // Chama a função para configurar o botão de geolocalização
+        setupUserGeolocation();  // Chama a função para configurar o botão de geolocalização
 
         const initialPosition = { lat: -22.92799529134749, lng: -43.231810558948794 }; // Tecgraf
         const mapElementId = "map";
@@ -57,16 +55,41 @@ const MapController = ((model, view) => {
         document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
     };
 
+
+    let localGeoloc = "";
+
+    // Função para converter lat/lng em endereço de texto e exibir no mapa
+    const geocodeLatLng = (latlng) => {
+        const geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode({ location: latlng }).then((response) => {
+            if (response.results[0]) {
+                // Define o endereço no campo de busca
+                document.getElementById("local").value = response.results[0].formatted_address;
+                
+                localGeoloc = response.results[0].formatted_address;
+              
+                // Centraliza o mapa e adiciona o marcador
+                view.centerMap(latlng);
+                view.meuLocalDePartidaLocAtual(latlng);
+
+            } else {
+                alert("Nenhum resultado encontrado");
+            }
+        }).catch((error) => alert("Erro na geolocalização: " + error));
+    };
+
     // Função para obter a geolocalização do usuário e centralizar o mapa
     const getUserLocation = () => {
-        if (isGeolocationEnabled && navigator.geolocation) {
+        if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const userPosition = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
                     };
-                    view.centerMap(userPosition);
+                    // view.centerMap(userPosition);
+                    geocodeLatLng(userPosition);  // Converte para texto e adiciona marcador
                     view.meuLocalDePartidaLocAtual(userPosition);
                     if(localStorage.getItem("localFiltrado")){
                         localStorage.removeItem("localFiltrado");
@@ -121,14 +144,10 @@ const MapController = ((model, view) => {
         });
     };
 
-    const setupToggleGeolocationButton = () => {
-        const toggleButton = document.getElementById("toggle-geolocation")
-        toggleButton.addEventListener("click", () => {
-            isGeolocationEnabled = !isGeolocationEnabled;
-            if(!isGeolocationEnabled){
-                view.invisivel();
-            }
-            toggleButton.textContent = isGeolocationEnabled ? "Desativar Geolocalização" : "Ativar Geolocalização";
+    const setupUserGeolocation = () => {
+        const btnUseUserLocation = document.getElementById("use-user-geolocation")
+        
+        btnUseUserLocation.addEventListener("click", () => {
             getUserLocation();
         })
     }
