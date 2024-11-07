@@ -2,8 +2,6 @@
 
 const MapController = ((model, view) => {
 
-    let isGeolocationEnabled = false;
-
     // Função que busca os hospitais baseados no procedimento selecionado
     const buscarHospitais = () => {
         const selectedProcedures = Array.from(document.querySelectorAll("input[name='procedimento']:checked"))
@@ -19,7 +17,7 @@ const MapController = ((model, view) => {
 
     // Função para inicializar o mapa e configurar geolocalização e busca
     const init = () => {
-        setupToggleGeolocationButton();  // Chama a função para configurar o botão de geolocalização
+        setupUserGeolocation();  // Chama a função para configurar o botão de geolocalização
 
         const initialPosition = { lat: -22.92799529134749, lng: -43.231810558948794 }; // Tecgraf
         const mapElementId = "map";
@@ -83,7 +81,7 @@ const MapController = ((model, view) => {
 
     // Função para obter a geolocalização do usuário e centralizar o mapa
     const getUserLocation = () => {
-        if (isGeolocationEnabled && navigator.geolocation) {
+        if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const userPosition = {
@@ -146,28 +144,10 @@ const MapController = ((model, view) => {
         });
     };
 
-    const setupToggleGeolocationButton = () => {
-        const toggleButton = document.getElementById("toggle-geolocation")
-        const campoTexto = document.getElementById("local");
-
-        toggleButton.addEventListener("click", () => {
-            isGeolocationEnabled = !isGeolocationEnabled;
-            if(isGeolocationEnabled){
-                toggleButton.textContent = "Desativar Geolocalização";
-                getUserLocation();
-
-                
-
-                if (campoTexto.value != localGeoloc){
-                    toggleButton.textContent = "Ativar Geolocalização";
-                }
-            }
-            else{
-                toggleButton.textContent = "Ativar Geolocalização";
-                view.invisivel();  
-                campoTexto.value = "";  // Limpa o texto da caixa de busca
-            }
-            // toggleButton.textContent = isGeolocationEnabled ? "Desativar Geolocalização" : "Ativar Geolocalização";
+    const setupUserGeolocation = () => {
+        const btnUseUserLocation = document.getElementById("use-user-geolocation")
+        
+        btnUseUserLocation.addEventListener("click", () => {
             getUserLocation();
         })
     }
