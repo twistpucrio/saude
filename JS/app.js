@@ -1,14 +1,22 @@
 // app.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    loadMapScript("AIzaSyAlcDBqiCO7sV_Uvtg4LxN0eTPO1KsAqOw", ["places"])
-        .then(() => {
-            console.log("Google Maps API carregada com sucesso!");
-            MapController.init(); // Inicializa o controller
-        })
-        .catch((error) => {
-            console.error(error.message);
-        });
+    const page = window.location.pathname.split("/").pop();
+    if (page === "detalhesHospital.html") {
+        HospitalDetailsController.init();
+    }
+    else
+    {
+        loadMapScript("AIzaSyAlcDBqiCO7sV_Uvtg4LxN0eTPO1KsAqOw", ["places"])
+            .then(() => {
+                console.log("Google Maps API carregada com sucesso!");
+                MapController.init(); // Inicializa o controller
+            })
+            .catch((error) => {
+                console.error(error.message);
+            });
+    }
+    
 });
 
 // Função para carregar o script do Google Maps
