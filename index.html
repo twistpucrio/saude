@@ -11,47 +11,85 @@
             <link rel="shortcut icon" href="img/logoPin.png" type="image/x-icon">
         </head>
         <body>
-        
-            <!-- <header>SaudeFacil.com</header> -->
-             
-            <section id="main">
-                <div id="map"></div>
-        
+           <div id="container">
+
                 <nav>
                     <div id="controls">
 
-                        <img class="logo_nav" src="img/logo_SaudeFacil.png" alt="">
+                        <img class="logo_nav" src="img/logo_telaCheia.png" alt="">
 
-                        <div id="geoloc">
-                            <button id="use-user-geolocation" class="custom-map-control-button">
-                                <img src="img/icons/location_on.svg" alt="" >
-                                <p>Meu local</p>
-                            </button>
-                        </div>
-                        <div id="locDigitada">
-                            <label for="local">ou digitar localização:</label>
-                            <input type="text" name="local" id="local">
-                        </div>
+                        <div class="local">
+
+                            <fieldset>
+                                <legend>Localização</legend>
+                                <!-- <label for="local">ou digitar localização:</label> -->
+                                <div id="geoloc">
+                                    <button id="use-user-geolocation" class="custom-map-control-button" title="Ativar localização">
+                                        <img src="img/icons/my_location.svg" alt="" >
+                                        <p>Meu local</p>
+                                    </button>
+                                </div>
+
+                                <p class = "ou">ou</p>
+
+                                <input type="text" name="local" id="local" placeholder="Digite a localização">
                         
+                            </fieldset>
+                            
+                        </div>
                         
                         <div class="checkbox-group">
-                            <input type="checkbox" name="procedimento" id="procedimento1">
-                            <label for="procedimento1">P1</label>
-                            <input type="checkbox" name="procedimento" id="procedimento2">
-                            <label for="procedimento2">P2</label>
-                            <input type="checkbox" name="procedimento" id="procedimento3">
-                            <label for="procedimento3">P3</label>
-                            <input type="checkbox" name="procedimento" id="procedimento4">
-                            <label for="procedimento4">P4</label>
+
+                            <div>
+                                <img src="img/icons/info.svg" alt="informação sobre">
+                                <label for="procedimento1">P1</label>
+                                <input type="checkbox" name="procedimento" id="procedimento1">
+                            </div>
+                            
+                            <div>
+                                <img src="img/icons/info.svg" alt="informação sobre">
+                                <label for="procedimento2">P2</label>
+                                <input type="checkbox" name="procedimento" id="procedimento2">
+                            </div>
+                            
+                            <div>
+                                <img src="img/icons/info.svg" alt="informação sobre">
+                                <label for="procedimento3">P3</label>
+                                <input type="checkbox" name="procedimento" id="procedimento3">
+                            </div>
+
+                            <div>
+                                <img src="img/icons/info.svg" alt="informação sobre">
+                                <label for="procedimento4">P4</label>
+                                <input type="checkbox" name="procedimento" id="procedimento4">
+                            </div>
+            
+                            
                         </div>
                         <button id="btnBusca">Buscar</button>
                         <button id="btnProc" onclick="MapController.buscarHospitais()">BuscarProc</button>
                     </div>
                 </nav>
+
+                <div id="main">
                 
-            </section>
-        
-            <footer></footer>
+                    <section id="map"></section>
+                    
+                    <footer>
+                        <a href="">COMO USAR</a>
+                        <a href="">EMERGÊNCIA</a>
+                        <a href="">SOBRE NÓS</a>
+                    </footer>
+                
+                </div>
+            
+            
+           
+
+           </div>
+
+           
+            
         
             <!-- scripts -->
             <!-- <script src="JS/testeIntegracao.js"></script> -->
