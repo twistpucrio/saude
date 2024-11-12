@@ -5,32 +5,50 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>saudeFacil</title>
+            <title>SaudeFacil.com</title>
             <link rel="stylesheet" href="CSS/index.css">
             <link rel="stylesheet" href="CSS/map.css">
+            <link rel="shortcut icon" href="img/logoPin.png" type="image/x-icon">
         </head>
         <body>
-            <header>SaudeFacil.com</header>
+        
+            <!-- <header>SaudeFacil.com</header> -->
+             
             <section id="main">
                 <div id="map"></div>
         
-                <div id="controls">
-                    <button id="use-user-geolocation" class="custom-map-control-button">Usar Meu local</button>
-                    <label for="local">ou digitar localização:</label>
-                    <input type="text" name="local" id="local">
-                    <div class="checkbox-group">
-                        <input type="checkbox" name="procedimento" id="procedimento1">
-                        <label for="procedimento1">P1</label>
-                        <input type="checkbox" name="procedimento" id="procedimento2">
-                        <label for="procedimento2">P2</label>
-                        <input type="checkbox" name="procedimento" id="procedimento3">
-                        <label for="procedimento3">P3</label>
-                        <input type="checkbox" name="procedimento" id="procedimento4">
-                        <label for="procedimento4">P4</label>
+                <nav>
+                    <div id="controls">
+
+                        <img class="logo_nav" src="img/logo_SaudeFacil.png" alt="">
+
+                        <div id="geoloc">
+                            <button id="use-user-geolocation" class="custom-map-control-button">
+                                <img src="img/icons/location_on.svg" alt="" >
+                                <p>Meu local</p>
+                            </button>
+                        </div>
+                        <div id="locDigitada">
+                            <label for="local">ou digitar localização:</label>
+                            <input type="text" name="local" id="local">
+                        </div>
+                        
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" name="procedimento" id="procedimento1">
+                            <label for="procedimento1">P1</label>
+                            <input type="checkbox" name="procedimento" id="procedimento2">
+                            <label for="procedimento2">P2</label>
+                            <input type="checkbox" name="procedimento" id="procedimento3">
+                            <label for="procedimento3">P3</label>
+                            <input type="checkbox" name="procedimento" id="procedimento4">
+                            <label for="procedimento4">P4</label>
+                        </div>
+                        <button id="btnBusca">Buscar</button>
+                        <button id="btnProc" onclick="MapController.buscarHospitais()">BuscarProc</button>
                     </div>
-                    <button id="btnBusca">Buscar</button>
-                    <button id="btnProc" onclick="MapController.buscarHospitais()">BuscarProc</button>
-                </div>
+                </nav>
+                
             </section>
         
             <footer></footer>
