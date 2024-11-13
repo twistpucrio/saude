@@ -2,6 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #f4f8fb;
 }
 
 #container{
@@ -46,18 +47,16 @@ nav{
     width: 25%;
    
 
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    border-radius: 8px;
-    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     
     margin: 10px;
 
     .logo_nav{
-        width: 70%;
-        margin-left: 25%;
-
-        margin-bottom: 30%;
+        width: 60%;
+        margin:0 auto 30px auto
     }
 
     img{
@@ -66,14 +65,23 @@ nav{
     }
 
     button{
-
-        background: none;
-        /* border: none; */
-        border-radius: 0px;
+        background-color: #0e8fca;
+        color: #fff;
+   
+        border: none; 
+        border-radius: 8px;
+        padding: 10px 15px;
+        margin-top: 10px;
+        transition: background 0.3s;
+        font-weight: bold;
         display: flex;
         cursor: pointer; 
              
         
+    }
+
+    button:hover{
+        background-color: #0b6fa0;;
     }
 
     fieldset{
