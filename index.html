@@ -20,25 +20,54 @@
 
                         <div class="local">
 
-                            <fieldset>
-                                <legend>Localização</legend>
-                                <!-- <label for="local">ou digitar localização:</label> -->
-                                <div id="geoloc">
-                                    <button id="use-user-geolocation" class="custom-map-control-button" title="Ativar localização">
-                                        <img src="img/icons/my_location.svg" alt="" >
-                                        <p>Meu local</p>
-                                    </button>
-                                </div>
-
-                                <p class = "ou">ou</p>
-
+                            <div class="input_pesquisa">
                                 <input type="text" name="local" id="local" placeholder="Digite a localização">
-                        
-                            </fieldset>
+                                <img src="img/icons/search_30dp_000_FILL0_wght400_GRAD0_opsz24.svg" alt="Pesquisar">
+                            </div>
                             
+                            <div id="geoloc">
+                                <button id="use-user-geolocation" class="custom-map-control-button" title="Ativar localização">
+                                    <img src="img/icons/my_location.svg" alt="" >
+                                    <p>Meu local</p>
+                                </button>
+                            </div>
+
+                            <!-- <p class = "ou">ou</p> -->
+
                         </div>
                         
-                        <div class="checkbox-group">
+                        <form action="">
+                            <div class="multi_select">
+                                <div class="select_proced" onclick="showCheckboxes()">
+                                    <select> 
+                                        <option>Selecione procedimentos</option>
+                                    </select>
+                                    <div class="overSelect"></div> 
+                                </div>
+                                <div id="checkboxes">
+                                    <label for="um">
+                                        <input type="checkbox" name="procedimento" id="procedimento1">
+                                        P1
+                                    </label>
+        
+                                    <label for="dois">
+                                        <input type="checkbox" name="procedimento" id="procedimento2">
+                                        P2
+                                    </label>
+        
+                                    <label for="tres">
+                                        <input type="checkbox" name="procedimento" id="procedimento4">
+                                        P3
+                                    </label>
+                                </div>
+                            </div>
+                            
+                        </form>
+                        
+                        
+                        <!-- <div class="checkbox-group">
+
+                            
 
                             <div>
                                 <img src="img/icons/info.svg" alt="informação sobre">
@@ -65,7 +94,7 @@
                             </div>
             
                             
-                        </div>
+                        </div> -->
                         <button id="btnBusca">Buscar</button>
                         <button id="btnProc" onclick="MapController.buscarHospitais()">BuscarProc</button>
                     </div>
@@ -99,6 +128,7 @@
             <script src = "JS/app.js"></script>
             
 
+            <script src="JS/view/navView.js"></script>
              <!-- <script src="JS/teste.js"></script> -->
         </body>
         </html>
