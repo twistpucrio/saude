@@ -23,12 +23,10 @@ const MapController = ((model, view) => {
         const mapElementId = "map";
         const mapOptions = {
             zoom: 15,
-            mapId: "DEMO_MAP_ID"
         };
 
         view.initMap(initialPosition, mapElementId, mapOptions);
 
-        // document.getElementById("toggle-geolocation").addEventListener("click", getUserLocation);
 
          // Verifica se há hospitais salvos no localStorage
         const hospitaisSalvos = localStorage.getItem("hospitaisFiltrados");
