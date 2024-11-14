@@ -6,6 +6,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>SaudeFacil.com</title>
+            <link rel="stylesheet" href="CSS/index.css">
             <link rel="stylesheet" href="CSS/map.css">
             <link rel="shortcut icon" href="img/logoPin.png" type="image/x-icon">
         </head>
@@ -15,29 +16,58 @@
                 <nav>
                     <div id="controls">
 
-                        <img class="logo_nav" src="img/logo_telaCheia.png" alt="Logo Saúde Fácil ponto com">
+                        <img class="logo_nav" src="img/logo_telaCheia.png" alt="">
 
                         <div class="local">
 
-                            <fieldset>
-                                <legend>Localização</legend>
-                                <div id="geoloc">
-                                    <button id="use-user-geolocation" class="custom-map-control-button" title="Ativar localização" aria-label="Clique aqui para ativar sua geolocalização">
-                                        <img src="img/icons/my_location.svg" alt="ativar geolocalização" >
-                                        <p>Meu local</p>
-                                    </button>
-                                </div>
-
-                                <p class = "ou">ou</p>
-
+                            <div class="input_pesquisa">
                                 <input type="text" name="local" id="local" placeholder="Digite a localização">
-                                <button id="btnBusca" aria-label="Clique aqui para buscar sua localização">Buscar localização</button>
-
-                            </fieldset>
+                                <img src="img/icons/search_30dp_000_FILL0_wght400_GRAD0_opsz24.svg" alt="Pesquisar">
+                            </div>
                             
+                            <div id="geoloc">
+                                <button id="use-user-geolocation" class="custom-map-control-button" title="Ativar localização">
+                                    <img src="img/icons/my_location.svg" alt="" >
+                                    <p>Meu local</p>
+                                </button>
+                            </div>
+
+                            <!-- <p class = "ou">ou</p> -->
+
                         </div>
                         
-                        <div class="checkbox-group">
+                        <form action="">
+                            <div class="multi_select">
+                                <div class="select_proced" onclick="showCheckboxes()">
+                                    <select> 
+                                        <option>Selecione procedimentos</option>
+                                    </select>
+                                    <div class="overSelect"></div> 
+                                </div>
+                                <div id="checkboxes">
+                                    <label for="um">
+                                        <input type="checkbox" name="procedimento" id="procedimento1">
+                                        P1
+                                    </label>
+        
+                                    <label for="dois">
+                                        <input type="checkbox" name="procedimento" id="procedimento2">
+                                        P2
+                                    </label>
+        
+                                    <label for="tres">
+                                        <input type="checkbox" name="procedimento" id="procedimento4">
+                                        P3
+                                    </label>
+                                </div>
+                            </div>
+                            
+                        </form>
+                        
+                        
+                        <!-- <div class="checkbox-group">
+
+                            
 
                             <div>
                                 <img src="img/icons/info.svg" alt="informação sobre">
@@ -64,8 +94,9 @@
                             </div>
             
                             
-                        </div>
-                        <button id="btnProc" onclick="MapController.buscarHospitais()" aria-label="Clique aqui para buscar seus procedimentos">Buscar por procedimento</button>
+                        </div> -->
+                        <button id="btnBusca">Buscar</button>
+                        <button id="btnProc" onclick="MapController.buscarHospitais()">BuscarProc</button>
                     </div>
                 </nav>
 
@@ -74,19 +105,30 @@
                     <section id="map"></section>
                     
                     <footer>
-                        <a href="" aria-label="Clique aqui para ver peguntas frequentes">PERGUNTAS FREQUENTES</a>
-                        <a href="" aria-label="Clique aqui para obter mais informações em caso de emergência">EMERGÊNCIA</a>
-                        <a href="" aria-label="Clique aqui para obter mais informações sobre nossa equipe">SOBRE NÓS</a>
+                        <a href="">COMO USAR</a>
+                        <a href="">EMERGÊNCIA</a>
+                        <a href="">SOBRE NÓS</a>
                     </footer>
                 
                 </div>
+            
+            
+           
 
            </div>
 
+           
+            
+        
+            <!-- scripts -->
+            <!-- <script src="JS/testeIntegracao.js"></script> -->
             <script src = "JS/model/MapModel.js"></script>
             <script src = "JS/view/MapView.js"></script>
             <script src = "JS/controller/MapController.js"></script>
             <script src = "JS/app.js"></script>
-        
+            
+
+            <script src="JS/view/navView.js"></script>
+             <!-- <script src="JS/teste.js"></script> -->
         </body>
         </html>

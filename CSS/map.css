@@ -16,25 +16,45 @@ html, body {
 #main{
     display: flex;
     flex-direction: column;
+    width:100%;
 
+    background-color: #404040;
+    
     #map {
-        height: 85vh;
-        width: 70vw;
+        height: 100%;
+        width: 97%;
 
-        border: 1px solid #9effff;
-        border-radius: 8px;
-        margin: 10px;
+
+        border: 1px solid #0e8fca;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        padding: 5px;
+        margin: 5px;
+
     }
 
     footer{
-        width: 100%;
-        margin: 10px;
+        width: 98.5%;
+        /* margin: 10px; */
+        height: 12%;
 
         display: flex;
         justify-content:space-around;
         align-items: center;
-        color: #9effff;
-        padding-top: 2%;
+        
+        /* padding: 5px; */
+        /* margin: 5px; */
+        margin-left: 5px;
+        margin-top: -5px;
+        margin-bottom: 5px;
+
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border: 1px solid #0e8fca;
+        border-top: none;
+        
+        background-color: #0e8fca;
+
     }
 
 }
@@ -44,52 +64,75 @@ nav{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
      
-    width: 25%;
+    width: 30%;
    
 
-
-    background-color: #404040;
+    background-color: #fff;
     padding: 10px;
-    border-radius: 8px;
+    color: #404040;
+    /* border-radius: 8px; */
     /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
 
-    margin: 10px;
-
     .logo_nav{
-        width: 60%;
-        margin:0 auto 30px auto
+        width: 100%;
+        /* margin-left: 25%; */
+
+        margin-bottom: 30%;
     }
 
-    img{
-        width: 100%;
-        margin-bottom: -10px;
-    }
+    /* img{
+        width: 100%; */
+        /* margin-bottom: -10px; */
+    /* } */
 
     button{
-        background-color: #0e8fca;
-        color: #fff;
-   
-        border: none; 
-        border-radius: 8px;
-        padding: 10px 15px;
-        margin-top: 10px;
-        transition: background 0.3s;
-        font-weight: bold;
+
+        background: none;
+        /* border: none; */
+        border-radius: 0px;
         display: flex;
         cursor: pointer; 
-        
-        
-    }
-
-    button:hover{
-        background-color: #0b6fa0;;
-    }
-
-    fieldset{
+    
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        
+    }
+
+    .local{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .input_pesquisa{
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            width: 90%;
+            height: 3.5vh;
+
+            
+
+            #local{
+                background-color: #fff;
+                width: 100%;
+                height: 100%;
+                border: 1px solid #404040;
+                border-radius: 5px;
+    
+                position: absolute;
+                padding-left: 10px;
+            }
+            
+            img{
+                position: absolute;
+                right: -5%;
+            }
+        }
         
 
         p.ou{
@@ -98,41 +141,46 @@ nav{
         }
     }
 
-
-    
-    
     #controls label,
     #controls input,
     #controls button {
         margin: 5px 0;
     }
+   
+    
+   .multi_select{
+          width: 100%;
 
-    .checkbox-group {
-        display: flex;
-        flex-direction: column;
-        
-        div{
-            display: flex;
-            align-items: center;
+          .select_proced{
+              position: relative;
 
-            label{
-                padding-right: 10%;
-            }
+              select{
+                  width: 100%;
+                  font-weight: bold;
+              }
 
-            img{
-                width: 4%;
-                padding-bottom: 2.5%;
-                padding-right: 2%;
-            }
-        }
-       
-    }
-        
+              .overSelect{
+                  position: absolute;
+                  left: 0; right: 0; top: 0; bottom: 0;
+              }
+          }
+
+          #checkboxes{
+              display: none;
+              border: 1px solid #404040;
+
+              label{
+                  display: block;
+              }
+
+              label:hover{
+                  background-color: #1e90ff;
+              }
+          }
+
+      }
 }
 
-a{
-    color: #9effff;
-}
 
 
 
