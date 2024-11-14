@@ -31,7 +31,7 @@ const MapView = (() => {
             //           ]
             //       },
             //   ],
-            styles: [
+            styles:[
               {
                   "featureType": "landscape.man_made",
                   "elementType": "geometry", 
@@ -145,7 +145,7 @@ const MapView = (() => {
                   "elementType": "geometry.fill",
                   "stylers": [
                       {
-                          "color": "#b9b6b7"
+                          "color": "#c0c1c3"
                       }
                   ]
               },
@@ -168,10 +168,6 @@ const MapView = (() => {
                   ]
               }
           ],
-
-          
-
-
         });
 
         
@@ -241,8 +237,6 @@ const MapView = (() => {
 
         });
     };
-    
-    
     
 
     // Adiciona marcadores de hospitais ao mapa
