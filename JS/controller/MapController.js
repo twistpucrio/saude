@@ -11,6 +11,7 @@ const MapController = ((model, view) => {
             const hospitals = selectedProcedures.flatMap(procedureId => model.getHospitalsByProcedure(procedureId));
             localStorage.removeItem("hospitaisFiltrados");
             localStorage.setItem("hospitaisFiltrados", JSON.stringify(hospitals));
+            navView.displayHospitalsNav(hospitals);
             view.addHospitalMarkers(hospitals);
         });
     };
