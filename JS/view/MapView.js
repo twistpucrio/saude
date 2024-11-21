@@ -11,26 +11,6 @@ const MapView = (() => {
         
         map = new google.maps.Map(document.getElementById(mapElementId), {
             center: position,
-            // styles:[
-            //   {
-            //           "featureType": "poi",
-            //           "elementType": "labels",
-            //           "stylers": [
-            //               {
-            //                   "visibility": "on"
-            //               }
-            //           ]
-            //       },
-            //       {
-            //           "featureType": "poi.business",
-            //           "elementType": "all",
-            //           "stylers": [
-            //               {
-            //                   "visibility": "on"
-            //               }
-            //           ]
-            //       },
-            //   ],
             styles:[
               {
                   "featureType": "landscape.man_made",
@@ -73,16 +53,16 @@ const MapView = (() => {
                   "elementType": "all",
                   "stylers": [
                       {
-                          "visibility": "on"
+                          "visibility": "off"
                       }
                   ]
               },
               {
                   "featureType": "poi.medical",
-                  "elementType": "geometry",
+                  "elementType": "all",
                   "stylers": [
                       {
-                          "color": "#f4a4a4"
+                          "visibility": "off"
                       }
                   ]
               },
@@ -159,14 +139,33 @@ const MapView = (() => {
                   ]
               },
               {
-                  "featureType": "water",
-                  "elementType": "geometry",
-                  "stylers": [
-                      {
-                          "color": "#86beda"
-                      }
-                  ]
-              }
+                "featureType": "water",
+                "elementType": "labels.text.fill", 
+                "stylers": [
+                    {
+                        "color": "#000000" // Define a cor do texto como branco
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "labels.text.stroke", 
+                "stylers": [
+                    {
+                        "color": "#ffffff", // Define o contorno como preto
+                        "weight": 2 // Espessura do contorno
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#86beda" // Cor da água
+                    }
+                ]
+            },
           ],
         });
 
