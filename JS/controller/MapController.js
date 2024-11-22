@@ -28,6 +28,7 @@ const MapController = ((model, view) => {
 
         view.initMap(initialPosition, mapElementId, mapOptions);
 
+        initAutocomplete();
 
          // Verifica se há hospitais salvos no localStorage
         const hospitaisSalvos = localStorage.getItem("hospitaisFiltrados");
@@ -150,6 +151,38 @@ const MapController = ((model, view) => {
             getUserLocation();
         })
     }
+
+    const initAutocomplete = () => {
+        const locationInput = document.getElementById("local");
+    
+        // Configura o Autocomplete no input 'local'
+        const autocomplete = new google.maps.places.Autocomplete(locationInput, {
+            types: ['geocode'], // Limita a busca a endereços e locais
+            fields: ["name", "geometry"], // Campos que queremos obter
+        });
+    
+        // Adiciona um evento de listener para a seleção de um local
+        autocomplete.addListener('place_changed', () => {
+            const place = autocomplete.getPlace();
+            if (place.geometry) {
+                // Se um local válido for selecionado
+                view.centerMap(place.geometry.location);
+                view.meuLocalDePartida(place);
+    
+                if(localStorage.getItem("localFiltrado")) {
+                    localStorage.removeItem("localFiltrado");
+                }
+    
+                if (localStorage.getItem("localFiltradoGeo")) {
+                    localStorage.removeItem("localFiltradoGeo");
+                }
+    
+                localStorage.setItem("localFiltrado", JSON.stringify(place));
+            } else {
+                alert("Por favor, selecione um local válido da lista de sugestões.");
+            }
+        });
+    };
 
     return {
         buscarHospitais,
