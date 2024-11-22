@@ -366,8 +366,8 @@ const MapView = (() => {
         clearHospitalMarkers();
         
         const pinIcon = {
-            url: '/img/hospital.png', // Caminho para o ícone personalizado
-            scaledSize: new google.maps.Size(30, 30), // Tamanho escalado do ícone
+            url: '/img/iconehospital.png', // Caminho para o ícone personalizado
+            scaledSize: new google.maps.Size(40, 50), // Tamanho escalado do ícone
         };
         
         
@@ -390,7 +390,7 @@ const MapView = (() => {
             invisivel();
         }
         const pinLocalIcon = {
-            url: '/img/meuLocal.png', // Caminho para o ícone personalizado
+            url: '/img/voce.png', // Caminho para o ícone personalizado
             scaledSize: new google.maps.Size(150, 80), // Tamanho escalado do ícone
         };
         const marker = new google.maps.Marker({
@@ -425,8 +425,8 @@ const MapView = (() => {
 
         }
         const pinLocalIcon = {
-            url: '/img/meuLocal.png', // Caminho para o ícone personalizado
-            scaledSize: new google.maps.Size(150, 80), // Tamanho escalado do ícone
+            url: '/img/voce.png', // Caminho para o ícone personalizado
+            scaledSize: new google.maps.Size(80, 100), // Tamanho escalado do ícone
         };
         const marker = new google.maps.Marker({
             position: userPosition,
