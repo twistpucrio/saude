@@ -12,6 +12,32 @@ function showCheckboxes(){
     }
 }
 
+const navView = (() => {
+   
+    const displayError = (message) => {
+        document.getElementById('details').innerHTML = `<p>${message}</p>`;
+    };
+
+    const displayHospitalsNav = (hospitals) => {
+    
+    hospitals.forEach(hospital =>{
+        document.getElementById('displayHospitaisEncontrados').innerHTML += `
+            <div id="hospita-${hospital.nome}" tabindex="0">
+                <h2>${hospital.nome}</h2>
+                <p><strong>Endereço:</strong> ${hospital.endereco}</p>
+            </div>
+        `; 
+    })
+        
+    };
+    
+
+
+    return {
+        displayHospitalsNav,
+        displayError
+    };
+})();
 // Exibir a lista de últimas localidades e a opção de geolocalização
 function mostrarOpcoesLocalizacao() {
     const dropdown = document.getElementById('dropdown-localizacao');

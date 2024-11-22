@@ -440,6 +440,7 @@ const MapView = (() => {
         localPartida = marker;
     }
 
+    
     return {
         initMap,
         addHospitalMarkers,
@@ -449,7 +450,8 @@ const MapView = (() => {
         getMapInstance,
         meuLocalDePartida,
         meuLocalDePartidaLocAtual,
-        invisivel
+        invisivel,
+        
     };
 })();
 
