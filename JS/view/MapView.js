@@ -184,53 +184,44 @@ const MapView = (() => {
                     "color": "#fffffff"
                 },
                 {
-                    "weight": "0.02"
+                    "weight": "0.01"
                 }
-                // {
-                //     "color": "#ffd147"
-                // },
-                // {
-                //     "weight": "0.01"
-                // },
-                // {
-                //     "lightness": "40"
-                // },
-                // {
-                //     "saturation": "0"
-                // }
+            ]
+        },
+        {
+            featureType: "landscape.man_made",
+            elementType: "geometry", 
+            stylers: [
+                {
+                    color: "#02060a"
+                }
+            ]
+        },
+
+        {
+            featureType: "landscape.natural",
+            elementType: "geometry",
+            stylers: [
+                {
+                    color: "#233831"
+                }
+            ]
+        },
+
+        {
+            featureType: "landscape.natural.terrain",
+            elementType: "geometry",
+            stylers: [
+                {
+                    visibility: "on"
+                }
             ]
         },
         {
             featureType: "poi",
-            elementType: "labels.text.fill",
-            stylers: [{ color: "#d59563" }],
-        },
-        {
-            featureType: "poi.park",
-            elementType: "geometry",
-            stylers: [{ color: "#263c3f" }],
-        },
-        {
-            featureType: "poi.park",
-            elementType: "labels.text.fill",
-            stylers: [{ color: "#6b9a76" }],
-        },
-        {
-            "featureType": "poi.business",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi.medical",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
+            elementType: "all",
+            stylers: [
+                { visibility: "off" }
             ]
         },
         {
@@ -239,19 +230,19 @@ const MapView = (() => {
             stylers: 
             [
                 { color: "#38414e" },
-                {"lightness": "10"}
+                {lightness: "5"}
             
             ],
         },
         {
             featureType: "road",
             elementType: "geometry.stroke",
-            stylers: [{ color: "#212a37" }],
+            stylers: [{ color: "#9b9a96" }],
         },
         {
             featureType: "road",
             elementType: "labels.text.fill",
-            stylers: [{ color: "#9ca5b3" }],
+            stylers: [{ color: "#f9cd2c" },{lightness: "5"}],
         },
         {
             featureType: "road.highway",
@@ -259,24 +250,40 @@ const MapView = (() => {
             stylers: [{ color: "#746855" }],
         },
         {
+            featureType: "road",
+            elementType: "labels.icon",
+            stylers: [
+                { visibility: "off" } 
+            ]
+        },
+        {
+            featureType: "road.highway",
+            elementType: "labels.icon",
+            stylers: [
+                { visibility: "off" } 
+            ]
+        },
+        {
             featureType: "road.highway",
             elementType: "geometry.stroke",
             stylers: [{ color: "#1f2835" }],
         },
-        {
-            featureType: "road.highway",
-            elementType: "labels.text.fill",
-            stylers: [{ color: "#f3d19c" }],
-        },
-        {
+
+        { 
             featureType: "transit",
-            elementType: "geometry",
-            stylers: [{ color: "#2f3948" }],
+            elementType: "all",
+            stylers: [{ visibility: "on"}],
         },
+
         {
             featureType: "transit.station",
             elementType: "labels.text.fill",
-            stylers: [{ color: "#d59563" }],
+            stylers: [{ color: "#9bdaff" }],
+        },
+        {
+            featureType: "transit.line",
+            elementType: "geometry",
+            stylers: [{ visibility: "off" }] // Oculta as linhas de trem e metrô
         },
         {
             featureType: "water",
@@ -286,7 +293,7 @@ const MapView = (() => {
         {
             featureType: "water",
             elementType: "labels.text.fill",
-            stylers: [{ color: "#ffffff" }],
+            stylers: [{ color: "#bad5fc" }],
         },
 
         ],
