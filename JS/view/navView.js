@@ -19,13 +19,15 @@ const navView = (() => {
     };
 
     const displayHospitalsNav = (hospitals) => {
-        hospitals.forEach(hospital =>{
-            alert("OI");
-            document.getElementById('displayHospitaisEncontrados').innerHTML = `
-            <h2>${hospital.nome}</h2>
-            <p><strong>Endereço:</strong> ${hospital.endereco}</p>
-            `; 
-        })
+    
+    hospitals.forEach(hospital =>{
+        document.getElementById('displayHospitaisEncontrados').innerHTML += `
+            <div id="hospita-${hospital.nome}" tabindex="0">
+                <h2>${hospital.nome}</h2>
+                <p><strong>Endereço:</strong> ${hospital.endereco}</p>
+            </div>
+        `; 
+    })
         
     };
     
