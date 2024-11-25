@@ -12,6 +12,11 @@ function showCheckboxes(){
     }
 }
 
+function mostrarDetalhesHospital(hospitalId){
+    console.log(`Detalhes do hospital ${hospitalId}`);
+    HospitalDetailsController.loadDetails(hospitalId);
+};
+
 const navView = (() => {
    
     const displayError = (message) => {
@@ -19,22 +24,31 @@ const navView = (() => {
     };
 
     const displayHospitalsNav = (hospitals) => {
-    document.getElementById('displayHospitaisEncontrados').innerHTML = ``;
-    hospitals.forEach(hospital =>{
-        document.getElementById('displayHospitaisEncontrados').innerHTML += `
-            <div id="hospita-${hospital.nome}" tabindex="0">
+        const container = document.getElementById('displayHospitaisEncontrados');
+        container.innerHTML = ``;
+    
+        hospitals.forEach(hospital => {
+            const hospitalDiv = document.createElement('div');
+            hospitalDiv.id = `hospital-${hospital.id}`;
+            hospitalDiv.tabIndex = 0;
+    
+            hospitalDiv.innerHTML = `
                 <h2>${hospital.nome}</h2>
                 <p><strong>Endereço:</strong> ${hospital.endereco}</p>
-            </div>
-        `; 
-    })
-        
+            `;
+    
+            // Adicionar o evento de clique dinamicamente
+            hospitalDiv.addEventListener('click', () => mostrarDetalhesHospital(hospital.id));
+    
+            container.appendChild(hospitalDiv);
+        });
     };
+
     
 
     return {
         displayHospitalsNav,
-        displayError
+        displayError,
     };
 })();
 
