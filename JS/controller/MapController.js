@@ -159,6 +159,15 @@ const MapController = ((model, view) => {
         const autocomplete = new google.maps.places.Autocomplete(locationInput, {
             types: ['geocode'], // Limita a busca a endereços e locais
             fields: ["name", "geometry"], // Campos que queremos obter
+            componentRestrictions: { 
+                country: 'BR',  // Limita a busca ao Brasil
+            },
+            // Restrição adicional para o estado RJ
+            bounds: new google.maps.LatLngBounds(
+                new google.maps.LatLng(-23.0, -43.5), // Limite inferior da lat/long do Rio de Janeiro
+                new google.maps.LatLng(-22.0, -43.0) // Limite superior da lat/long do Rio de Janeiro
+            )
+        
         });
     
         // Adiciona um evento de listener para a seleção de um local
@@ -182,6 +191,20 @@ const MapController = ((model, view) => {
                 alert("Por favor, selecione um local válido da lista de sugestões.");
             }
         });
+
+        // adicionando sugestão personalizada à lista
+        const defaultSuggestion = getUserLocation().value;
+
+        // Criando um evento para adicionar a sugestão manualmente
+        locationInput.addEventListener('focus', () => {
+            const inputValue = locationInput.value;
+
+            if (!inputValue) {
+                // Exibe a sugestão quando o campo está vazio
+                locationInput.value = defaultSuggestion;
+            }
+        });
+
     };
 
     return {

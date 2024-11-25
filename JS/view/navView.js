@@ -32,32 +32,21 @@ const navView = (() => {
     };
     
 
-
     return {
         displayHospitalsNav,
         displayError
     };
 })();
-// Exibir a lista de últimas localidades e a opção de geolocalização
+
+// Função para mostrar ou esconder o dropdown
 function mostrarOpcoesLocalizacao() {
     const dropdown = document.getElementById('dropdown-localizacao');
-    const ultimasLocalidades = getUltimasLocalidades();
-    
-    // Limpar as localidades anteriores exibidas
-    const localidadesElement = dropdown.querySelectorAll('.ultima-localidade');
-    localidadesElement.forEach(element => element.remove());
+    const inputLocal = document.getElementById('local');
 
-    // Adicionar dinamicamente as últimas localidades ao dropdown
-    ultimasLocalidades.forEach(localidade => {
-        const localDiv = document.createElement('div');
-        localDiv.classList.add('ultima-localidade', 'opcao-localizacao');
-        localDiv.textContent = localidade;
-        localDiv.onclick = () => selecionarLocalidade(localidade);
-        dropdown.appendChild(localDiv);
-    });
-
-    // Exibir o dropdown logo abaixo do input
-    dropdown.style.display = 'block';
+    // Só exibe o dropdown se o campo estiver vazio
+    if (inputLocal.value.trim() === "") {
+        dropdown.style.display = 'block';
+    }
 }
 
 
@@ -70,6 +59,21 @@ function usarGeolocalizacao() {
     botaoGeolocalizacao.click();
 }
 
+// Função para verificar se o input está vazio ou não
+function verificarInput() {
+    const inputLocal = document.getElementById('local');
+    const dropdown = document.getElementById('dropdown-localizacao');
+    
+    // Se o campo de input não estiver vazio, o dropdown some
+    if (inputLocal.value.trim() !== "") {
+        dropdown.style.display = 'none';
+    }
+    else{
+        // Caso contrário, ele permanece visível
+        dropdown.style.display = 'block';
+    }
+}
+
 // Esconde a lista suspensa quando o usuário clica fora dela
 document.addEventListener('click', function(event) {
     const dropdown = document.getElementById('dropdown-localizacao');
@@ -79,6 +83,18 @@ document.addEventListener('click', function(event) {
         dropdown.style.display = 'none';
     }
 });
+
+
+// Verifica o estado do input sempre que o usuário digitar algo
+document.getElementById('local').addEventListener('input', function() {
+    verificarInput();
+});
+
+// Exibe o dropdown ao clicar no input, mas só se o input estiver vazio
+document.getElementById('local').addEventListener('click', function() {
+    mostrarOpcoesLocalizacao();
+});
+
 
 // Função para salvar e recuperar as últimas localidades no localStorage
 function salvarLocalidade(localidade) {
