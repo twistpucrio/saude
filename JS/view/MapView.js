@@ -7,8 +7,8 @@ const MapView = (() => {
 
 
     // Inicializa o mapa e salva a instância
-    const initMap = (position, mapElementId, mapOptions) => {
-        
+    const initMap = (position, mapElementId) => {
+
         map = new google.maps.Map(document.getElementById(mapElementId), {
             center: position,
         // MODO CLARO:
@@ -303,6 +303,7 @@ const MapView = (() => {
 
         // Inicializa o serviço de locais após o mapa estar pronto
         service = new google.maps.places.PlacesService(map);
+
     };
 
     

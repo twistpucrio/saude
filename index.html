@@ -21,8 +21,11 @@
                         <div class="local">
 
                             <div class="input_pesquisa">
-                                <input type="text" name="local" id="local" placeholder="Digite a localização">
-                                <img src="img/icons/search_white.svg" alt="Pesquisar">
+                                <div>
+                                    <input type="text" name="local" id="local" placeholder="Digite a localização">
+                                    <img src="img/icons/search_white.svg" alt="Pesquisar">
+                                </div>
+                                
                             
                                 <div id="dropdown-localizacao" class="dropdown-localizacao">
                                     <div id="use-user-geolocation" class="opcao-localizacao" onclick="usarGeolocalizacao()">
@@ -106,13 +109,13 @@
                             
                         </div> -->
 
-                        <button id="btnBusca">Buscar</button>
+                        <!-- <button id="btnBusca">Buscar</button> -->
                         <button id="btnProc" onclick="MapController.buscarHospitais()">BuscarProc</button>
                     </div>
                     <div id="displayHospitaisEncontrados"></div>
 
                 </nav>
-
+            
                 <div id="main">
                 
                     <section id="map"></section>

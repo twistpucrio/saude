@@ -14,6 +14,7 @@ const MapController = ((model, view) => {
             navView.displayHospitalsNav(hospitals);
             view.addHospitalMarkers(hospitals);
         });
+
     };
 
     // Função para inicializar o mapa e configurar geolocalização e busca
@@ -22,11 +23,8 @@ const MapController = ((model, view) => {
 
         const initialPosition = { lat: -22.92799529134749, lng: -43.231810558948794 }; // Tecgraf
         const mapElementId = "map";
-        const mapOptions = {
-            zoom: 15,
-        };
 
-        view.initMap(initialPosition, mapElementId, mapOptions);
+        view.initMap(initialPosition, mapElementId);
 
         initAutocomplete();
 
@@ -52,7 +50,7 @@ const MapController = ((model, view) => {
             view.centerMap(localGeo);
         }
  
-        document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
+        // document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
     };
 
 

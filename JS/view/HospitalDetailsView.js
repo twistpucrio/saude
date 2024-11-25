@@ -6,6 +6,8 @@ const HospitalDetailsView = (() => {
             <p><strong>Bairro:</strong> ${hospital.bairro.join(", ")}</p>
             <p><strong>Procedimentos:</strong> ${hospital.procedimentos.join(", ")}</p>
             <p><strong>Descrição:</strong> ${hospital.descricao}</p>
+
+            <img src="${hospital.imagem}" alt="">
         `;
     };
 
