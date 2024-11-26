@@ -110,7 +110,6 @@
 
 
 const NavView = (() => {
-
     
     // Show error messages
     const displayError = (message) => {
@@ -126,6 +125,12 @@ const NavView = (() => {
                 <div id="hospital-${hospital.nome}" tabindex="0">
                     <h2>${hospital.nome}</h2>
                     <p><strong>Endereço:</strong> ${hospital.endereco}</p>
+                </div>
+                <div>
+                    <button class="directon_nav">
+                        <img src="img/icons/directions_white.svg" alt="">
+                        <p>Como chegar</p>
+                    </button>
                 </div>
             `;
         });
