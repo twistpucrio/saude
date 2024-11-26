@@ -21,11 +21,10 @@
                         <div class="local">
 
                             <div class="input_pesquisa">
-                                <div>
+                                <div class="caixa_input">
                                     <input type="text" name="local" id="local" placeholder="Digite a localização">
                                     <img src="img/icons/search_white.svg" alt="Pesquisar">
-                                </div>
-                                
+                                </div>                     
                             
                                 <div id="dropdown-localizacao" class="dropdown-localizacao">
                                     <div id="use-user-geolocation" class="opcao-localizacao" onclick="usarGeolocalizacao()">
@@ -52,7 +51,7 @@
                         
                         <form action="">
                             <div class="multi_select">
-                                <div class="select_proced" onclick="showCheckboxes()">
+                                <div class="select_proced" onclick="NavController.showCheckboxes()">
                                     <select> 
                                         <option>Selecione procedimentos</option>
                                     </select>
@@ -128,20 +127,19 @@
                 
                 </div>
             
-            
-           
-
            </div>
-
-           
-            
         
             <!-- scripts -->
             <!-- <script src="JS/testeIntegracao.js"></script> -->
             <script src = "JS/model/MapModel.js"></script>
-            <script src="JS/view/navView.js"></script>
+            <script src="JS/model/navModel.js"></script>
+          
             <script src = "JS/view/MapView.js"></script>
+            <script src="JS/view/navView.js"></script>
+
             <script src = "JS/controller/MapController.js"></script>
+            <script src="JS/controller/navController.js"></script>
+
             <script src = "JS/app.js"></script>
             
 

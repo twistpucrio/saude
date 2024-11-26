@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch((error) => {
                 console.error(error.message);
             });
+
+        
+        NavController.init();
     }
     
 });

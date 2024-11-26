@@ -11,7 +11,7 @@ const MapController = ((model, view) => {
             const hospitals = selectedProcedures.flatMap(procedureId => model.getHospitalsByProcedure(procedureId));
             localStorage.removeItem("hospitaisFiltrados");
             localStorage.setItem("hospitaisFiltrados", JSON.stringify(hospitals));
-            navView.displayHospitalsNav(hospitals);
+            NavView.displayHospitalsNav(hospitals);
             view.addHospitalMarkers(hospitals);
         });
 
@@ -53,8 +53,6 @@ const MapController = ((model, view) => {
         // document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
     };
 
-
-    let localGeoloc = "";
 
     // Função para converter lat/lng em endereço de texto e exibir no mapa
     const geocodeLatLng = (latlng) => {

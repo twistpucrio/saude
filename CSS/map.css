@@ -106,9 +106,9 @@ nav{
         /* display: flex;
         flex-direction: column;
         align-items: center; */
+        position: relative;
         
         .input_pesquisa{
-            position: relative;
             display: flex;
             align-items: center;
 
@@ -120,18 +120,18 @@ nav{
             
             padding-left: 10px;
 
-            #local {
-                background-color: #292929;
-                width: 80%;
-                height: 100%;
+            .caixa_input{
                 position: absolute;
+                width: 100%;
+                
+                #local {
+                    background-color: #1B1B1B;
+                    width: 85%;
+                    height: 100%;
 
-                /* border: none */
-                /* bottom: 100%; */
-
+                    border: none;
+                }       
             }
-
-            
             
             img{
                 position: absolute;
@@ -139,9 +139,6 @@ nav{
             }
             
         }
-
-
-        
 
         /* Estilização para a lista suspensa */
         .dropdown-localizacao {
@@ -151,20 +148,21 @@ nav{
             background-color: #fff;
             color: #0c151f;
             border: none;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             
             z-index: 5;
-            font-size: 15px;
+            font-size: 13px;
             
-            width: 100%; /* Set the width to match #local input */
+            width: 103%; /* Set the width to match #local input */
            
-            top: 100%;
+            top: 80%;
             left: 0%;
-
         }
 
         .opcao-localizacao {
-            
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -180,6 +178,9 @@ nav{
 
         .opcao-localizacao:hover, .dropdown-localizacao:hover{
             background-color: #629ce7;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            
         }
     }
 
@@ -231,5 +232,5 @@ nav{
 
 #local:focus {
     outline: none;
-    border-color: transparent; /* Opcional: Ajuste a cor da borda ou remova-a */
+    border-color: none; /* Opcional: Ajuste a cor da borda ou remova-a */
     }
