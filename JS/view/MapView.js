@@ -399,7 +399,7 @@ const MapView = (() => {
         }
         const pinLocalIcon = {
             url: '/img/voce.png', // Caminho para o ícone personalizado
-            scaledSize: new google.maps.Size(150, 80), // Tamanho escalado do ícone
+            scaledSize: new google.maps.Size(80, 100), // Tamanho escalado do ícone
         };
         const marker = new google.maps.Marker({
             position: place.geometry.location,
