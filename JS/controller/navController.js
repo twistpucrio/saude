@@ -40,7 +40,11 @@ const NavController = (() => {
     // Handle geolocation button click
     const handleGeolocation = () => {
         const geolocationButton = document.getElementById('use-user-geolocation');
-        geolocationButton.click();
+        
+        geolocationButton.addEventListener('click', () => {
+            MapController.setupUserGeolocation();
+        })
+
     };
 
     // Mostrar ou esconder os checkboxes

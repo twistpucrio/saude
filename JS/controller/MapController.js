@@ -188,9 +188,6 @@ const MapController = ((model, view) => {
             }
         });
 
-        // adicionando sugestão personalizada à lista
-        const defaultSuggestion = getUserLocation().value;
-
         // Criando um evento para adicionar a sugestão manualmente
         locationInput.addEventListener('focus', () => {
             const inputValue = locationInput.value;
@@ -207,6 +204,7 @@ const MapController = ((model, view) => {
         buscarHospitais,
         buscaPorTexto,
         getUserLocation,
+        setupUserGeolocation,
         init
     };
 })(MapModel, MapView);
