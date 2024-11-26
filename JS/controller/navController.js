@@ -7,6 +7,7 @@ const NavController = (() => {
         const inputLocal = document.getElementById('local');
         if (inputLocal.value.trim() === "") {
             NavView.alterarDropdown(true);
+            //ddshgfs
         }
     };
 
