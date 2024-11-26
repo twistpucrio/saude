@@ -20,8 +20,23 @@ const HospitalDetailsController = ((model, view) => {
         }
     };
 
+    const loadDetails = (hospitalId) => {
+        model.getHospitalById(hospitalId)
+            .then(hospital => {
+                if (hospital) {
+                    view.displayHospitalDetails(hospital);
+                } else {
+                    view.displayError("Hospital não encontrado.");
+                }
+            })
+            .catch(() => {
+                view.displayError("Erro ao carregar os detalhes do hospital.");
+            });
+    };
+
     return {
-         init 
+         init,
+         loadDetails 
     };
     
 })(HospitalModel, HospitalDetailsView);
