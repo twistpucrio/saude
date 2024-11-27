@@ -1,0 +1,56 @@
+/* const displayHospitalsNav = (hospitals) => {
+    const displayHospitaisEncontrados = document.getElementById('displayHospitaisEncontrados');
+    displayHospitaisEncontrados.innerHTML = ''; // Clear previous content
+    hospitals.forEach(hospital => {
+        displayHospitaisEncontrados.innerHTML += `
+            <div id="hospital-${hospital.nome}" tabindex="0">
+                <h2>${hospital.nome}</h2>
+                <p><strong>Endereço:</strong> ${hospital.endereco}</p>
+            </div>
+        `;
+    });
+}; */
+
+
+#displayHospitaisEncontrados{
+    background-color: aqua;
+
+    div[id^="hospital-"]{
+        background-color: #f0f0f0;
+
+        h2{
+            color: blueviolet;
+        }
+
+        p{
+            color: green;
+        }
+    }
+}
+
+/* <button class="directon_nav">
+    <img src="img/icons/directions_white.svg" alt="">
+    <p>Como chegar</p>
+</button> */
+
+.directon_nav{
+    background: none;
+    border: none;
+
+    img{
+        width: 20px;
+        padding: 5px;
+
+        border: 1px solid red;
+        border-radius: 50%;
+
+        cursor: pointer;
+    }
+
+    p{
+        color: #fff;
+        font-size: 10px;
+
+        cursor: pointer;
+    }
+}
