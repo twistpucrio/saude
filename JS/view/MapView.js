@@ -316,9 +316,30 @@ const MapView = (() => {
         return service; // Expor a instância de PlacesService para o Controller
     };
 
-    const addClickEventToMarker = (maker, hospitalId) => {
-        google.maps.event.addListener(maker, 'click', () =>{
-            window.location.href = `detalhesHospital.html?id=${hospitalId}`;
+    //mudar aqui
+    const addClickEventToMarker = (maker, hospitalId, hospitalName) => {
+
+        const infoWindow = new google.maps.InfoWindow({
+            content: `
+            <div class="infowindow">
+                <h4>Hospital: ${hospitalName}</h4> 
+                <p>Mais informações sobre o hospital.</p>
+                <button id="detailsButton">
+                    Mais Detalhes
+                </button>
+            </div>
+        `,
+            ariaLabel: "",
+          });
+
+        maker.addListener('click', () =>{
+            infoWindow.open(maker.getMapInstance,maker);
+
+            google.maps.event.addListenerOnce(infoWindow, 'domready', () =>{
+                document.getElementById('detailsButton').addEventListener('click', () =>{
+                    window.location.href = `detalhesHospital.html?id=${hospitalId}`;
+                });
+            });  
         });
     }
 
@@ -387,7 +408,7 @@ const MapView = (() => {
                 icon: pinIcon
             });
             hospitalMarkers.push(marker);
-            addClickEventToMarker(marker, hospital.id);
+            addClickEventToMarker(marker, hospital.id, hospital.nome);
         });
 
         zoomMap();
