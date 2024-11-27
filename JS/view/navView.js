@@ -1,20 +1,24 @@
 const NavView = (() => {
     
-    // Show error messages
+    // Mensagem de erros
     const displayError = (message) => {
         document.getElementById('details').innerHTML = `<p>${message}</p>`;
     };
 
-    // Show list of hospitals
+    //Display lista de hospitais
     const displayHospitalsNav = (hospitals) => {
         const displayHospitaisEncontrados = document.getElementById('displayHospitaisEncontrados');
-        displayHospitaisEncontrados.innerHTML = ''; // Clear previous content
+        displayHospitaisEncontrados.innerHTML = ''; // Limpa antigo
         hospitals.forEach(hospital => {
             displayHospitaisEncontrados.innerHTML += `
-                <div id="hospital-${hospital.nome}" tabindex="0">
+
+                <a href="detalhesHospital.html?id=${hospital.id}">
+                    <div id="hospital-${hospital.nome}" tabindex="0" onclick="addClickEventToDiv(hospital-${hospital.nome}, ${hospital.id});');">    
                     <h2>${hospital.nome}</h2>
-                    <p><strong>Endereço:</strong> ${hospital.endereco}</p>
-                </div>
+                        <p><strong>Endereço:</strong> ${hospital.endereco}</p>
+                    </div>
+                </a>
+
                 <div>
                     <button class="directon_nav">
                         <img src="img/icons/directions_white.svg" alt="">
@@ -25,17 +29,19 @@ const NavView = (() => {
         });
     };
 
-    // Show or hide location dropdown
+    // Mostra ou esconde
     const alterarDropdown = (visible) => {
         const dropdown = document.getElementById('dropdown-localizacao');
         dropdown.style.display = visible ? 'block' : 'none';
     };
 
-    // Update the input value
+    // Atualiza valor do input
     const setInputValue = (value) => {
         document.getElementById('local').value = value;
     };
 
+
+    
 
     return {
         displayError,
