@@ -247,3 +247,12 @@ nav{
     outline: none;
     border-color: none; /* Opcional: Ajuste a cor da borda ou remova-a */
     }
+
+#detailsBUtton{
+    padding: 1% 2%; 
+    background-color: #1e90ff; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 2%;
+}
