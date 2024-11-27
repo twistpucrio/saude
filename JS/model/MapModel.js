@@ -21,10 +21,6 @@ const MapModel = (() => {
         return hospitals.filter(hospital => hospital.procedimentos.includes(procedureId));
     };
 
-    const getDefaultPosition = () => {
-        return { lat: -22.92799529134749, lng: -43.231810558948794 }; 
-    }
-
     return {
         carregarHospitais,
         getHospitalsByProcedure

@@ -11,9 +11,10 @@ const MapController = ((model, view) => {
             const hospitals = selectedProcedures.flatMap(procedureId => model.getHospitalsByProcedure(procedureId));
             localStorage.removeItem("hospitaisFiltrados");
             localStorage.setItem("hospitaisFiltrados", JSON.stringify(hospitals));
-            navView.displayHospitalsNav(hospitals);
+            NavView.displayHospitalsNav(hospitals);
             view.addHospitalMarkers(hospitals);
         });
+
     };
 
     // Função para inicializar o mapa e configurar geolocalização e busca
@@ -22,11 +23,8 @@ const MapController = ((model, view) => {
 
         const initialPosition = { lat: -22.92799529134749, lng: -43.231810558948794 }; // Tecgraf
         const mapElementId = "map";
-        const mapOptions = {
-            zoom: 15,
-        };
 
-        view.initMap(initialPosition, mapElementId, mapOptions);
+        view.initMap(initialPosition, mapElementId);
 
         initAutocomplete();
 
@@ -52,11 +50,9 @@ const MapController = ((model, view) => {
             view.centerMap(localGeo);
         }
  
-        document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
+        // document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
     };
 
-
-    let localGeoloc = "";
 
     // Função para converter lat/lng em endereço de texto e exibir no mapa
     const geocodeLatLng = (latlng) => {
