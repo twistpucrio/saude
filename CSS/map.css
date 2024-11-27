@@ -53,11 +53,19 @@ html, body {
         
         background-color: #303030;
 
-        a{
-            text-decoration: none;
+
+        button{
+            cursor: pointer;
+
+            border: none;
+            background: none;
+
             color: #fff;
         }
-
+        
+        button:hover{
+            opacity: 60%;;
+        }
     }
 
 }

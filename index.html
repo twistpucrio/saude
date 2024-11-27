@@ -80,13 +80,45 @@
                     <section id="map"></section>
                     
                     <footer>
-                        <a href="">COMO USAR</a>
+                        <!-- <a href="">COMO USAR</a>
                         <a href="">EMERGÊNCIA</a>
-                        <a href="">SOBRE NÓS</a>
+                        <a href="">SOBRE NÓS</a> -->
+
+                        <button type="button" id="btnComoUsar" name="btnComoUsar" class="btnComoUsar fonte">COMO USAR</button> 
+                        <button type="button" id="btnEmergencia" name="btnEmergencia" class="btnEmergencia fonte">EMERGÊNCIA</button>
+                        <button type="button" id="btnSobreNos" name="btnSobreNos" class="btnSobreNos fonte">SOBRE NÓS</button>
                     </footer>
                 
                 </div>
+
+                <article id="comoUsar" class="popup" style="display: none;">
+                    <div>
+                        <h2>pop up Como Usar</h2>
+                    </div>
+
+                    <button type="button" class="btnFechaComoUsar botao_fecha" id="btnFechaComoUsar" name="btnFechaComoUsar">X</button>
+
+                </article>
+
+                <article id="emergencia" class="popup" style="display: none;">
+                    <div>
+                        <h2>pop up Emergência</h2>
+                    </div>
+
+                    <button type="button" class="btnFechaEmergencia botao_fecha" id="btnFechaEmergencia" name="btnFechaEmergencia">X</button>
+
+                </article>
+
+                <article id="sobreNos" class="popup" style="display: none;">
+                    <div>
+                        <h2>pop up Sobre Nos</h2>
+                    </div>
+
+                    <button type="button" class="btnFechaSobreNos botao_fecha" id="btnFechaSobreNos" name="btnFechaSobreNos">X</button>
+
+                </article>
             
+                <div id="overlay" class="overlay"></div>
            </div>
         
             <!-- scripts -->
@@ -101,7 +133,7 @@
             <script src="JS/controller/navController.js"></script>
 
             <script src = "JS/app.js"></script>
-            
+            <script src="JS/popup.js"></script>
 
              <!-- <script src="JS/teste.js"></script> -->
         </body>
