@@ -14,10 +14,9 @@
 
 #displayHospitaisEncontrados{
     background-color: aqua;
-
     div[id^="hospital-"]{
         background-color: #f0f0f0;
-
+        border:solid 5px #0b62e6;
         h2{
             color: blueviolet;
         }
