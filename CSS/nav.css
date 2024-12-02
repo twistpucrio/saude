@@ -12,7 +12,9 @@
 }; */
 
 
+
 #displayHospitaisEncontrados{
+    text-decoration: none;
     background-color: aqua;
     div[id^="hospital-"]{
         background-color: #f0f0f0;
@@ -24,6 +26,7 @@
         p{
             color: green;
         }
+        
     }
 }
 
