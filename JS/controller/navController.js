@@ -59,6 +59,8 @@ const NavController = (() => {
         }
     };
 
+    
+
     // Initialize event listeners
     const init = () => {
         document.getElementById('local').addEventListener('input', handleInputChange);
