@@ -11,49 +11,32 @@
     });
 }; */
 
+.hospital-link{
+    flex:1;
+    text-decoration: none;
+}
+
 
 #displayHospitaisEncontrados{
-    background-color: aqua;
+    background-color: #1B1B1B;
     div[id^="hospital-"]{
-        background-color: #f0f0f0;
-        border:solid 5px #0b62e6;
+        background-color: #313030;
+        background-color: #313030;
+        margin-bottom: 5%;
+        margin-top: 5%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2%;
+
         h2{
-            color: blueviolet;
+            color: rgb(255, 255, 255);
         }
 
         p{
-            color: green;
+            color: rgb(252, 215, 48);
         }
     }
 }
-
-/* <button class="directon_nav">
-    <img src="img/icons/directions_white.svg" alt="">
-    <p>Como chegar</p>
-</button> */
-
-.directon_nav{
-    background: none;
-    border: none;
-
-    img{
-        width: 20px;
-        padding: 5px;
-
-        border: 1px solid red;
-        border-radius: 50%;
-
-        cursor: pointer;
-    }
-
-    p{
-        color: #fff;
-        font-size: 10px;
-
-        cursor: pointer;
-    }
-}
-
 
 /*--------------------------------------------------*/
 .overlay {
@@ -98,3 +81,4 @@
 
     cursor: pointer;
 }
+
