@@ -17,8 +17,11 @@
 }
 
 
+
 #displayHospitaisEncontrados{
+
     background-color: #1B1B1B;
+
     div[id^="hospital-"]{
         background-color: #313030;
         background-color: #313030;
@@ -35,6 +38,7 @@
         p{
             color: rgb(252, 215, 48);
         }
+        
     }
 }
 
