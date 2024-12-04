@@ -198,13 +198,22 @@ const MapController = ((model, view) => {
             }
         });
 
+        document.getElementById('limparLocal').addEventListener('click', limpaLoc);
+
+
     };
+
+    const limpaLoc = () => {
+        const campoLocal = document.getElementById('local');
+        campoLocal.value = '';
+    }
 
     return {
         buscarHospitais,
         buscaPorTexto,
         getUserLocation,
         setupUserGeolocation,
+        limpaLoc,
         init
     };
 })(MapModel, MapView);

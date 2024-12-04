@@ -12,19 +12,12 @@ const NavView = (() => {
         hospitals.forEach(hospital => {
             displayHospitaisEncontrados.innerHTML += `
 
-                <a href="detalhesHospital.html?id=${hospital.id}">
-                    <div id="hospital-${hospital.nome}" tabindex="0" onclick="addClickEventToDiv(hospital-${hospital.nome}, ${hospital.id});');">    
+                <a href="detalhesHospital.html?id=${hospital.id}" class="hospital-link">
+                    <div id="hospital-${hospital.nome}" class="hospital-info" tabindex="0" onclick="addClickEventToDiv(hospital-${hospital.nome}, ${hospital.id});');">    
                     <h2>${hospital.nome}</h2>
                         <p><strong>Endereço:</strong> ${hospital.endereco}</p>
                     </div>
                 </a>
-
-                <div>
-                    <button class="directon_nav">
-                        <img src="img/icons/directions_white.svg" alt="">
-                        <p>Como chegar</p>
-                    </button>
-                </div>
             `;
         });
     };
