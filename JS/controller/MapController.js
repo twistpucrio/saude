@@ -208,12 +208,48 @@ const MapController = ((model, view) => {
         campoLocal.value = '';
     }
 
+    const iniciarRotaParaHospital = async (hospitalPosition, travelMode = 'WALKING') => {
+        let origem = null;
+    
+        // Tenta recuperar a geolocalização do local de partida armazenada
+        const localPartidaGeo = JSON.parse(localStorage.getItem("localFiltradoGeo"));
+        if (localPartidaGeo) {
+            origem = { lat: localPartidaGeo.lat, lng: localPartidaGeo.lng };      
+        } 
+        else {
+            // Tenta recuperar a posição do local selecionado no input
+            const localPartida = JSON.parse(localStorage.getItem("localFiltrado"));
+            if (localPartida && localPartida.geometry) {
+                origem = {
+                    lat: localPartida.geometry.location.lat,
+                    lng: localPartida.geometry.location.lng,
+                };
+                await calcularERenderizarRota(origem, hospitalPosition, travelMode);
+            }
+        }
+    
+        if (origem) {
+            view.calcularERenderizarRota(origem, hospitalPosition, travelMode);   
+        } 
+        else {
+            alert("Localização de partida não definida.");
+        }
+    };
+
+    const addClickEventToHospitalMarker = (hospitalMarker, hospitalPosition) => {
+        hospitalMarker.addListener("click", () => {
+            iniciarRotaParaHospital(hospitalPosition);
+        });
+    };
+
     return {
         buscarHospitais,
         buscaPorTexto,
         getUserLocation,
         setupUserGeolocation,
         limpaLoc,
-        init
+        init,
+        addClickEventToHospitalMarker,
+        iniciarRotaParaHospital
     };
 })(MapModel, MapView);
