@@ -13,19 +13,32 @@
 
 
 #displayHospitaisEncontrados{
-    background-color: aqua;
+
+    background-color: #1B1B1B;
+
     div[id^="hospital-"]{
-        background-color: #f0f0f0;
-        border:solid 5px #0b62e6;
+        background-color: #313030;
+        background-color: #313030;
+        margin-bottom: 5%;
+        margin-top: 5%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2%;
+
         h2{
-            color: blueviolet;
+            color: rgb(255, 255, 255);
         }
 
         p{
-            color: green;
+            color: rgb(252, 215, 48);
         }
+        
     }
-    
+}
+
+.hospital-link{
+    flex:1;
+    text-decoration: none;
 }
 
 /* <button class="directon_nav">
@@ -288,23 +301,21 @@ nav{
 /* Smartphone */
 @media screen and (min-width: 1px) and (max-width: 800px){
     
-    nav{
-        display: none;
-    }
 
-    #nav-mobile{
+    nav{
         position: fixed;
         top: 0;
         left: 0;
 
         width: 100%;
-        height: 40%;
+        height: 15%;
         z-index: 10;
 
         background-color: rgba(27, 27, 27, 0.9);
 
         display: flex;
         flex-direction: column;
+        align-items: center;
         /* gap: 5px; */
         padding: 10px;
 
@@ -313,32 +324,56 @@ nav{
             flex-direction: column;
             gap: 5px
         }
+
+        .logo_nav{
+            width: 40%;
+            margin-bottom: 3%;
+        }
     }
+
 
     #displayHospitaisEncontrados{
         position: fixed;
-        bottom: 0;
-        left: 0;
         
+        bottom: 43.5%;
+        left: 0;
+
+        height: 280px;
+        max-height: 80%;
         width: 100%;
+
         background-color: #1b1b1b;
 
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
 
         z-index: 10;
-        max-height: 30%;
         overflow-y: auto;
 
         transform: translateY(100%);
         transition: transform 0.3s ease-in-out;
         padding: 10px;
         
-        color: white
-    }
+        color: white;
+        transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+    
+    
+        .drag-handle{
+            display: flex;
+            
+            width: 50px;
+            height: 5px;
+            background-color: gray;
+            border-radius: 2px;
+            margin: 10px auto;
+            cursor: grab;
+        }
 
-    #displayHospitaisEncontrados.open{
-        transform: translateX(0);
+
+
+        /* .open{
+            transform: translateY(0);
+        } */
     }
 
     #map{

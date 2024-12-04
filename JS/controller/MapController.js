@@ -12,6 +12,7 @@ const MapController = ((model, view) => {
             localStorage.removeItem("hospitaisFiltrados");
             localStorage.setItem("hospitaisFiltrados", JSON.stringify(hospitals));
             NavView.displayHospitalsNav(hospitals);
+            NavView.arrastaResults(); // Ativa a funcionalidade de arrastar no mobile
             view.addHospitalMarkers(hospitals);
         });
 
