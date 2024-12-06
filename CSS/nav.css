@@ -275,11 +275,9 @@ nav{
 /* Smartphone */
 @media screen and (min-width: 1px) and (max-width: 800px){
     
-    nav{
-        display: none;
-    }
+    
 
-    #nav-mobile{
+    nav{
         position: fixed;
         top: 0;
         left: 0;

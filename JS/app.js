@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     else
     {
-        loadMapScript("AIzaSyAlcDBqiCO7sV_Uvtg4LxN0eTPO1KsAqOw", ["places"])
+        loadMapScript("AIzaSyAlcDBqiCO7sV_Uvtg4LxN0eTPO1KsAqOw", ["places", "routes"])
             .then(() => {
                 console.log("Google Maps API carregada com sucesso!");
                 MapController.init(); // Inicializa o controller

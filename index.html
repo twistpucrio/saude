@@ -1,4 +1,5 @@
 
+
 <!-- index.html -->
 <!DOCTYPE html>
         <html lang="pt-br">
@@ -89,69 +90,8 @@
                         <button type="button" id="btnEmergencia" name="btnEmergencia" class="btnEmergencia fonte">EMERGÊNCIA</button>
                         <button type="button" id="btnSobreNos" name="btnSobreNos" class="btnSobreNos fonte">SOBRE NÓS</button>
                     </footer>
-
-                    
                 
                 </div>
-
-                <nav id="nav-mobile">
-                    <div id="controls">
-
-                        <img class="logo_nav" src="img/logo_telaCheia.png" alt="">
-
-                        <div class="local">
-
-                            <div class="input_pesquisa">
-                                <div class="caixa_input">
-                                    <input type="text" name="local" id="local" placeholder="Digite a localização">
-                                    <img src="img/icons/search_white.svg" alt="Pesquisar">
-                                </div>                     
-                            
-                                <div id="dropdown-localizacao" class="dropdown-localizacao">
-                                    <div id="use-user-geolocation" class="opcao-localizacao" onclick="usarGeolocalizacao()">
-                                        <img src="img/icons/my_location.svg" alt="">
-                                        <p>Usar minha localização atual</p>
-                                    </div>
-                                    
-                                </div>
-                                
-                            </div>
-                           
-                        </div>
-                        
-                        <form action="">
-                            <div class="multi_select">
-                                <div class="select_proced" onclick="NavController.showCheckboxes()">
-                                    <select> 
-                                        <option>Selecione procedimentos</option>
-                                    </select>
-                                    <div class="overSelect"></div> 
-                                </div>
-                                <div id="checkboxes">
-                                    <label for="um">
-                                        <input type="checkbox" name="procedimento" id="procedimento1">
-                                        P1
-                                    </label>
-        
-                                    <label for="dois">
-                                        <input type="checkbox" name="procedimento" id="procedimento2">
-                                        P2
-                                    </label>
-        
-                                    <label for="tres">
-                                        <input type="checkbox" name="procedimento" id="procedimento4">
-                                        P3
-                                    </label>
-                                </div>
-                            </div>
-                            
-                        </form>
-                        
-                        <button id="btnProc" onclick="MapController.buscarHospitais()">BuscarProc</button>
-                    </div>
-                    <div id="displayHospitaisEncontrados"></div>
-                    
-                </nav>
 
                 <article id="comoUsar" class="popup" style="display: none;">
                     <div>
