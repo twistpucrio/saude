@@ -1,40 +1,70 @@
+
 const NavView = (() => {
     
-    // Mensagem de erros
+    // Exibe uma mensagem de erro na área de detalhes
     const displayError = (message) => {
-        document.getElementById('details').innerHTML = `<p>${message}</p>`;
+        const detailsElement = document.getElementById('details');
+        if (detailsElement) {
+            detailsElement.innerHTML = `<p>${message}</p>`;
+        } else {
+            console.error("Elemento 'details' não encontrado.");
+        }
     };
 
-    //Display lista de hospitais
-    const displayHospitalsNav = (hospitals) => {
-        const displayHospitaisEncontrados = document.getElementById('displayHospitaisEncontrados');
-        displayHospitaisEncontrados.innerHTML = ''; // Limpa antigo
-        hospitals.forEach(hospital => {
-            displayHospitaisEncontrados.innerHTML += `
 
-                <a href="detalhesHospital.html?id=${hospital.id}" class="hospital-link">
-                    <div id="hospital-${hospital.nome}" class="hospital-info" tabindex="0" onclick="addClickEventToDiv(hospital-${hospital.nome}, ${hospital.id});');">    
-                    <h2>${hospital.nome}</h2>
-                        <p><strong>Endereço:</strong> ${hospital.endereco}</p>
-                    </div>
-                </a>
+
+       // Exibe a lista de hospitais na navegação lateral
+       const displayHospitalsNav = (hospitals, handleHospitalNavClick) => {
+        const displayHospitaisEncontrados = document.getElementById('displayHospitaisEncontrados');
+        if (!displayHospitaisEncontrados) {
+            console.error("Elemento 'displayHospitaisEncontrados' não encontrado.");
+            return;
+        }
+
+        // Limpa os hospitais anteriores
+        displayHospitaisEncontrados.innerHTML = '';
+
+        // Adiciona os hospitais
+        hospitals.forEach((hospital, index) => {
+            const hospitalElement = document.createElement('div');
+            hospitalElement.className = 'hospital-info';
+            hospitalElement.tabIndex = 0;
+            hospitalElement.id = `hospital-${index}`; // Evita IDs duplicados
+            hospitalElement.innerHTML = `
+                <h2>${hospital.nome}</h2>
+                <p><strong>Endereço:</strong> ${hospital.endereco}</p>
             `;
+
+            // Adiciona evento de clique
+            hospitalElement.addEventListener('click', () => {
+                console.log(`Clicado no hospital: ${hospital.nome}`);
+                MapView.handleHospitalNavClick(hospital.id); // Chama a função recebida
+
+            });
+
+            displayHospitaisEncontrados.appendChild(hospitalElement);
         });
     };
 
-    // Mostra ou esconde
+    // Mostra ou esconde o dropdown de localização
     const alterarDropdown = (visible) => {
         const dropdown = document.getElementById('dropdown-localizacao');
-        dropdown.style.display = visible ? 'block' : 'none';
+        if (dropdown) {
+            dropdown.style.display = visible ? 'block' : 'none';
+        } else {
+            console.error("Elemento 'dropdown-localizacao' não encontrado.");
+        }
     };
 
-    // Atualiza valor do input
+    // Atualiza o valor do campo de entrada de texto
     const setInputValue = (value) => {
-        document.getElementById('local').value = value;
+        const input = document.getElementById('local');
+        if (input) {
+            input.value = value;
+        } else {
+            console.error("Elemento 'local' não encontrado.");
+        }
     };
-
-
-    
 
     return {
         displayError,
@@ -43,3 +73,4 @@ const NavView = (() => {
         setInputValue,
     };
 })();
+

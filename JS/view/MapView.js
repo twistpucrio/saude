@@ -1,3 +1,4 @@
+
 // MapView.js
 
 const MapView = (() => {
@@ -7,6 +8,7 @@ const MapView = (() => {
 
     let directionsService;
     let directionsRenderer;
+    let currentInfoWindow = null;
 
 
     // Inicializa o mapa e salva a instância
@@ -341,7 +343,12 @@ const MapView = (() => {
         });
     
         maker.addListener('click', () => {
+            if (currentInfoWindow) {
+                currentInfoWindow.close();
+            }
             infoWindow.open(maker.getMap(), maker);
+            
+            currentInfoWindow = infoWindow;
     
             google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
                 // botão "Mais detalhes"
@@ -367,6 +374,25 @@ const MapView = (() => {
             });
         });
     };
+  
+      const handleHospitalNavClick = (hospitalId) => {
+        // Encontre o marcador associado ao ID do hospital
+        const marker = hospitalMarkers.find(m => m.hospitalId === hospitalId);
+    
+        if (marker) {
+            // Simula o clique no marcador, abrindo o InfoWindow
+            google.maps.event.trigger(marker, 'click');
+        } else {
+            console.error(`Marcador para o hospital com ID ${hospitalId} não encontrado.`);
+        }
+    };
+  
+      const displayHospitalsOnMap = (hospitals) => {
+        // Aqui, você passa a função handleHospitalNavClick para o NavView
+        NavView.displayHospitalsNav(hospitals, handleHospitalNavClick);
+    };
+  
+  
 
     // Função para tornar o InfoWindow arrastável
     
@@ -556,6 +582,7 @@ const MapView = (() => {
                 title: hospital.nome,
                 icon: pinIcon
             });
+            marker.hospitalId = hospital.id;
             hospitalMarkers.push(marker);
             addClickEventToMarker(marker, hospital.id, hospital.nome, hospitalPosition);
         });
@@ -661,8 +688,11 @@ const MapView = (() => {
         meuLocalDePartidaLocAtual,
         invisivel,
         calcularERenderizarRota,
-        makeInfoWindowDraggable
+        makeInfoWindowDraggable,
+        handleHospitalNavClick,
+        displayHospitalsOnMap,
     };
 })();
+
 
 
