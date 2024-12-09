@@ -1,0 +1,18 @@
+@font-face {
+    font-family: PlayfairBlack;
+    src: url("static/PlayfairDisplay-Black.ttf");
+
+}
+
+@font-face {
+    font-family: PlayfairReg;
+    src: url("static/PlayfairDisplay-Regular.ttf");
+    
+}
+
+
+@font-face {
+    font-family: PlayfairBoldItalic;
+    src: url("static/PlayfairDisplay-BoldItalic.ttf");
+    
+}
