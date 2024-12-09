@@ -1,9 +1,13 @@
+
 // MapView.js
 
 const MapView = (() => {
     let map;
     const hospitalMarkers = [];
     let localPartida;
+
+    let directionsService;
+    let directionsRenderer;
     let currentInfoWindow = null;
 
 
@@ -12,6 +16,7 @@ const MapView = (() => {
 
         map = new google.maps.Map(document.getElementById(mapElementId), {
             center: position,
+            zoom: 15,
         // MODO CLARO:
         //     styles:[
         //       {
@@ -300,11 +305,14 @@ const MapView = (() => {
         ],
         });
 
-        
-
         // Inicializa o serviço de locais após o mapa estar pronto
         service = new google.maps.places.PlacesService(map);
 
+        directionsService = new google.maps.DirectionsService();
+        directionsRenderer = new google.maps.DirectionsRenderer({
+            map: map,
+            suppressMarkers: true, // Para evitar que adicione seus próprios marcadores
+        })
     };
 
     
@@ -317,8 +325,8 @@ const MapView = (() => {
         return service; // Expor a instância de PlacesService para o Controller
     };
 
-    const addClickEventToMarker = (maker, hospitalId, hospitalName) => {
-
+    //mudar aqui
+    const addClickEventToMarker = (maker, hospitalId, hospitalName, hospitalPosition) => {
         const infoWindow = new google.maps.InfoWindow({
             content: `
             <div class="infowindow">
@@ -327,30 +335,47 @@ const MapView = (() => {
                 <button id="detailsButton">
                     Mais Detalhes
                 </button>
-            </div>
-        `,
-            ariaLabel: "`Informações sobre ${hospitalName}`",
-          });
-
-        maker.addListener('click', () =>{
+                <button id="routeButton">
+                    Traçar Rota
+                </button>
+            </div>`,
+            ariaLabel: "",
+        });
+    
+        maker.addListener('click', () => {
             if (currentInfoWindow) {
                 currentInfoWindow.close();
             }
-
-            infoWindow.open(maker.getMapInstance,maker);
-
+            infoWindow.open(maker.getMap(), maker);
+            
             currentInfoWindow = infoWindow;
-
-            google.maps.event.addListenerOnce(infoWindow, 'domready', () =>{
-                document.getElementById('detailsButton').addEventListener('click', () =>{
+    
+            google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
+                // botão "Mais detalhes"
+                document.getElementById('detailsButton').addEventListener('click', () => {
                     window.location.href = `detalhesHospital.html?id=${hospitalId}`;
                 });
-            });  
+    
+                // botão "Traçar Rota"
+                document.getElementById('routeButton').addEventListener('click', () => {
+                    showRouteOptions(infoWindow, hospitalPosition);
+                });
+    
+                // Evento de fechamento do InfoWindow (clicar no "X")
+                google.maps.event.addListener(infoWindow, 'closeclick', () => {
+                    removeRoute(); // Remove a rota quando o InfoWindow for fechado
+                });
+    
+                // Tornar o InfoWindow arrastável
+                makeInfoWindowDraggable(infoWindow, maker.getMap());
+
+                google.maps.event.addListener(infoWindow, 'domready', attachDragEvents); // Reanexa após cada atualização
+
+            });
         });
-    }
-
-
-    const handleHospitalNavClick = (hospitalId) => {
+    };
+  
+      const handleHospitalNavClick = (hospitalId) => {
         // Encontre o marcador associado ao ID do hospital
         const marker = hospitalMarkers.find(m => m.hospitalId === hospitalId);
     
@@ -361,16 +386,137 @@ const MapView = (() => {
             console.error(`Marcador para o hospital com ID ${hospitalId} não encontrado.`);
         }
     };
-
-    const displayHospitalsOnMap = (hospitals) => {
+  
+      const displayHospitalsOnMap = (hospitals) => {
         // Aqui, você passa a função handleHospitalNavClick para o NavView
         NavView.displayHospitalsNav(hospitals, handleHospitalNavClick);
     };
+  
+  
+
+    // Função para tornar o InfoWindow arrastável
+    
+    const makeInfoWindowDraggable = (infoWindow, map) => {
+        let isDragging = false;
+        let startLatLng = null;
+        let startX = 0;
+        let startY = 0;
+    
+        const attachDragEvents = () => {
+            const container = document.querySelector('.infowindow'); // Seleciona a div do conteúdo do InfoWindow
+
+            if (!container) return;
+
+            container.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                isDragging = true;
+                map.set('draggable', false);
+                startLatLng = infoWindow.getPosition();
+                startX = e.clientX;
+                startY = e.clientY;
+                container.style.cursor = 'move';
+            });
+        
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+        
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+        
+                const projection = map.getProjection();
+                const point = projection.fromLatLngToPoint(startLatLng);
+        
+                const scale = Math.pow(2, map.getZoom());
+        
+                const newPoint = new google.maps.Point(
+                    point.x + dx / scale,
+                    point.y + dy / scale
+                );
+        
+                const newLatLng = projection.fromPointToLatLng(newPoint);
+                infoWindow.setPosition(newLatLng);
+            });
+        
+            document.addEventListener('mouseup', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    map.set('draggable', true);
+                    container.style.cursor = 'default';
+                }
+            });
+    
+        }
+        
+        google.maps.event.addListener(infoWindow, 'domready', attachDragEvents); // Reanexa após cada atualização
+        
+    };
+
+    let currentRouteRenderer = null // Para armazenar a rota atual e poder substituí-la
+    const showRouteOptions = (infoWindow, hospitalPosition) => {
+        // Substitui o conteúdo do InfoWindow para exibir os modos de transporte
+        infoWindow.setContent(`
+            <div class="infowindow">
+                <h4>Escolha o modo de transporte</h4>
+                <button id="drivingRoute">Carro</button>
+                <button id="walkingRoute">A pé</button>
+                <button id="transitRoute">Transporte público</button>
+                <button id="closeRouteOptions">Fechar</button>
+            </div>`
+        );
+    
+        google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
+            // Definir os eventos para cada opção de rota
+            document.getElementById('drivingRoute').addEventListener('click', () => {
+                updateRoute(hospitalPosition, 'DRIVING');
+            });
+            document.getElementById('walkingRoute').addEventListener('click', () => {
+                updateRoute(hospitalPosition, 'WALKING');
+            });
+            document.getElementById('transitRoute').addEventListener('click', () => {
+                updateRoute(hospitalPosition, 'TRANSIT');
+            });
+    
+            document.getElementById('closeRouteOptions').addEventListener('click', () => {
+                // Restaura o conteúdo original com as informações do hospital
+                infoWindow.setContent(`
+                    <div class="infowindow">
+                        <h4>Hospital: ${hospitalName}</h4>
+                        <p>Mais informações sobre o hospital.</p>
+                        <button id="detailsButton">Mais Detalhes</button>
+                        <button id="routeButton">Traçar Rota</button>
+                    </div>`
+                );
+    
+                google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
+                    document.getElementById('detailsButton').addEventListener('click', () => {
+                        window.location.href = `detalhesHospital.html?id=${hospitalId}`;
+                    });
+    
+                    document.getElementById('routeButton').addEventListener('click', () => {
+                        showRouteOptions(infoWindow, hospitalPosition);
+                    });
+                });
+            });
+        });
+    };
+
+    // Função para atualizar a rota com o novo modo de transporte
+    const updateRoute = (destination, travelMode) => {
+        // Invoca a função de cálculo de rota para atualizar o modo de transporte
+        calcularERenderizarRota(destination, travelMode);
+    };
+
+    const removeRoute = () => {
+        if (currentRouteRenderer) {
+            currentRouteRenderer.setMap(null);  // Remove a rota do mapa
+            currentRouteRenderer = null;  // Limpa a variável para garantir que a próxima rota seja recalculada
+        }
+    }
 
     const zoomMap = () => {
         // Verifica se há hospitalMarkers definidos e se contêm pelo menos um item
         if ((!hospitalMarkers || hospitalMarkers.length === 0) && !localPartida) {
-            return; // Não faz nada se não houver marcadores nem localização definida
+            // return; // Não faz nada se não houver marcadores nem localização definida
         }
     
         // Define o objeto para ajustar os limites do mapa
@@ -425,17 +571,20 @@ const MapView = (() => {
         
         
         hospitals.forEach(hospital => {
+            const hospitalPosition = {
+                lat: parseFloat(hospital.latitude),
+                lng: parseFloat(hospital.longitude)
+            };
+
             const marker = new google.maps.Marker({
-                position: { lat: parseFloat(hospital.latitude), lng: parseFloat(hospital.longitude) },
+                position: hospitalPosition,
                 map: map,
                 title: hospital.nome,
                 icon: pinIcon
             });
-
             marker.hospitalId = hospital.id;
-
             hospitalMarkers.push(marker);
-            addClickEventToMarker(marker, hospital.id, hospital.nome);
+            addClickEventToMarker(marker, hospital.id, hospital.nome, hospitalPosition);
         });
 
         zoomMap();
@@ -496,6 +645,37 @@ const MapView = (() => {
         localPartida = marker;
     }
 
+    async function calcularERenderizarRota(destino, modo){
+        const { DirectionsService, DirectionsRenderer } = await google.maps.importLibrary("routes");
+
+        const directionsService = new DirectionsService();
+        const directionsRenderer = new DirectionsRenderer();
+
+        directionsRenderer.setMap(map); // Renderiza a rota no mapa
+
+        const request = {
+            origin: localPartida.getPosition(),
+            destination: destino,
+            travelMode: modo, 
+        }
+
+        directionsService.route(request, (result, status) => {
+            if (status === google.maps.DirectionsStatus.OK) {
+                if (currentRouteRenderer) {
+                    currentRouteRenderer.setMap(null);  // Remove a rota anterior
+                }
+    
+                // Renderizar a nova rota
+                currentRouteRenderer = new google.maps.DirectionsRenderer();
+                currentRouteRenderer.setMap(map);  // map é a variável do seu mapa no Google Maps
+                currentRouteRenderer.setDirections(result);
+            } 
+            else {
+                alert("Erro ao calcular a rota: " + status);
+            }
+        });
+    }
+
     
     return {
         initMap,
@@ -507,10 +687,12 @@ const MapView = (() => {
         meuLocalDePartida,
         meuLocalDePartidaLocAtual,
         invisivel,
+        calcularERenderizarRota,
+        makeInfoWindowDraggable,
         handleHospitalNavClick,
         displayHospitalsOnMap,
-        
     };
 })();
+
 
 

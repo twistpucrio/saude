@@ -1,3 +1,4 @@
+
 const NavView = (() => {
     
     // Exibe uma mensagem de erro na área de detalhes
@@ -72,3 +73,4 @@ const NavView = (() => {
         setInputValue,
     };
 })();
+
