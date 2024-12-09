@@ -4,6 +4,7 @@ const MapView = (() => {
     let map;
     const hospitalMarkers = [];
     let localPartida;
+    let currentInfoWindow = null;
 
 
     // Inicializa o mapa e salva a instância
@@ -332,7 +333,13 @@ const MapView = (() => {
           });
 
         maker.addListener('click', () =>{
+            if (currentInfoWindow) {
+                currentInfoWindow.close();
+            }
+
             infoWindow.open(maker.getMapInstance,maker);
+
+            currentInfoWindow = infoWindow;
 
             google.maps.event.addListenerOnce(infoWindow, 'domready', () =>{
                 document.getElementById('detailsButton').addEventListener('click', () =>{
@@ -424,6 +431,9 @@ const MapView = (() => {
                 title: hospital.nome,
                 icon: pinIcon
             });
+
+            marker.hospitalId = hospital.id;
+
             hospitalMarkers.push(marker);
             addClickEventToMarker(marker, hospital.id, hospital.nome);
         });

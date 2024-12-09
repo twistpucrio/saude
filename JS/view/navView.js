@@ -37,11 +37,8 @@ const NavView = (() => {
             // Adiciona evento de clique
             hospitalElement.addEventListener('click', () => {
                 console.log(`Clicado no hospital: ${hospital.nome}`);
-                if (typeof handleHospitalNavClick === 'function') {
-                    handleHospitalNavClick(hospital.id); // Chama a função recebida
-                } else {
-                    console.error('handleHospitalNavClick não é uma função');
-                }
+                MapView.handleHospitalNavClick(hospital.id); // Chama a função recebida
+
             });
 
             displayHospitaisEncontrados.appendChild(hospitalElement);
