@@ -1,0 +1,18 @@
+#redes{
+    margin-left: 40%;
+}
+
+p{
+    padding: 3%;
+    font-size: larger;
+}
+
+fieldset{
+    display: inline-block;
+    margin-left: 30%;
+}
+
+#mensagem{
+    width: 350px;
+    height: 200px;
+}

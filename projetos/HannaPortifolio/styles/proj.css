@@ -1,0 +1,30 @@
+figure{
+    display: inline-block;
+    width: 20%;
+    height: 20%;
+}
+
+img{
+    
+    width: 200%;
+    height: 200%;
+}
+
+h2{
+    text-align: center;
+    font-size: xx-large;
+}
+
+p{
+    display: inline-block;
+    width: 40%;
+    height: 20%;
+    vertical-align:top;
+    padding-top: 12%;
+    text-align: center;
+    padding-left: 4%;
+    padding-right: 4%;
+
+}
+
+

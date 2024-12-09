@@ -1,0 +1,51 @@
+#inicial{
+    padding: 2%;
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+    background-color: rgb(231, 101, 243);
+}
+
+#navInterno{
+    text-align: center;
+}
+
+
+h4{
+    text-align: center;
+}
+
+#puc, #ufrj, #liessin{
+    display: inline-block;
+    width: 30%;
+    height: 40%;
+    vertical-align: top;
+    text-align: center;
+}
+
+#formacao, #olimpiada{
+    text-align: center;
+}
+
+ul{
+    margin: 0% auto;
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    padding: 3%;
+}
+
+
+.txt{
+    text-align: justify;
+    padding: 5%;
+}
+
+h5{
+    font-size: large;
+    text-align: center;
+}
