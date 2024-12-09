@@ -316,7 +316,6 @@ const MapView = (() => {
         return service; // Expor a instância de PlacesService para o Controller
     };
 
-    //mudar aqui
     const addClickEventToMarker = (maker, hospitalId, hospitalName) => {
 
         const infoWindow = new google.maps.InfoWindow({
@@ -329,7 +328,7 @@ const MapView = (() => {
                 </button>
             </div>
         `,
-            ariaLabel: "",
+            ariaLabel: "`Informações sobre ${hospitalName}`",
           });
 
         maker.addListener('click', () =>{
@@ -342,6 +341,24 @@ const MapView = (() => {
             });  
         });
     }
+
+
+    const handleHospitalNavClick = (hospitalId) => {
+        // Encontre o marcador associado ao ID do hospital
+        const marker = hospitalMarkers.find(m => m.hospitalId === hospitalId);
+    
+        if (marker) {
+            // Simula o clique no marcador, abrindo o InfoWindow
+            google.maps.event.trigger(marker, 'click');
+        } else {
+            console.error(`Marcador para o hospital com ID ${hospitalId} não encontrado.`);
+        }
+    };
+
+    const displayHospitalsOnMap = (hospitals) => {
+        // Aqui, você passa a função handleHospitalNavClick para o NavView
+        NavView.displayHospitalsNav(hospitals, handleHospitalNavClick);
+    };
 
     const zoomMap = () => {
         // Verifica se há hospitalMarkers definidos e se contêm pelo menos um item
@@ -480,6 +497,8 @@ const MapView = (() => {
         meuLocalDePartida,
         meuLocalDePartidaLocAtual,
         invisivel,
+        handleHospitalNavClick,
+        displayHospitalsOnMap,
         
     };
 })();
