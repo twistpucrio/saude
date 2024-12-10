@@ -76,6 +76,7 @@ const NavController = (() => {
         document.getElementById('local').addEventListener('input', handleInputChange);
         document.getElementById('local').addEventListener('click', handleInputFocus);
         document.addEventListener('click', handleClickOutside);
+        
     };
 
     return {
