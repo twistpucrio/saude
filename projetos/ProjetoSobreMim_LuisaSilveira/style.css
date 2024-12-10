@@ -1,0 +1,237 @@
+h1.sombra {
+    font-family: 'gupter';
+    font-size: xx-large;
+    color:white;
+    text-shadow: 1px 1px 2px #000, 0 0 5px #103f3b, 0 0 15px #204e50, 0 0 25px #36a593;
+    text-align: center;
+}
+
+h1 {
+    font-family: Geneva;
+    font-size: x-large;
+    
+}
+
+h2 {
+    font-family: Geneva;
+    font-size: large;
+}
+
+.tituloCenter {
+    text-align: center;
+    font-family: Geneva;
+}
+
+img.mapa {
+    width: 100%; 
+    height: 100%;
+    margin:0%;
+    padding:0%;
+    vertical-align: middle;
+}
+
+.borda {
+    border: 3px solid rgb(50, 107, 109);;
+    padding: 2%;
+    display: flex; 
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%; 
+}
+
+figure.mapa{
+    margin: 0%;
+    width: 45%;
+    height: 80%;
+    display:inline-block;
+    padding:0%;
+    vertical-align: middle;
+
+}
+
+iframe {
+    width: 50%; 
+    height: 225px;
+}
+
+body {
+    background-color: rgb(51, 75, 99);
+}
+
+#conteudo {
+    background-color: rgb(234, 240, 247);
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 1%;
+    font-size: larger;
+    margin-left: 1%;
+    background-color: rgba(95, 158, 160, 40%);
+    border-radius: 10%;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    padding: 1%;
+    background-color: rgba(95, 158, 160, 100%);
+    font-size: larger;
+    border-radius: 10%;
+    margin-left: 1%;
+}
+
+figure:active {
+    color: rgb(50, 107, 109);;
+}
+
+a {
+    color: darkslateblue;
+}
+
+li {
+    font-size: large;
+}
+
+#curio {
+    background-color: rgb(236, 222, 183);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+    overflow: scroll;
+    width: 80%;
+    height: 350px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 3% solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+.conf{
+    display:block;
+    text-align: justify;
+}
+
+.ladoalado {
+    flex: 1; 
+    margin: 0 1%; 
+    box-sizing: border-box; 
+}
+
+
+.container-ladoalado {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 2%;
+}
+
+.imgFamilia {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    margin: 0 auto; 
+    width: 70%; 
+}
+
+.imgFamilia figure {
+    flex: 1 1 25%;
+    margin: 0; 
+    text-align: center;
+}
+
+.imgFamilia img {
+    width: 80%;
+    height:60%; 
+    border-radius: 5px; 
+}
+
+p.trilha{
+    text-align: justify;
+    margin:auto;
+}
+
+.imgTrilha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    margin: 0 auto; 
+    width: 70%; 
+}
+
+.imgTrilha figure {
+    flex: 1;
+    margin: 0; 
+    text-align: center;
+}
+
+.imgTrilha img {
+    width: 100%;
+    border-radius: 5px; 
+}
+
+form {
+    margin: 0 auto;
+    padding: 2%;
+    width: 800px;
+}
+
+fieldset {
+    border: 3px solid rgb(50, 107, 109);
+    border-radius: 2%;
+    padding: 2%;
+}
+
+legend {
+    font-size: large;
+    font-family:Verdana;
+    color: rgb(50, 107, 109);
+}
+
+
+label {
+    display: block;
+    margin: 1%;
+}
+
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
+    width: 100%; 
+    padding: 2%;
+    border: 1px solid rgb(50, 107, 109);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+h1.linha{
+    border-bottom: 2px solid rgb(50, 107, 109) ;
+    padding: 2%;
+    color:rgb(50, 107, 109);
+    font-size:xx-large ;
+
+}
+
+h2.tam2{
+    color:rgb(50, 107, 109);
+    font-size:x-large;
+}
+
+h3.tam3{
+    font-size:medium;
+    font-family:'Cochin';
+}
+

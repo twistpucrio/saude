@@ -22,8 +22,19 @@ const NavModel = (() => {
         localStorage.setItem('ultimasLocalidades', JSON.stringify(locations));
     };
 
+    const saveHospitals = (hospitals) => {
+        localStorage.setItem('hospitaisExibidos', JSON.stringify(hospitals));
+    };
+
+    // Retrieve hospitals from localStorage
+    const getHospitals = () => {
+        return JSON.parse(localStorage.getItem('hospitaisExibidos')) || [];
+    };
+
     return {
         getLocations,
         saveLocation,
+        saveHospitals,
+        getHospitals,
     };
 })();

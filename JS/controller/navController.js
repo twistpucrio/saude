@@ -5,21 +5,17 @@ const NavController = (() => {
     const saveLocation = (location) => {
         localStorage.setItem('selectedLocation', location);
     };
-
-    const loadLocation = () => {
-        const savedLocation = localStorage.getItem('selectedLocation');
-        if (savedLocation) {
-            NavView.setInputValue(savedLocation); // Define o valor no campo de input
-        }
-    };
+  
 
     // mostra ou esconde o dropdown baseado no estado do input
-    const handleInputFocus = () => {
-        const inputLocal = document.getElementById('local');
-        if (inputLocal.value.trim() === "") {
-            NavView.alterarDropdown(true);
+    const loadLocation = () => {
+        const savedLocations = NavModel.getLocations(); // Obtém as localizações salvas
+        if (savedLocations.length > 0) {
+            const lastLocation = savedLocations[0]; // A última localização salva
+            NavView.setInputValue(lastLocation);
         }
     };
+    
 
     // esconde o dropdown quando clicado 'fora'
     const handleClickOutside = (event) => {
@@ -33,8 +29,8 @@ const NavController = (() => {
 
     const handleLocationSelection = (location) => {
         NavView.setInputValue(location);
-        saveLocation(location); // Salva no LocalStorage
         NavModel.saveLocation(location);
+        loadLocation(); // Atualiza o campo com a última localização
         NavView.alterarDropdown(false);
     };
 
