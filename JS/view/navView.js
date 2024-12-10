@@ -21,6 +21,9 @@ const NavView = (() => {
             return;
         }
 
+        // Salva os hospitais no localStorage
+        NavModel.saveHospitals(hospitals);
+        
         // Limpa os hospitais anteriores
         displayHospitaisEncontrados.innerHTML = '';
 

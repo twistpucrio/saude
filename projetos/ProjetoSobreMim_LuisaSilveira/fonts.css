@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'gupter';
+    src: url(fonts/Gupter/Gupter-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'gupter-medium';
+    src: url(fonts/Gupter/Gupter-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'gupter-bold';
+    src: url(fonts/Gupter/Gupter-Bold.ttf);
+}
+

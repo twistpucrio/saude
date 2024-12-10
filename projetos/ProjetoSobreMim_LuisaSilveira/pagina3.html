@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Sobre Mim</title>
+    <link rel="shortcut icon" href="img/luisa.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="conteudo">
+        <header>Bibliografia de Luísa Ferreira da Silveira</header>
+        <br/><br/>
+        <nav>
+            <a href="index.html">Sobre mim</a> |
+            <a href="#familia">Família</a> |
+            <a href="pagina2.html">Currículo</a> | 
+            <a href="pagina3.html">Contato</a>   
+        </nav>
+        <section>
+            <br/><br/>
+
+            <h2>Minhas Informações: </h2>
+            <ul>
+                <li>Email: luisasilveira040@gmail.com</li>
+                <li>GitHub: <a href = "https://github.com/LuisaSilveira">link do github</a></li>
+                <li>LinkedIn: <a href = "https://www.linkedin.com/in/lu%C3%ADsa-silveira-340b26258/">link do linkedin</a></li>
+            </ul>
+            <form action="" method="get">
+                <fieldset>
+                    <legend>Dados para contato:</legend>
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="nome" id="nome" required>
+                    <br/>
+                    <label for="idade">Idade: </label>
+                    <input type="tel" name="idade" id="idade" required>
+                    <br/>
+                    <label for="genero">Gênero: </label>
+                    <select name="genero" id="genero" required>
+                        <option value="">Selecione</option>
+                        <option value="fem">Feminino</option>
+                        <option value="mas">Masculino</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                    <br/>
+                    <label for="outroGenero">Outro Gênero: </label>
+                    <input type="text" name="outroGenero" id="outroGenero">
+                    <br/>
+                    <label for="mail">Email:</label>
+                    <input type="email" name="mail" id="mail" required>
+                    <br/>
+                    <label for="cpf">CPF: </label>
+                    <input type="text" name="cpf" id="cpf" placeholder="xxx.xxx.xxx-xx" required>
+                    <br/>
+                    <label for="cep">CEP: </label>
+                    <input type="text" name="cep" id="cep" placeholder="xxxxx-xxx" required>
+                </fieldset>
+                <br/><br/>
+                <fieldset>
+                    <legend>Motivo do contato:</legend>
+                    <label><input type="checkbox" name="motivo" value="serie"> Contato social</label>
+                    <br/> 
+                    <label><input type="checkbox" name="motivo" value="livros"> Sugestões de melhorias e feedback</label>
+                    <br/>
+                    <label><input type="checkbox" name="motivo" value="praia"> Informações adicionais</label>
+                    <br/>
+                    <label><input type="checkbox" name="motivo" value="praia"> Eventos ou palestras</label>
+                    <br/>
+                    <label><input type="checkbox" name="motivo" value="praia"> Oportunidades de Colaboração</label>
+                    <br/>
+                    <label for="opniao">Outro motivo:</label>
+                    <br/>
+                    <textarea name="opniao" id="opniao" cols="100" rows="5"></textarea>
+                </fieldset>
+                <br/>
+                <input name="botao" type="button" value="Enviar" onclick="alert('Enviado!')" />
+            </form>
+        </section>
+        <br/><br/><br/><br/>
+        <footer>Desenvolvido por: Luísa Silveira <br/>
+            Projeto TWIST - 2024</footer>
+        <br/>
+    </div>
+</body>
+</html>
