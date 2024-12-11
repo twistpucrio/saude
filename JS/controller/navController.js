@@ -2,21 +2,6 @@ const NavController = (() => {
 
     let expanded = false;
 
-    const saveLocation = (location) => {
-        localStorage.setItem('selectedLocation', location);
-    };
-  
-
-    // mostra ou esconde o dropdown baseado no estado do input
-    const loadLocation = () => {
-        const savedLocations = NavModel.getLocations(); // Obtém as localizações salvas
-        if (savedLocations.length > 0) {
-            const lastLocation = savedLocations[0]; // A última localização salva
-            NavView.setInputValue(lastLocation);
-        }
-    };
-    
-
     // esconde o dropdown quando clicado 'fora'
     const handleClickOutside = (event) => {
         const dropdown = document.getElementById('dropdown-localizacao');
