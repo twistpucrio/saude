@@ -70,12 +70,6 @@ html, body {
 
 }
 
-
-
-
-
-
-
 #local:focus {
     outline: none;
     border-color: none; /* Opcional: Ajuste a cor da borda ou remova-a */
@@ -90,6 +84,79 @@ html, body {
     border-radius: 2%;
 }
 
+#emergencia{
+    background-color: #2e2d2d;
+}
+#emergencia h1 {
+    text-align: center;
+    font-size: 300%;
+    margin: 20px 0;
+    color: white;
+    border-bottom: 3px solid #ffffff;
+    padding-bottom: 10px;
+}
+
+#emergencia-header {
+    text-align: center;
+    background: linear-gradient(180deg, #8b0000, #b22222);
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 0 auto 20px;
+    max-width: 800px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#emergencia-header h2 {
+    font-size: 175%;
+    margin: 0;
+}
+
+#emergencia-header .emergencia-numero {
+    font-size: 225%;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#emergencia-numeros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 300%;
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: 8%;
+}
+
+.emergencia-card {
+    background-color: #fff;
+    color: #000000;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(238, 44, 44, 0.836);
+    padding: 15px;
+    width: 150px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.emergencia-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 10px rgb(255, 4, 4);
+}
+
+.emergencia-card .numero {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #b22222;
+    margin-bottom: 10px;
+}
+
+.emergencia-card .descricao {
+    font-size: 125%;
+    font-weight: bolder;
+    color: #555;
+}
 
 
 /* Desktop */

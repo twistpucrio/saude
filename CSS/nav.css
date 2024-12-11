@@ -252,6 +252,7 @@ nav{
     font-family:"antiqua";
     background-color: transparent;
     border-color: transparent;
+    color:white;
 
     cursor: pointer;
 }
