@@ -89,11 +89,11 @@ html, body {
 }
 #emergencia h1 {
     text-align: center;
-    font-size: 300%;
-    margin: 20px 0;
+    font-size: 3vw;
+    margin: 2% 0;
     color: white;
-    border-bottom: 3px solid #ffffff;
-    padding-bottom: 10px;
+    border-bottom: 0.3vw solid #ffffff;
+    padding-bottom: 1%;
 }
 
 #emergencia-header {
@@ -162,6 +162,55 @@ html, body {
     background-color: #2e2d2d ;
 }
 
+.comousar-content h2{
+    text-align: center;
+    font-size: 3vw;
+    margin: 2% 0;
+    color: white;
+    border-bottom: 0.3vw solid #ffffff;
+    padding-bottom: 1%;
+}
+
+#comoUsar .comousar-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    line-height: 2.0;
+    color: white;
+    list-style-position: inside; /* Números alinhados */
+    text-align: center; /* Centraliza os itens */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinha os itens no centro */
+    gap: 10px; /* Espaço entre as caixas */
+
+}
+
+#comoUsar .comousar-content ul li {
+    background-color: #3b3a3a; /* Cor de fundo das caixas */
+    border: 1px solid #555; /* Borda das caixas */
+    border-radius: 8px; /* Borda arredondada */
+    padding: 10px 20px;
+    width: 80%; /* Define a largura das caixas */
+    text-align: left; /* Alinha o texto dentro da caixa */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+#comoUsar .comousar-content ul li:hover {
+    transform: scale(1.02); /* Efeito de destaque ao passar o mouse */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#comoUsar .comousar-content ul li strong {
+    color: #00aced; /* Cor do texto destacado */
+    margin-left: 5px;
+}
+
+
 #sobreNos{
     background-color: #2e2d2d ;
 }
@@ -184,7 +233,8 @@ html, body {
     margin: 2% auto;
     max-width: 80%;
     padding: 2%;
-    background: #003366;
+    background-color: #3b3a3a; /* Cor de fundo das caixas */
+    border: 1px solid #555; /* Borda das caixas */
     border-radius: 2%;
     box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.3);
 }
@@ -224,7 +274,7 @@ html, body {
 }
 
 .desenvolvedora-card a {
-    color: #49bfe2;
+    color: #00aced;
     text-decoration: none;
 }
 
