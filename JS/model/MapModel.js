@@ -2,6 +2,7 @@
 
 const MapModel = (() => {
     let hospitals = [];
+    
 
     // Carrega os hospitais do arquivo JSON
     const carregarHospitais = () => {
@@ -20,6 +21,23 @@ const MapModel = (() => {
     const getHospitalsByProcedure = (procedureId) => {
         return hospitals.filter(hospital => hospital.procedimentos.includes(procedureId));
     };
+
+    // ROTAS
+    const calcularERenderizarRota = (origem, destino, modo) => {
+        return new Promise((resolve, reject) => {
+            directionsService.route({
+                origin: origem,
+                destination: destino,
+                travelMode: modo,
+            }, (result, status) => {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    resolve(result);
+                } else {
+                    reject("Erro ao calcular a rota: " + status);
+                }
+            });
+        });
+    }
 
     return {
         carregarHospitais,
