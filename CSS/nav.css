@@ -31,6 +31,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 2%;
+        border-radius: 8px;
 
         h2{
             color: rgb(255, 255, 255);
@@ -40,6 +41,12 @@
             color: rgb(252, 215, 48);
         }
         
+        /* Efeito hover */
+        &:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
     }
 }
 
@@ -112,12 +119,39 @@ nav{
                     height: 100%;
 
                     border: none;
+
+                    outline: none;
+                    transition: box-shadow 0.3s;
+
+                    &:focus {
+                    box-shadow: 0 0 5px 2px #1e90ff;
+                    }   
                 }       
+
+                button#limparLocal {
+                    background-color: #1e90ff;
+                    color: white;
+                    border: none;
+                    padding: 5px 10px;
+                    margin-left: 5px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+            
+                    &:hover {
+                        background-color: #0f62b5;
+                    }
+                }
+                
             }
             
             img{
                 position: absolute;
                 right: 3%; /* tela cheia */
+
+                /* width: 20px;
+                cursor: pointer;*/
+                /* margin-left: -30px;  */
             }
             
         }
@@ -179,37 +213,71 @@ nav{
     }
    
     
-   .multi_select{
-          width: 100%;
+    .form{
+        display: flex;
+        align-items: center; /* Alinha o select e o botão na mesma linha */
+
+        .multi_select{
+            width: 100%;
             margin: 10px 5px;
-          .select_proced{
-              position: relative;
+            
+            
+            .select_proced{
+                /* position: relative; */
+                position: relative;
+                display: inline-block;
+                width: auto;
+                margin-right: 10px; /* Espaçamento entre o select e o botão */
 
-              select{
-                  width: 100%;
-                  font-weight: bold;
-              }
+                select{
+                    width: 100%;
+                    font-weight: bold;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    background-color: rgb(255, 255, 255, 0.1);
+                    color: #fff;
+                    /* appearance: none; Remove o estilo padrão do select */
+                    cursor: pointer;
+                }
 
-              .overSelect{
-                  position: absolute;
-                  left: 0; right: 0; top: 0; bottom: 0;
-              }
-          }
+                .overSelect{
+                    position: absolute;
+                    left: 0; right: 0; top: 0; bottom: 0;
+                    background-color: rgba(0, 0, 0, 0.2);
+                    border-radius: 4px;
+                }
+            }
+        }
+    
 
-          #checkboxes{
-              display: none;
-              border: 1px solid #404040;
+        #checkboxes{
+            /* display: none;
+            border: 1px solid #404040; */
 
-              label{
-                  display: block;
-              }
+            label{
+                display: block;
+                cursor: pointer;
+            }
 
-              label:hover{
-                  background-color: #0c151f;
-              }
-          }
+            label:hover{
+                background-color: #0c151f;
+            }
+        }
 
-      }
+        #btnProc{
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #btnProc:hover {
+            background-color: #0056b3;
+        }
+
+    }
 }
 
 
@@ -258,6 +326,172 @@ nav{
 }
 
 
+/*ROTA opções*/
+.route-options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    
+    /* Garantir altura total do container */
+    width: 93.5%; /* Ajuste conforme necessário */
+    
+    overflow-y: auto;
+
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.route-option{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    
+    padding: 10px;
+    margin-bottom: 5px;
+    
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+
+    position: relative; /* Permite posicionar elementos filhos */
+    min-height: 120px; /* Garante altura suficiente */
+
+}
+
+.route-option img{
+    width: 30px;
+    padding: 5px;
+}
+
+.route-option:hover {
+    background: #e9ecef;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.route-option.active {
+    background: #dbe9ff; /*Cor de destaque semelhante ao Google Maps */
+    color: white;
+    border-left: 7px solid #4285f4;
+
+}
+
+.route-option-details {
+    font-size: 20px;
+    /* line-height: 1.5; */
+    color: #333;
+
+    .img_dur{
+        display: flex;
+        align-items: center;
+
+        gap: 20px;
+
+        font-weight: 600;
+        
+    }
+}
+
+
+.route-option .line-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.route-option .line-info p {
+    margin: 0;
+    color: #0c151f;
+}
+
+.route-option .route-lines {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 8px;
+    font-size: 13px;
+    color: #555;
+
+    margin-top: 10px;
+}
+
+.route-option .route-lines .line {
+    /* display: inline-block; */
+    background-color: #4285f4;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+
+    margin-top: 5px;
+}
+
+.route-option .p {
+    position: absolute;
+    bottom: 0px; /* Distância da parte inferior */
+    right: 10px; /* Distância do lado direito */
+
+    color: #8f8f8f;
+    margin: 0;
+
+    font-size: 16px;
+}
+
+.route-option .toggle-details-btn {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.route-option .toggle-details-btn:hover {
+    background-color: #356ac5;
+}
+
+.route-option .route-details {
+    font-size: 13px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.route-option .route-details p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+
+.route-option strong {
+    font-weight: 600;
+}
+
+/* ----- SCROLLBAR ESTILIZADA ----- */
+.route-options-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.route-options-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.route-options-container::-webkit-scrollbar-thumb {
+    background: #1e90ff;
+    border-radius: 10px;
+}
+
+.route-options-container::-webkit-scrollbar-thumb:hover {
+    background: #0f62b5;
+}
+
+
 /* Desktop */
 @media screen and (min-width: 1024px) {
     nav{
@@ -303,7 +537,7 @@ nav{
 
     #displayHospitaisEncontrados{
         position: fixed;
-        bottom: 0;
+        bottom: 200px;
         left: 0;
         
         width: 100%;

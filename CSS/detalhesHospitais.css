@@ -4,8 +4,6 @@
             <p><strong>Bairro:</strong> ${hospital.bairro.join(", ")}</p>
             <p><strong>Procedimentos:</strong> ${hospital.procedimentos.join(", ")}</p>
             <p><strong>Descrição:</strong> ${hospital.descricao}</p>
-
-            
         `; */
 #hospital-details{
     background-color: #404040;
@@ -16,8 +14,7 @@ h1{
     color: #0CBFF5;
     font-size: 300%;
     text-align: center;
-    padding: 0;
-    padding-top: 4%;
+    padding: 3%;
 }
 
 #details{
@@ -30,7 +27,7 @@ h1{
 
     h2{
         color: #0CBFF5;
-        font-size: 230%;
+        font-size: 250%;
         text-align: center;
     }
 
@@ -43,22 +40,14 @@ h1{
 img{
     width: 10%;
     height: 10%; 
-    padding: 1%; 
+    padding: 0%; 
     margin: 0%;
 }
 
-#volta{
-    position: fixed;
+a{
     font-size: larger;
     padding: 0.5%;
     background-color: #0CBFF5;
     color: black;
-    margin-left: 90%; 
-}
-
-#logoA{
-    position: fixed;
-    width: 100%;
-    padding: 0.5%;
     margin-left: 2%; 
 }
