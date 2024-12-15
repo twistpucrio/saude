@@ -17,20 +17,6 @@ const MapController = ((model, view) => {
 
     };
 
-    const renderizaResultados = () => {
-        const selectedProcedures = Array.from(document.querySelectorAll("input[name='procedimento']:checked"))
-            .map(checkbox => checkbox.id);
-
-        model.carregarHospitais().then(() => {
-            const hospitals = selectedProcedures.flatMap(procedureId => model.getHospitalsByProcedure(procedureId));
-            localStorage.removeItem("hospitaisFiltrados");
-            localStorage.setItem("hospitaisFiltrados", JSON.stringify(hospitals));
-            NavView.displayHospitalsNav(hospitals);
-            // view.addHospitalMarkers(hospitals);
-        });
-
-    };
-
     // Função para inicializar o mapa e configurar geolocalização e busca
     const init = () => {
         setupUserGeolocation();  // Chama a função para configurar o botão de geolocalização
@@ -256,8 +242,6 @@ const MapController = ((model, view) => {
         });
     };
 
-    
-
     return {
         buscarHospitais,
         buscaPorTexto,
@@ -266,8 +250,6 @@ const MapController = ((model, view) => {
         limpaLoc,
         init,
         addClickEventToHospitalMarker,
-        iniciarRotaParaHospital,
-
-        renderizaResultados
+        iniciarRotaParaHospital
     };
 })(MapModel, MapView);
