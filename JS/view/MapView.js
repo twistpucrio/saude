@@ -9,10 +9,7 @@ const MapView = (() => {
     let directionsService;
     let directionsRenderer;
     let currentInfoWindow = null;
-    
-    let routeRenderers = []; // Armazena os renderizadores de rotas alternativas
-    let currentRouteIndex = -1;
-    let currentRouteRenderer = null; // Armazena o renderer ativo
+
 
     // Inicializa o mapa e salva a instância
     const initMap = (position, mapElementId) => {
@@ -318,6 +315,7 @@ const MapView = (() => {
         })
     };
 
+    
 
     const getMapInstance = () => {
         return map; // Retorna a instância do mapa
@@ -332,16 +330,19 @@ const MapView = (() => {
         const infoWindow = new google.maps.InfoWindow({
             content: `
             <div class="infowindow">
-                <h4>${hospitalName}</h4> 
+                <h4>Hospital: ${hospitalName}</h4> 
                 <p>Mais informações sobre o hospital.</p>
-                <button class="btn_infoWindow" id="detailsButton">Mais Detalhes</button>
-                <button class="btn_infoWindow" id="routeButton">Traçar Rota</button>
+                <button id="detailsButton">
+                    Mais Detalhes
+                </button>
+                <button id="routeButton">
+                    Traçar Rota
+                </button>
             </div>`,
             ariaLabel: "",
         });
     
         maker.addListener('click', () => {
-
             if (currentInfoWindow) {
                 currentInfoWindow.close();
             }
@@ -357,14 +358,12 @@ const MapView = (() => {
     
                 // botão "Traçar Rota"
                 document.getElementById('routeButton').addEventListener('click', () => {
-                    showRouteOptions(infoWindow, hospitalPosition, hospitalId, hospitalName);
+                    showRouteOptions(infoWindow, hospitalPosition);
                 });
     
                 // Evento de fechamento do InfoWindow (clicar no "X")
                 google.maps.event.addListener(infoWindow, 'closeclick', () => {
                     removeRoute(); // Remove a rota quando o InfoWindow for fechado
-                    document.getElementById('route-options').style.display = 'none';
-                    MapController.renderizaResultados();
                 });
     
                 // Tornar o InfoWindow arrastável
@@ -394,367 +393,9 @@ const MapView = (() => {
     };
   
   
-    const hospitals = [];
-    // Muda a rota de acordo com o modo escolhido
-    const showRouteOptions = (infoWindow, hospitalPosition, hospitalId, hospitalName) => {
-        
-        // Salvar o conteúdo original do InfoWindow
-        const originalContent = infoWindow.getContent();
-        
-        // Substitui o conteúdo do InfoWindow para exibir os modos de transporte
-        infoWindow.setContent(`
-            <div class="infowindow">
-                <h4>Escolha o modo de transporte</h4>
-                <button class="modoRota" id="drivingRoute">
-                    <img src="img/icons/car.svg" alt="" title="Dirigindo">
-                </button>
-                <button class="modoRota" id="walkingRoute">
-                    <img src="img/icons/walk.svg" alt="" title="Caminhando">
-                </button>
-                <button class="modoRota" id="transitRoute">
-                    <img src="img/icons/bus.svg" alt="" title="Transporte Público">
-                </button>
-                <button id="voltar">Voltar</button>
-            </div>`
-        );
+
+    // Função para tornar o InfoWindow arrastável
     
-        google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
-            // Definir os eventos para cada opção de rota
-            document.getElementById('drivingRoute').addEventListener('click', () => {
-                updateRoute(hospitalPosition, 'DRIVING');
-                NavView.displayHospitalsNav(false);
-            });
-            document.getElementById('walkingRoute').addEventListener('click', () => {
-                updateRoute(hospitalPosition, 'WALKING');
-                NavView.displayHospitalsNav(false);
-            });
-            document.getElementById('transitRoute').addEventListener('click', () => {
-                updateRoute(hospitalPosition, 'TRANSIT');
-                NavView.displayHospitalsNav(false);
-            });
-    
-            document.getElementById('voltar').addEventListener('click', () => {
-                
-
-                // Ao clicar em "Voltar", restaura o conteúdo original
-                infoWindow.setContent(originalContent);
-                google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
-                    // Reanexa os eventos do InfoWindow original
-                    document.getElementById('detailsButton').addEventListener('click', () => {
-                        window.location.href = `detalhesHospital.html?id=${hospitalId}`;
-                    });
-                    document.getElementById('routeButton').addEventListener('click', () => {
-                        showRouteOptions(infoWindow, hospitalPosition, hospitalId, hospitalName);
-                    });
-
-                    // opções rota
-                    document.getElementById('route-options').style.display = 'none';
-                    removeRoute();
-
-                });
-                MapController.renderizaResultados();
-                
-            });
-        });
-    };
-
-    // Rota
-    async function calcularERenderizarRota(destino, modo) {
-        const { DirectionsService, DirectionsRenderer } = await google.maps.importLibrary("routes");
-    
-        const directionsService = new DirectionsService();
-    
-        const request = {
-            origin: localPartida.getPosition(),
-            destination: destino,
-            travelMode: modo,
-            provideRouteAlternatives: true, // Solicita múltiplas opções de rota
-        };
-    
-        directionsService.route(request, (result, status) => {
-            if (status === google.maps.DirectionsStatus.OK) {
-                // Remove todas as rotas anteriores antes de renderizar novas rotas
-                removeAllRouteRenderers();
-                clearRouteOptions();
-    
-                // Renderiza todas as rotas alternativas
-                result.routes.forEach((route, index) => {
-                    const renderer = new DirectionsRenderer({
-                        map: map,
-                        directions: result,
-                        routeIndex: index,
-                        polylineOptions: {
-                            strokeColor: index === 0 ? "#FF5733" : "#337AFF", // Inicializa a rota destacada
-                            strokeOpacity: index === 0 ? 1 : 0.2, 
-                            strokeWeight: index === 0 ? 6 : 4,
-                        },
-                        suppressMarkers: false, // Para mostrar os marcadores de rota
-                    });
-
-                    console.log("Antes de adicionar renderer, estado de routeRenderers:", routeRenderers);
-                    routeRenderers.push(renderer); // Armazena cada renderer em um array global
-                    console.log("Após adicionar renderer, estado de routeRenderers:", routeRenderers);
-
-                    // Adiciona a rota à lista de opções
-                    addRouteOption(route, index, modo);
-                });
-    
-                // Destaca a primeira rota por padrão
-                highlightRoute(0);
-            } else {
-                alert("Erro ao calcular a rota: " + status);
-            }
-        });
-    }
-
-    // Função para atualizar a rota com o novo modo de transporte
-    const updateRoute = (destination, travelMode) => {
-        // Invoca a função de cálculo de rota para atualizar o modo de transporte
-        calcularERenderizarRota(destination, travelMode);
-    };
-
-
-    const removeAllRouteRenderers = () => {
-        routeRenderers.forEach(renderer => renderer.setMap(null));
-        routeRenderers = [];
-    };
-
-    const removeRoute = () => {
-        removeAllRouteRenderers();
-        currentRouteRenderer = null;
-    };
-
-    const addRouteOption = (route, index, modo) => {
-        const routeOptionsContainer = document.getElementById("route-options");
-        document.getElementById("route-options").style.display = 'block';
-    
-        const routeOption = document.createElement("div");
-        routeOption.className = "route-option";
-        routeOption.dataset.index = index;
-    
-        // Informações básicas da rota
-        let details = ``;
-
-        if (modo === google.maps.TravelMode.TRANSIT) {
-            const steps = route.legs[0].steps;
-            
-            details = `
-                <div class="route-option-details">
-                    <div class="img_dur">    
-                        <img src="img/icons/bus.svg" alt="Transporte" class="step-icon">
-                        ${route.legs[0].duration.text} 
-                    </div>
-                
-                    <div class="route-lines"> 
-                        
-            `;
-
-            let lines = [];  // Lista para armazenar as linhas de transporte
-            
-            // Adiciona as linhas de transporte (ônibus) à lista de 'lines'
-            steps.forEach(step => {
-                if (step.transit) {
-                    lines.push(step.transit.line.short_name || step.transit.line.name);
-                }
-            });
-            
-            // Adiciona as linhas à variável details
-            lines.forEach((line, index) => {
-                details += `
-                    
-                        <span class="line">${line}</span>
-                `;
-
-                // Se não for a última linha, adiciona "→"
-                if (index < lines.length - 1) {
-                    details += " → ";
-                }
-            });
-        
-
-            details += `
-                </div>
-                <div class="p">
-                    <p>Distância: ${route.legs[0].distance.text}</p>
-                </div>
-            `; // Fecha a div das linhas de transporte
-        
-        
-            // Adiciona o botão de detalhes e o container vazio para mostrar mais informações
-            details += `
-                    <button class="toggle-details-btn" style="display: none;">Ver Detalhes</button>
-                    <div class="route-details" style="display: none;"></div> <!-- Container para detalhes -->
-                </div>
-            `;
-        }
-
-        if (modo === google.maps.TravelMode.DRIVING) {
-            details = `
-                <div class="route-option-details">
-                    <div class="img_dur">
-                        <img src="img/icons/car.svg" alt="Dirigindo" class="step-icon">
-                        ${route.legs[0].duration.text}
-                    </div>
-                    <div class="p">
-                        <p>Distância: ${route.legs[0].distance.text}</p>
-                    </div>
-                    <button class="toggle-details-btn" style="display: none;">Ver Detalhes</button>
-                    <div class="route-details" style="display: none;"></div> <!-- Container para detalhes -->
-                </div>
-            `;
-        }
-        
-
-        if (modo === google.maps.TravelMode.WALKING) {
-            details = `
-            <div class="route-option-details">
-                <div class="img_dur">
-                    <img src="img/icons/walk.svg" alt="Caminhando" class="step-icon">
-                    ${route.legs[0].duration.text}
-                </div>
-                <div class="p">
-                    <p>Distância: ${route.legs[0].distance.text}</p>
-                </div>
-                <button class="toggle-details-btn" style="display: none;">Ver Detalhes</button>
-                <div class="route-details" style="display: none;"></div> <!-- Container para detalhes -->
-            </div>
-        `;
-        }
-    
-        routeOption.innerHTML = details;
-    
-        // Adiciona evento para alternar exibição de detalhes
-        const toggleDetailsButton = routeOption.querySelector('.toggle-details-btn');
-        const routeDetailsContainer = routeOption.querySelector('.route-details');
-    
-        toggleDetailsButton.addEventListener('click', () => {
-            if (routeDetailsContainer.style.display === 'none') {
-                routeDetailsContainer.innerHTML = getRouteDetails(route, modo); // Gera os detalhes
-                routeDetailsContainer.style.display = 'block';
-                toggleDetailsButton.textContent = 'Esconder Detalhes';
-            } else {
-                routeDetailsContainer.style.display = 'none';
-                toggleDetailsButton.textContent = 'Detalhes';
-            }
-        });
-    
-        routeOption.addEventListener("click", () => {
-            // Remove a classe 'active' de todas as opções
-            const allOptions = document.querySelectorAll(".route-option");
-            allOptions.forEach((option) => option.classList.remove("active"));
-    
-            // Adiciona a classe 'active' à opção clicada
-            routeOption.classList.add("active");
-    
-            console.log(`Opção de rota clicada: ${index}`);
-            highlightRoute(); // Destaca a rota ativa
-        });
-    
-        routeOptionsContainer.appendChild(routeOption);
-    };
-    
-    // Função para gerar os detalhes da rota
-    const getRouteDetails = (route, modo) => {
-        let details = "";
-    
-        const steps = route.legs[0].steps;
-    
-        steps.forEach((step) => {
-            if (step.travel_mode === "WALKING") {
-                details += `
-                    <div class="step-details">
-                        <img src="img/icons/walk.svg" alt="Caminhando" class="step-icon">
-                        Ande por ${step.distance.text} (${step.duration.text})
-                    </div>
-                `;
-            } else if (step.travel_mode === "DRIVING") {
-                details += `
-                    <div class="step-details">
-                        <img src="img/icons/car.svg" alt="Dirigindo" class="step-icon">
-                        Dirija por ${step.distance.text} (${step.duration.text})
-                    </div>
-                `;
-            } else if (step.travel_mode === "TRANSIT" && step.transit) {
-                details += `
-                    <div class="step-details">
-                        <img src="img/icons/bus.svg" alt="Ônibus" class="step-icon">
-                        <strong>Linha:</strong> ${step.transit.line.short_name || step.transit.line.name} <br>
-                        <strong>De:</strong> ${step.transit.departure_stop.name} <br>
-                        <strong>Para:</strong> ${step.transit.arrival_stop.name} <br>
-                        <strong>Duração:</strong> ${step.duration.text}
-                    </div>
-                `;
-            }
-        });
-    
-        return details;
-    };
-    
-
-    const highlightRoute = () => {
-        
-
-        // 1. Verificar qual opção possui a classe 'active' e pegar o índice dela
-        const routeOptions = document.querySelectorAll(".route-option");
-        let activeIndex = 0;
-        
-        routeOptions.forEach((option) => {
-            if (option.classList.contains("active")) {
-                activeIndex = parseInt(option.dataset.index); // Pega o índice do data-index
-            }
-        });
-    
-        console.log("Rota ativa (index): ", activeIndex);
-        console.log("routeRenderers: ", routeRenderers);
-
-        // 2. Atualiza o estilo das rotas no mapa com base no índice ativo
-        routeRenderers.forEach((renderer, i) => {
-            console.log("i - ", i, "activeIndex - ", activeIndex)
-            if (i === activeIndex) {
-                renderer.setMap(null);
-                renderer.setOptions({
-                    polylineOptions: {
-                        strokeColor: "#FF5733",  // Cor da rota ativa
-                        strokeOpacity: 1,
-                        strokeWeight: 6,
-                    },
-                });
-                renderer.setMap(map); // Reanexa o renderizador ao mapa
-            } 
-            else {
-                renderer.setMap(null);
-                renderer.setOptions({
-                    polylineOptions: {
-                        strokeColor: "#ccc", // Cor das rotas não ativas
-                        strokeOpacity: 0.2,
-                        strokeWeight: 4,
-                    },
-                });
-                renderer.setMap(map); // Reanexa o renderizador ao mapa
-            }
-        });
-
-        // 4. Atualiza a classe 'active' na lista de opções
-        routeOptions.forEach((option, index) => {
-            if (index === activeIndex) {
-                option.classList.add("active"); // Adiciona 'active' ao índice correspondente
-            } else {
-                option.classList.remove("active"); // Remove 'active' dos outros
-            }
-        });
-        console.log("routeRenderers: ", routeRenderers);
-        // 3. Atualiza o índice atual global
-        // currentRouteIndex = activeIndex;
-    };
-
-    const clearRouteOptions = () => {
-        const routeOptionsContainer = document.getElementById("route-options");
-        routeOptionsContainer.innerHTML = ""; // Limpa a lista de opções anteriores
-    };
-
-
-    
-    // Função para tornar o InfoWindow arrastável    
     const makeInfoWindowDraggable = (infoWindow, map) => {
         let isDragging = false;
         let startLatLng = null;
@@ -809,6 +450,68 @@ const MapView = (() => {
         google.maps.event.addListener(infoWindow, 'domready', attachDragEvents); // Reanexa após cada atualização
         
     };
+
+    let currentRouteRenderer = null // Para armazenar a rota atual e poder substituí-la
+    const showRouteOptions = (infoWindow, hospitalPosition) => {
+        // Substitui o conteúdo do InfoWindow para exibir os modos de transporte
+        infoWindow.setContent(`
+            <div class="infowindow">
+                <h4>Escolha o modo de transporte</h4>
+                <button id="drivingRoute">Carro</button>
+                <button id="walkingRoute">A pé</button>
+                <button id="transitRoute">Transporte público</button>
+                <button id="closeRouteOptions">Fechar</button>
+            </div>`
+        );
+    
+        google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
+            // Definir os eventos para cada opção de rota
+            document.getElementById('drivingRoute').addEventListener('click', () => {
+                updateRoute(hospitalPosition, 'DRIVING');
+            });
+            document.getElementById('walkingRoute').addEventListener('click', () => {
+                updateRoute(hospitalPosition, 'WALKING');
+            });
+            document.getElementById('transitRoute').addEventListener('click', () => {
+                updateRoute(hospitalPosition, 'TRANSIT');
+            });
+    
+            document.getElementById('closeRouteOptions').addEventListener('click', () => {
+                // Restaura o conteúdo original com as informações do hospital
+                infoWindow.setContent(`
+                    <div class="infowindow">
+                        <h4>Hospital: ${hospitalName}</h4>
+                        <p>Mais informações sobre o hospital.</p>
+                        <button id="detailsButton">Mais Detalhes</button>
+                        <button id="routeButton">Traçar Rota</button>
+                    </div>`
+                );
+    
+                google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
+                    document.getElementById('detailsButton').addEventListener('click', () => {
+                        window.location.href = `detalhesHospital.html?id=${hospitalId}`;
+                    });
+    
+                    document.getElementById('routeButton').addEventListener('click', () => {
+                        showRouteOptions(infoWindow, hospitalPosition);
+                    });
+                });
+            });
+        });
+    };
+
+    // Função para atualizar a rota com o novo modo de transporte
+    const updateRoute = (destination, travelMode) => {
+        // Invoca a função de cálculo de rota para atualizar o modo de transporte
+        calcularERenderizarRota(destination, travelMode);
+    };
+
+    const removeRoute = () => {
+        if (currentRouteRenderer) {
+            currentRouteRenderer.setMap(null);  // Remove a rota do mapa
+            currentRouteRenderer = null;  // Limpa a variável para garantir que a próxima rota seja recalculada
+        }
+    }
 
     const zoomMap = () => {
         // Verifica se há hospitalMarkers definidos e se contêm pelo menos um item
@@ -940,6 +643,37 @@ const MapView = (() => {
 
         });
         localPartida = marker;
+    }
+
+    async function calcularERenderizarRota(destino, modo){
+        const { DirectionsService, DirectionsRenderer } = await google.maps.importLibrary("routes");
+
+        const directionsService = new DirectionsService();
+        const directionsRenderer = new DirectionsRenderer();
+
+        directionsRenderer.setMap(map); // Renderiza a rota no mapa
+
+        const request = {
+            origin: localPartida.getPosition(),
+            destination: destino,
+            travelMode: modo, 
+        }
+
+        directionsService.route(request, (result, status) => {
+            if (status === google.maps.DirectionsStatus.OK) {
+                if (currentRouteRenderer) {
+                    currentRouteRenderer.setMap(null);  // Remove a rota anterior
+                }
+    
+                // Renderizar a nova rota
+                currentRouteRenderer = new google.maps.DirectionsRenderer();
+                currentRouteRenderer.setMap(map);  // map é a variável do seu mapa no Google Maps
+                currentRouteRenderer.setDirections(result);
+            } 
+            else {
+                alert("Erro ao calcular a rota: " + status);
+            }
+        });
     }
 
     

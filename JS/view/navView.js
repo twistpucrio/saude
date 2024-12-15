@@ -13,10 +13,9 @@ const NavView = (() => {
 
 
 
-    // Exibe a lista de hospitais na navegação lateral
-    const displayHospitalsNav = (hospitals, handleHospitalNavClick) => {
+       // Exibe a lista de hospitais na navegação lateral
+       const displayHospitalsNav = (hospitals, handleHospitalNavClick) => {
         const displayHospitaisEncontrados = document.getElementById('displayHospitaisEncontrados');
-        
         if (!displayHospitaisEncontrados) {
             console.error("Elemento 'displayHospitaisEncontrados' não encontrado.");
             return;

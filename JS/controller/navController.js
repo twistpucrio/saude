@@ -6,7 +6,6 @@ const NavController = (() => {
     const handleClickOutside = (event) => {
         const dropdown = document.getElementById('dropdown-localizacao');
         const inputLocal = document.getElementById('local');
-        
         if (!inputLocal.contains(event.target) && !dropdown.contains(event.target)) {
             NavView.alterarDropdown(false);
         }
@@ -24,30 +23,12 @@ const NavController = (() => {
     const handleInputChange = () => {
         const inputLocal = document.getElementById('local');
         const location = inputLocal.value.trim();
-        const btnLimpar = document.getElementById('limparLocal');
-        const imgPesquisa = document.getElementById('imgPesquisa');
 
         if (location !== "") {
             NavView.alterarDropdown(false);
-
-            imgPesquisa.style.display = 'none'
-            btnLimpar.style.display = 'flex';
-            btnLimpar.style.position ='absolute'
-            btnLimpar.style.right = '3%'
-
-
             saveLocation(location); // Salva no LocalStorage ao digitar
-
         } else {
-            btnLimpar.style.display = 'none'; 
-            imgPesquisa.style.display = 'flex';
-            imgPesquisa.style.position ='absolute'
-            imgPesquisa.style.right = '3%'
-            imgPesquisa.style.top = '5%'
-
             NavView.alterarDropdown(true);
-           
-            
         }
     };
 
