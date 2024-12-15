@@ -54,7 +54,7 @@
         "procedimentos": ["procedimento1"],"endereco":["Rua Mário Ribeiro, 1080 - Leblon, Rio de Janeiro"] },
 
     {"id" : 18, "nome" : "SMS CMS Chapéu Mang Babilônia Ap 21" , "bairro": ["leme"] ,"latitude": "-22.95972976413467", "longitude": "-43.17118026218643", 
-        "procedimentos": ["procedimento2"],"endereco":["Rua São Francisco, 5 - Leme, Rio de Janeiro"] },
+        "procedimentos": ["procedimento1"],"endereco":["Rua São Francisco, 5 - Leme, Rio de Janeiro"] },
 
     {"id" : 19, "nome" : "SMS CAPS Maria do Socorro Santos Ap 21" , "bairro": ["rocinha"] ,"latitude": "-22.989378081158154", "longitude": "-43.252631022920234", 
         "procedimentos": ["procedimento2"],"endereco":["Estrada da Gávea, 522 - Rocinha, Rio de Janeiro"] },
