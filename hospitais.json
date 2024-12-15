@@ -2,29 +2,29 @@
 
 [
     {"id" : 1, "nome" : "Clínica de Radioterapia Osolando J. Machado Catete" , "bairro": ["catete"] , "latitude": "-22.929390300565576", "longitude": "-43.17976484766591", 
-        "procedimentos": ["procedimento2"], "endereco":["Rua Bento Lisboa, 160 - Catete, Rio de Janeiro"], "descrição": ""},
+        "procedimentos": ["procedimento2", "procedimento1"], "endereco":["Rua Bento Lisboa, 160 - Catete, Rio de Janeiro"], "descrição": ""},
 
     {"id" : 2, "nome" : "SMS CMS Manoel José Ferreira Ap 21" , "bairro":["catete"] , "latitude": "-22.925940838884618", "longitude": "-43.17873197650132",
-        "procedimentos": ["procedimento2"],"endereco":["Rua Silveira Martins, 161 - Catete, Rio de Janeiro"], "descrição": "" },
+        "procedimentos": ["procedimento2","procedimento1","procedimento3"],"endereco":["Rua Silveira Martins, 161 - Catete, Rio de Janeiro"], "descrição": "" },
 
     
     {"id" : 3, "nome" : "SMS Cf Cantagalo Pavão Pavãozinho Ap 21" , "bairro": ["copacabana"] ,"latitude": "-22.981334046655164", "longitude": "-43.1964655341703", 
         "procedimentos": ["procedimento2"],"endereco":["Ladeira Saint Roman, 172 - Copacabana, Rio de Janeiro"] },
 
     {"id" : 4, "nome" : "SMS CMS João Barros Barreto Ap 21" , "bairro": ["copacabana"] ,"latitude": "-22.9668863419182", "longitude": "-43.18740866300609", 
-        "procedimentos": ["procedimento2"],"endereco":["Rua Tenreiro Aranha, S/N - Copacabana, Rio de Janeiro"] },
+        "procedimentos": ["procedimento2", "procedimento3"],"endereco":["Rua Tenreiro Aranha, S/N - Copacabana, Rio de Janeiro"] },
 
     {"id" : 5, "nome" : "UPA 24h Copacabana" , "bairro": ["copacabana"] ,"latitude": "-22.967190569124043", "longitude": "-43.18737290348814", 
         "procedimentos": ["procedimento2"],"endereco":["Rua Siqueira Campos, 129 - Copacabana, Rio de Janeiro"] },
 
     {"id" : 6, "nome" : "FIOTEC IFF Instituto Fernandes Figueira" , "bairro": ["flamengo"] ,"latitude": "-22.94208899565438", "longitude": "-43.17412288814737", 
-        "procedimentos": ["procedimento2"],"endereco":[" Av. Rui Barbosa, 716 - Flamengo, Rio de Janeiro"] },
+        "procedimentos": ["procedimento1"],"endereco":[" Av. Rui Barbosa, 716 - Flamengo, Rio de Janeiro"] },
 
     {"id" : 7, "nome" : "SMSDC Rio Hospital Municipal Miguel Couto" , "bairro": ["gavea"] ,"latitude": "-22.97735509284817", "longitude": "-43.2238197304756", 
         "procedimentos": ["procedimento2"],"endereco": ["Rua Mário Ribeiro, 117 - Gávea, Rio de Janeiro"]},
 
     {"id" : 8, "nome" : "SMS CMS Pindaro de C Rodrigues Ap 21" , "bairro": ["gavea"] ,"latitude": "-22.97957422740854", "longitude": "-43.22955763232298", 
-        "procedimentos": ["procedimento2"],"endereco":["Av. Padre Leonel França, S/N - Gávea, Rio de Janeiro"], "imagem": "img/img_id8.jpg"},
+        "procedimentos": ["procedimento3"],"endereco":["Av. Padre Leonel França, S/N - Gávea, Rio de Janeiro"], "imagem": "img/img_id8.jpg"},
 
     {"id" : 9, "nome" : "SES RJ Inst. Est. de Cardiologia FALMED" , "bairro": ["humaita"] ,"latitude": "-22.95302656170579", "longitude": "-43.19956773232364", 
         "procedimentos": ["procedimento2"], "endereco":["Rua David Campista, 326 - Humaitá, Rio de Janeiro"] },
@@ -36,10 +36,10 @@
         "procedimentos": ["procedimento2"],"endereco":["Rua Antonio Parreiras, 67 - Ipanema, Rio de Janeiro"] },
 
     {"id" : 12, "nome" : "Abbr" , "bairro": ["jardim botanico"] , "latitude": "-22.964242843796526", "longitude": "-43.218331126219184", 
-        "procedimentos": ["procedimento2"],"endereco":["Rua Jardim Botânico, 660 - Jardim Botânico, Rio de Janeiro"] },
+        "procedimentos": ["procedimento3"],"endereco":["Rua Jardim Botânico, 660 - Jardim Botânico, Rio de Janeiro"] },
 
     {"id" : 13, "nome" : "MS Hospital Federal da Lagoa" , "bairro": ["jardim botanico", "lagoa"] ,"latitude": "-22.963282921950462", "longitude": "-43.21538280348796", 
-        "procedimentos": ["procedimento2"],"endereco":["Rua Jardim Botânico, 501 - Jardim Botânico, Rio de Janeiro"] },
+        "procedimentos": ["procedimento3"],"endereco":["Rua Jardim Botânico, 501 - Jardim Botânico, Rio de Janeiro"] },
 
     {"id" : 14, "nome" : "Smsdc Rio Padi Miguel Couto" , "bairro": ["lagoa","gavea"] ,"latitude": "-22.977501129797712", "longitude": "-43.22389579966539", 
         "procedimentos": ["procedimento2"],"endereco":["Rua Mário Ribeiro, 80 - Lagoa, Rio de Janeiro"] },
@@ -48,10 +48,10 @@
         "procedimentos": ["procedimento2"], "endereco":["Rua das Laranjeiras, 180 - Laranjeiras, Rio de Janeiro"] },
 
     {"id" : 16, "nome" : "MS Inc Instituto Nacional de Cardiologia" , "bairro": ["laranjeiras"] ,"latitude": "-22.936734979227452", "longitude": "-43.19048393232433", 
-        "procedimentos": ["procedimento2"],"endereco":[" Rua das Laranjeiras, 374 - Laranjeiras, Rio de Janeiro"] },
+        "procedimentos": ["procedimento2", "procedimento3"],"endereco":[" Rua das Laranjeiras, 374 - Laranjeiras, Rio de Janeiro"] },
 
     {"id" : 17, "nome" : "SMSDC Rio Coordenação de Emergência Regional Leblon" , "bairro": ["leblon"] ,"latitude": "-22.9777563438302", "longitude": "-43.22441307803415", 
-        "procedimentos": ["procedimento2"],"endereco":["Rua Mário Ribeiro, 1080 - Leblon, Rio de Janeiro"] },
+        "procedimentos": ["procedimento1"],"endereco":["Rua Mário Ribeiro, 1080 - Leblon, Rio de Janeiro"] },
 
     {"id" : 18, "nome" : "SMS CMS Chapéu Mang Babilônia Ap 21" , "bairro": ["leme"] ,"latitude": "-22.95972976413467", "longitude": "-43.17118026218643", 
         "procedimentos": ["procedimento2"],"endereco":["Rua São Francisco, 5 - Leme, Rio de Janeiro"] },
@@ -60,19 +60,19 @@
         "procedimentos": ["procedimento2"],"endereco":["Estrada da Gávea, 522 - Rocinha, Rio de Janeiro"] },
 
     {"id" : 20, "nome" : "SMSdc Cf Maria do Socorro Rocinha Ap 21" , "bairro": ["rocinha"] ,"latitude": "-22.989352472670745", "longitude": "-43.25244021937821", 
-        "procedimentos": ["procedimento2"], "endereco":["Estrada da Gávea, 522 - Rocinha, Rio de Janeiro"] },
+        "procedimentos": ["procedimento2", "procedimento1"], "endereco":["Estrada da Gávea, 522 - Rocinha, Rio de Janeiro"] },
 
     {"id" : 21, "nome" : "SMSdc CMS Dr. Albert Sabin Ap 21" , "bairro": ["rocinha"] ,"latitude": "-22.990239", "longitude": "-43.253217", 
         "procedimentos": ["procedimento2"], "endereco":["Estrada da Gávea, 250 - Rocinha, Rio de Janeiro"] },
 
     {"id" : 22, "nome" : "SMSDC Rio UPA 24h Rocinha Ap 21" , "bairro": ["rocinha"] ,"latitude": "-22.913393", "longitude": "-43.200717", 
-        "procedimentos": ["procedimento2"],"endereco":["Estrada da Gávea, 522 - Rocinha, Rio de Janeiro"] },
+        "procedimentos": ["procedimento3"],"endereco":["Estrada da Gávea, 522 - Rocinha, Rio de Janeiro"] },
 
     {"id" : 23, "nome" : "SMS Cf Rinaldo de Lamare Ap 21" , "bairro": ["sao conrado"] ,"latitude": "-22.9934497951778", "longitude": "-43.25283583591975", 
-        "procedimentos": ["procedimento2"],"endereco":["Av. Niemeyer, 776 - São Conrado, Rio de Janeiro"] },
+        "procedimentos": ["procedimento1"],"endereco":["Av. Niemeyer, 776 - São Conrado, Rio de Janeiro"] },
 
     {"id" : 24, "nome" : "SMS CMS Vila Canoas Ap 21" , "bairro": ["sao conrado"] ,"latitude": "-22.995324588629128", "longitude": "-43.26978449095825", 
-        "procedimentos": ["procedimento2"], "endereco":["Estrada das Canoas, 610 - São Conrado, Rio de Janeiro"] },
+        "procedimentos": ["procedimento1"], "endereco":["Estrada das Canoas, 610 - São Conrado, Rio de Janeiro"] },
 
     {"id" : 25, "nome" : "SMS CMS Rodolpho Perisse Vidigal Ap 21" , "bairro": ["vidigal"] ,"latitude": "-22.994854077742392", "longitude": "-43.23910527396945", 
         "procedimentos": ["procedimento2"],"endereco":["Estrada das Canoas, 610 - São Conrado, Rio de Janeiro"]}
