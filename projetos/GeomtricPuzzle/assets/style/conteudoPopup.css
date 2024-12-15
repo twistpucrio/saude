@@ -1,0 +1,76 @@
+.fonte{
+    font-family: "antiqua";
+    text-align: justify;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.peca_titulo{
+    display:flex;
+    gap:2%;
+    align-items: center;
+}
+
+img {
+    width: 3vw; /* Tamanho fixo para as peças */
+    height: 7vh;
+}
+
+li{
+    list-style-type: none;
+    text-align: center;
+
+}
+
+.linha{
+    width: 12vw;
+    height: auto;
+    text-align: center;
+}
+
+
+.linha_titulo{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+#fontes li{
+    padding:1%;
+}
+
+#fontes a{
+    text-decoration: none;
+    color: black;
+}
+
+#fontes a:hover {
+    color: #3b5f8f; /* Altere para a cor desejada ao passar o mouse */
+}
+
+#fontes a:active {
+    color: #5e1468; /* Altere para a cor desejada no clique */
+}
+
+
+.explicacao{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/* SMARTPHONE  -> enquanto a tela for menor que 767px*/
+ @media screen and (min-width: 1px) and (max-width: 800px){
+    
+    #jogabilidade{
+        width: 90%;
+        height: 60%;
+    }
+
+}
+

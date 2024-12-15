@@ -1,0 +1,446 @@
+/* RESPONSIVIDADE */
+
+
+
+
+/* Ipad */
+
+
+@media screen and (max-width: 799px) {
+   
+    .section-p1{
+        padding: 40px 40px;
+    }
+
+
+    #hero{
+       
+        h4, h1, h2, p{
+            padding-left: 60%;
+        }
+
+
+        button{
+            padding-left: 30%;
+        }
+       
+    }
+
+
+    #navbar{
+        display: flex;
+        flex-direction: column;
+       
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #E3E6F3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+
+
+        transition: 0.3;
+
+
+        li{
+            margin-bottom: 25px;
+        }
+
+
+        .close{
+            display: initial;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+           
+            img {
+                width: 30px;
+            }
+           
+        }
+
+
+       
+       
+    }
+
+
+    #navbar.active{
+        right: 0px;
+    }
+
+
+    #mobile{
+        display: flex;
+        img{
+            width: 35px;
+            cursor: pointer;
+        }
+
+
+        a{
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            padding-right: 10px;
+
+
+            transition: 0.3s ease;
+
+
+            button{
+                display: flex;
+                border:0;
+                background: none;
+                padding: 2px;
+                img{
+                    /* border: 2px solid red; */
+                    width: 30px;                        
+                }
+
+
+            }
+
+
+            button:hover{
+                border-bottom: 1px solid #088178;
+               
+            }
+
+
+            .text_carrinho, .text_favorito{
+                color: #088178;
+            }
+        }
+       
+        /* img{
+            color: #1a1a1a;
+            width: 70px;
+            padding-left: 20px;
+        } */
+    }
+
+
+    #lg-bag, #lg-fav{
+        display: none;
+    }
+
+
+    #hero{
+        height: 90vh;
+        padding: 0 80px;
+        background-position: top 30% right 30%;
+    }
+
+
+    #feature{
+        justify-content: center;
+
+
+        .fe-box{
+            margin: 15px 15px;
+        }
+    }
+   
+    #product1{
+        .pro-container{
+            justify-content: center;
+        }
+
+
+        .desc-pro{
+           
+            .pro{
+                flex-direction: row;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                width: 50%;
+            }
+           
+        }
+
+
+        .pro{
+            margin: 15px;
+            width: 60%;
+        }
+    }
+
+
+    #banner{
+        height: 20vh;
+    }
+
+
+    .sm-banner{
+
+
+        .banner-box{
+            min-width: 100%;
+            height: 30vh;
+
+
+        }
+    }
+
+
+    #banner3{
+        padding: 0 40px;
+
+
+        .banner-box{
+            min-width: 28%
+        }
+    }
+
+
+    #newsletter{
+        .form{
+            width: 70%;
+        }
+    }
+
+
+    /* contact */
+    #contact-details{
+        flex-direction: column;
+
+        .details{
+            width: 100%;
+            margin: 30px;
+        }
+
+
+        .map{
+            width: 100%;
+        }
+    }
+
+    #form-details{
+       padding: 40px;
+
+
+       form{
+        width: 50%;  
+       }
+    }
+
+
+    #cart-add{
+        flex-direction: column;
+       
+        #coupon{
+            width: 100%;
+        }
+   
+        #subtotal{
+            width: 100%;
+        }
+    }
+
+
+    #busca-container{
+        width: 550px;
+    
+    }
+    
+    #ord-container{
+        width: 550px;
+       
+    }
+
+    #favorito-container{
+        display: flex;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        
+    }
+}
+
+
+
+
+
+
+
+
+/* Celular */
+
+
+@media screen and (max-width: 477px) {
+    .section-p1{
+        padding: 20px;
+    }
+
+
+    h1{
+        font-size: 38px;
+    }
+
+
+    h2{
+        font-size: 32px;
+    }
+
+
+    #header{
+        padding: 10px 30px;
+    }
+
+
+    #hero{
+        padding: 0 20px;
+        background-position: 55%;
+    }
+
+
+    #feature{
+        justify-content: space-between;
+
+
+        .fe-box{
+            width: 155px;
+            margin: 0 0 15px 0;
+        }
+    }
+
+
+    #product1{
+        .pro{
+            width: 100%;
+        }
+    }
+
+
+    #banner{
+        height: 40vh;
+    }
+
+
+    #sm-banner{
+        .banner-box{
+            height: 40vh;
+        }
+    }
+
+
+    #banner3{
+        padding: 0 20px;
+
+
+        .banner-box{
+            width: 100%;
+        }
+    }
+
+
+    #newsletter{
+        padding: 40px 20px;
+
+
+        .form{
+            width: 100%;
+        }
+    }
+
+
+    footer{
+        .copyright{
+            text-align: start;
+        }
+    }
+
+
+    /* desc prod */
+    #prod-details{
+        display: flex;
+        flex-direction: column;
+
+
+        .single-pro-imge{
+            width: 100%;
+            margin-right: 0px;
+        }
+
+
+        .single-pro-details{
+            width: 100%;
+        }
+    }
+
+
+
+
+    /* about */
+    #about-head{
+        flex-direction: column;
+
+
+        img{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+
+        div{
+            padding-left: 0px;
+        }
+
+
+        .video{
+            width: 100%;
+        }
+    }
+
+
+
+
+    /* contact */
+    #contact-details{
+        flex-direction: column;
+
+
+        .details{
+            width: 100%;
+            margin: 30px;
+        }
+
+
+        .map{
+            width: 100%;
+        }
+    }
+    #form-details{
+        margin: 10px;
+        padding: 30px 10px;
+        flex-wrap: wrap;
+
+
+        form{
+            width: 100%;  
+            margin-bottom: 30px;
+        }
+    }
+
+
+    /* carrinho */
+    #card-add{
+        flex-direction: column;
+
+
+        #coupon{
+            width: 100%;
+        }
+   
+        #subtotal{
+            width: 100%;
+        }
+    }
+
+
+   
+}
+

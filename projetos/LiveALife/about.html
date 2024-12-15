@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>E-commerce MVC</title>
+    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <!-- <link rel="stylesheet" href="/css/blog.css"> -->
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/responsividade.css">
+</head>
+<body>
+    <header id="header">
+        <a href="index.html"><img src="img/logo.png" class="logo" alt="logo"> </a>
+     
+        <nav>
+            <ul id="navbar">
+                <li> <a href="index.html">Home</a> </li>
+                <li> <a href="produtos.html">Shop</a> </li>
+                <!-- <li> <a href="blog.html">Blog</a> </li> -->
+                <li> <a class="active" href="about.html">About</a> </li>
+                <li> <a href="contact.html">Contact</a> </li>
+               
+                <li id="lg-bag"> <a class="botao-carrinho" href="carrinho.html"></a> </li>
+                <li id="lg-fav"> <a class="botao-favorito" href="favorito.html"></a> </li>
+                <!-- <li> <a class="botao-carrinho" href=""></a></li> -->
+                <!-- <li> <a class="botao-favorito" href=""></a></li> -->
+               
+                <a class="close" href=""><img src="img/icones/close.svg"></a>
+                <!-- <div id="botao-carrinho"></div>
+                <div id="botao-favorito"></div> -->
+            </ul>      
+        </nav>
+
+
+        <nav id="mobile">
+            <a class="botao-carrinho" href="carrinho.html"><img src="img/icones/sacola_compra.png"></a>
+            <a class="botao-favorito" href="favorito.html"><img src="img/icones/favorito.svg"></a>
+            <img id="bar" src="img/icones/menu.svg">
+        </nav>
+
+
+    </header>
+
+
+
+
+
+    <section id="page-header" class="about-header">
+        <h2>#DescubraNovasExperiências</h2>
+        <p>Transforme momentos comuns em lembranças inesquecíveis</p>
+    </section>
+
+
+
+
+    <section id="about-header" class="section-p1">
+        <img class = "nos" src="/img/nos.jpeg" alt="">
+
+
+
+
+        <div>
+            <h2>Quem Somos?</h2>
+            <p class="text2">Somos especialistas em criar momentos únicos e memoráveis. 
+                Nosso objetivo é proporcionar aventuras emocionantes, relaxamento absoluto e encontros 
+                inesquecíveis. Seja uma atividade radical, um jantar romântico ou um passeio tranquilo,
+                 temos a experiência perfeita para você. Além de aventuras e relaxamento, oferecemos experiências
+                  gastronômicas que vão desde jantares refinados até piqueniques ao ar livre, sempre trazendo
+                   o melhor da culinária local e internacional. Queremos que cada experiência seja uma conexão 
+                   com lugares extraordinários e sabores autênticos que enriquecem cada momento vivido.
+            </p>
+
+
+
+
+            <abbr  title="">Oferecemos uma seleção exclusiva de atividades, cuidadosamente planejadas para proporcionar emoções e 
+                bem-estar.
+            </abbr>
+            <br><br>
+            <marquee bgcolor="#18b091" loop="-1" scrollamount="5" width="100%">Experiências exclusivas para todos os gostos: aventura, relaxamento, romance e gastronomia.
+            </marquee>
+        </div>
+    </section>
+
+
+
+
+    <section id="about-app" class="section-p1">
+        <h1>Download nosso <a href="">App</a> e se divirta!</h1>
+        <div class="video">
+             <video autoplay muted loop src="img/video/video_tetris.mp4"></video>
+        </div>
+    </section>
+
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div id="newstesxt">
+            <h4>Sign Up For newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+
+    <!-- <button onclick="window.location.href='carrinho.html'">Ver Carrinho</button>
+    <button onclick="window.location.href='favorito.html'">Ver Favorito</button> -->
+   
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> R. Marquês de São Vicente, 225 - Gávea, Rio de Janeiro - RJ, 22793-260</p>
+            <p><strong>Phone:</strong> +21 12345-6789</p>
+            <p><strong>Hours:</strong> 15:00 - 18:00, Mon - Fri</p>
+           
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <a href=""><img src="img/icones/icon_instagran.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About us</a>
+            <a href="">Delivery Information</a>
+            <a href="">Privacy Policy</a>
+            <a href="">Terms & Condicions</a>
+            <a href="">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="">Sign In</a>
+            <a href="carrinho.html">View Cart</a>
+            <a href="">My WishList</a>
+            <a href="">Track My Order</a>
+            <a href="">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Secured Payment Gateway</h4>
+            <img src="img/icones/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <br>
+            <p>2024, Twist | Tecgraf - Ecommerce</p>
+        </div>
+    </footer>
+
+
+
+
+    <!-- Scripts JavaScript -->
+    <script src="js/model/produtosModel.js"></script>
+    <script src="js/model/carrinhoModel.js"></script>
+    <script src="js/model/favoritoModel.js"></script>
+
+
+
+
+    <script src="js/view/favoritoView.js"></script>
+    <script src="js/view/produtosView.js"></script>
+    <script src="js/view/carrinhoButtonView.js"></script>
+    <script src="js/view/shopView.js"></script>
+    <script src="js/view/favoritoButtonView.js"></script>
+    <script src="js/view/carrinhoView.js"></script>
+
+
+    <script src="js/controller/carrinhoButtonController.js"></script>
+    <script src="js/controller/favoritoButtonController.js"></script>
+    <script src="js/controller/favoritoController.js"></script>
+    <script src="js/controller/produtosController.js"></script>
+    <script src="js/controller/ShopController.js"></script>
+    <script src="js/controller/carrinhoController.js"></script>
+
+
+   
+    <script src="js/app.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/infoProdDesc.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

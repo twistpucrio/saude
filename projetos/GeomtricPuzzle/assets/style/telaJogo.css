@@ -1,0 +1,730 @@
+@font-face {
+  font-family: 'antiqua';
+  src: url('../fonts/Inknut_Antiqua/InknutAntiqua-SemiBold.ttf');
+}
+
+
+
+
+body{
+    margin: 0;
+    background: radial-gradient(#5d69cf,#2c2e8b,rgb(36, 31, 70));
+}
+
+
+
+
+
+
+
+
+/*
+nav{
+    display: flex;
+    flex-direction: row-reverse;
+    a{
+        margin: 10px;
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 100%;
+    }
+
+
+
+
+}
+
+
+
+
+section{
+    height: 88vh;
+    width: 100vw;
+
+
+
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+
+
+
+    align-items: center;
+    flex-direction: row;
+
+
+
+
+    header{
+        font-size: 50px;
+        margin-bottom: 250px;
+    }
+
+
+
+
+    .telaJogo{
+        width: 576px;
+        height: 80vh;
+
+
+
+
+        border: 2px solid black;
+        background-color: rgb(23, 22, 32);
+        border-radius: 20px;
+        margin-left: 5vw;
+        margin-right: 5vw;
+
+
+
+
+    }
+
+
+
+
+    .estadoJogo{
+        width: 20vw;
+        height: 50vh;
+
+
+
+
+        border: 2px solid black;
+        background-color: rgb(31, 29, 34);
+        border-radius: 20px;
+
+
+
+
+        margin-right: 20px;
+        align-items: flex-start;
+        label{
+            display: block;
+            text-align: center;
+            color: rgb(235, 200, 43);
+            margin-top: 20%;
+            font-size: x-large;
+        }
+        .caixinhas{
+            display: block;
+            text-align: center;
+            border-radius: 10vh;
+            width: 75%;
+            height: 50px;
+            margin-left: 13%;
+            margin-top: 3%;
+            background-color: rgb(200, 197, 236);
+            border: 0px;
+        }
+    }
+
+
+
+
+    .mini-grid{
+        width: 20vw;
+        height: 50vh;
+        border: 2px solid black;
+        background-color: rgb(31, 29, 34);
+        border-radius: 20px;
+        margin-left: 20px;
+       
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+footer{
+    border-top: 2px solid black;
+} */
+
+
+
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+ 
+ 
+ 
+ 
+  /* body {
+    height: 100vh;
+  } */
+ 
+  .container {
+    padding: 16px;
+    z-index: 2; /* Coloca a grade acima da sobreposição */
+  }
+ 
+
+
+
+
+  .buttons-container {
+    margin-bottom: 1.6px;
+    width: 10vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+
+
+
+    button {
+      cursor: pointer;
+    }
+
+
+
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+   
+  }
+
+
+
+
+  .buttons-container button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+ 
+  .icone{
+    width: 2.5vw;
+ 
+  }
+ 
+  .buttons-container button:hover {
+    filter: brightness(0.8); /* escurecer */
+  }
+
+
+
+
+  .content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+  }
+ 
+  /* board de jogo */
+  .grid {
+    width: 27vw;
+    height: 90vh;
+   
+    /* border: 2px solid black; */
+    background-color: rgba(0, 0, 0, 0.5);
+   
+    border-radius: 10px;
+    margin-top: 3vh;
+
+
+    display: flex; /* colocando uma div ao lado da outra*/
+    flex-wrap: wrap; /* faz com que complita uma linha e vá para a de baixo */
+  }
+ 
+  .grid div {
+    width: 2.7vw;
+    height: 4.5vh;
+   
+  }
+ 
+  /* .content-right {
+    display: flex;
+    flex-direction: column;
+    margin-left: 90px;
+  } */
+ 
+  #estadoJogo{
+    margin-left: 9vw;
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+
+
+    border: 2px solid #29637e;
+    border-radius: 20px;
+
+
+    h3{
+      padding: 1vh;
+    }
+
+
+    .h3{
+      font-size: 30px;
+      margin-top: 3vh;
+    }
+  }
+
+
+
+
+  .mini-grid {
+    width: 17.5vw;
+    height: 28vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+
+    margin-top: 6vh;
+  }
+ 
+  .mini-grid div {
+    width: 2.3vw;
+    height: 4.2vh;
+  }
+
+
+
+
+  /* Score */
+  /* .content-right h3 {
+    font-size: 32px;
+    margin-top: 24px;
+  } */
+ 
+  /* PEÇAS */
+  .shapePainted {
+    background: red;
+    border: 2px solid black;
+  }
+ 
+  .blue {
+    background: linear-gradient(to right, #0033cc, #99b3ff);
+  }
+ 
+  .yellow {
+    background: linear-gradient(to right, #ffcc00, #ffeb99);
+  }
+ 
+  .red {
+    background: linear-gradient(to right, #ff0000, #ff3333, #ff6666);
+  }
+ 
+  .orange {
+    background: linear-gradient(to right, #ec4c01, #ff751a, #ff944d);  }
+ 
+  .pink {
+    background: linear-gradient(to right, #cc005f, #ff80ce, #ff99dd);
+    }
+
+
+    .green {
+      background: linear-gradient(to right, #00cc22, #80ff95, #99ffa2);
+    }
+ 
+    .purple {
+      background: linear-gradient(to right, #a300cc, #f080ff, #f399ff);
+    }
+ 
+  .tela-buttons-container{
+    margin-top: 8vh;
+    max-width: 30vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* com 3 colunas de mesmo tamanho*/
+    grid-template-rows: 90px 90px; /* cada linha vai ter uma altura de 64px*/
+    gap: 12px; /* espaço entre eles*/
+
+
+
+
+    button{
+    background-color: rgba(0, 0, 0, 0.5);
+    /* background: linear-gradient(to right, #0033cc, #5c82f4);  */
+      border: none;
+      border-radius: 4px;
+
+
+
+
+      span{
+        color: white;
+        font-weight: 700;
+      }
+    }
+  }
+ 
+  .mobile-buttons-container {
+    display: none;
+  }
+ 
+ 
+  /*pop-up*/
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* z-index: 1; */
+    display: none;
+  }
+
+
+.popup {
+  width: 20vw;
+  height: 35vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.popup-content{
+  display:flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap:30px;
+  flex-direction: column;
+
+
+
+
+}
+
+
+
+
+.popup-content button {
+  padding: 5px 0px;
+  background-color: #29637e;
+  color: white;
+  width: 80%;
+  font-family:antiqua;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+
+.hidden {
+  display: none;
+}
+
+
+
+
+.grid.paused {
+  opacity: 0.5;
+}
+
+
+
+
+
+
+
+
+ 
+/*  RESPONSIVIDADE  */
+
+
+
+
+
+
+
+
+  /* desktop -> min-width: 1024px */
+  /* tablet -> min-width: 768px e max-width: 1023px */
+  /* max-width: 767px */
+
+ /* DESKTOP */
+ @media screen and (min-width: 1024px) /* 1024 ou mais*/ {
+
+  .game{
+    display:inline;
+  }
+
+  .over{
+    display:inline;
+  }
+
+
+  /* TABLET */
+  @media screen and (min-width: 800px) and (max-width: 1280px){
+
+
+    .game{
+      display:block;
+    }
+
+
+    .over{
+      display:block;
+    }
+
+
+
+
+    .grid {
+      width: 42.5vw;
+      height: 85.0vh;
+      /* background-color: green; */
+      display: flex; /* colocando uma div ao lado da outra*/
+      flex-wrap: wrap; /* faz com que complita uma linha e vá para a de baixo */
+     
+      margin-bottom: 10vh;
+    }
+   
+    .grid div {
+      width: 4.25vw;
+      height: 4.25vh;
+    }
+
+
+
+
+    #estadoJogo{
+      margin-left: 9vw;
+      margin-top: 0vh;
+      margin-bottom: 10vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+
+      border: 1px solid #29637e;
+      border-radius: 20px;
+   
+      h3{
+        padding: 1vh;
+      }
+      .h3{
+        font-size: 30px;
+        margin-top: 3vh;
+      }
+
+
+      .mini-grid {
+        width: 21vw;
+        height: 21vh;
+       
+        margin-bottom: 0vh;
+        /* background-color: black; */
+        border-radius: 20px;
+        display: flex;
+        flex-wrap: wrap;
+   
+        div {
+          width: 3vw;
+          height: 3vh;
+        }
+      }
+    }
+
+
+
+
+    .tela-buttons-container{
+      margin-top: 5vh;
+      max-width: 30vw;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* com 3 colunas de mesmo tamanho*/
+      grid-template-rows: 90px 90px; /* cada linha vai ter uma altura de 64px*/
+      gap: 12px; /* espaço entre eles*/
+ 
+ 
+      button{
+        /* background: linear-gradient(to right, #333333, #585a5f); */
+        background: linear-gradient(to right, #333333, #585a5f);
+        background:  rgba(0, 0, 0, 0.5);
+        border: none;
+        border-radius: 4px;
+ 
+ 
+        span{
+          color: white;
+          font-weight: 700;
+        }
+      }
+   
+    }
+   
+    .popup {
+      width: 35vw;
+      height: 35vh;
+    }
+  }
+
+
+  /* SMARTPHONE  -> enquanto a tela for menor que 767px*/
+  @media screen and (max-width: 800px){
+
+    /* #restartGameover{
+      display: none;
+      position: fixed;
+      bottom: 27%;
+      left: 47%;
+    }
+
+    #homeGameover{
+      display: none;
+      position: fixed;
+      bottom: 17%;
+      left: 47%;
+    } */
+
+    .game{
+      display:block;
+    }
+
+
+    .over{
+      display:block;
+    }
+
+
+    .content-container {
+      display: flex;
+      /* justify-content: center; */
+      flex-direction: row;
+
+
+      align-items: center;
+      justify-content: center;
+      /* align-items:normal; */
+    }
+   
+    /* body{
+      align-items: center;
+    } */
+   
+    .grid {
+      width: 60vw;
+      height: 80vh;
+      display: flex; /* colocando uma div ao lado da outra*/
+      flex-wrap: wrap; /* faz com que complita uma linha e vá para a de baixo */
+   
+      margin-top: 1vh;
+    }
+   
+    .grid div {
+      width: 6vw;
+      height: 4vh;
+    }
+
+
+
+
+    #estadoJogo{
+      display:flex;
+      align-items: center;
+
+
+
+
+      margin-left: 1.5vw;
+      max-width: 30vw;
+     
+      .mini-grid {
+        width: 21vw;
+        height: 17vh;
+        /* background-color: black; */
+        border-radius: 20px;
+        display: flex;
+        flex-wrap: wrap;
+   
+        div {
+          width: 3vw;
+          height: 2.7vh;
+        }
+      }
+
+
+      h3{
+        padding: 1vh;
+      }
+      .h3{
+        font-size: 23px;
+        margin-top: 3vh;
+      }
+    }
+
+
+    .tela-buttons-container{
+      display: none;
+    }
+
+
+
+
+    .mobile-buttons-container {
+      margin-top: 1vh;
+      margin-bottom: 0%;
+      margin-left: 13vw;
+     
+      max-width: 55vw;
+
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* com 3 colunas de mesmo tamanho*/
+      grid-template-rows: 70px 70px; /* cada linha vai ter uma altura de 64px*/
+      gap: 12px; /* espaço entre eles*/
+    }
+   
+    .mobile-buttons-container button {
+      /* background: linear-gradient(to right, #333333, #585a5f); */
+      background-color:  rgba(0, 0, 0, 0.5);
+      border: none;
+      border-radius: 4px;
+    }
+   
+    .mobile-buttons-container button span {
+      color: white;
+      font-weight: 700;
+    }
+
+
+    .popup {
+      width: 40vw;
+      height: 30vh;
+     
+    }
+  }
+
+
+

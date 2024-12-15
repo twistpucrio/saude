@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>E-commerce MVC</title>
+   
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/responsividade.css">
+
+    <!-- <link rel="stylesheet" href="css/shop_categorias.css"> -->
+
+    <!-- icones -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"> -->
+
+    <!-- icones / outra fonte -->
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <a href="index.html"> <img src="img/logo.png" class="logo" alt="logo"> </a>
+     
+        <nav>
+            <ul id="navbar">
+                <li> <a class="active" href="index.html">Home</a> </li>
+                <li> <a href="produtos.html">Shop</a> </li>
+                <!-- <li> <a href="blog.html">Blog</a> </li> -->
+                <li> <a href="about.html">About</a> </li>
+                <li> <a href="contact.html">Contact</a> </li>
+               
+                <li id="lg-bag"> <a class="botao-carrinho" href="carrinho.html"></a> </li>
+                <li id="lg-fav"> <a class="botao-favorito" href="favorito.html"></a> </li>
+                <!-- <li> <a class="botao-carrinho" href=""></a></li> -->
+                <!-- <li> <a class="botao-favorito" href=""></a></li> -->
+               
+                <a class="close" href=""><img src="img/icones/close.svg"></a>
+                <!-- <div id="botao-carrinho"></div>
+                <div id="botao-favorito"></div> -->
+            </ul>      
+        </nav>
+
+        <nav id="mobile">
+            <a class="botao-carrinho" href="carrinho.html"></a> 
+            <a class="botao-favorito" href="favorito.html"></a> 
+            <img id="bar" src="img/icones/menu.svg">
+        </nav>
+
+
+    </header>
+
+    <!-- Pop-ups | Carrinho e Favoritos -->
+   
+    <!-- <section id="favorito-container"></section> -->
+    <!-- ______________________________ -->
+
+
+    <section id="hero">
+        <h4>Vivências Incríveis</h4>
+        <h2>Descontos Especiais</h2>
+        <h1>Experiências de todos os tipos</h1>
+        <p>Aproveite ofertas com até 70% de desconto</p>
+        <button><a href="produtos.html">Explore agora</a></button>
+    </section>
+
+    <section id="feature" class="section-p1">
+
+        <div class="fe-box">
+            <a href="produtos.html?categoria=Aventura">
+                <img src="img/canyoning.jpg" alt="">
+                <h6>Aventura</h6>
+            </a>
+        </div>
+
+        <div class="fe-box">
+            <a href="produtos.html?categoria=Romântico">
+                <img src="img/jantarRomantico.jpg" alt="">
+                <h6>Romântico</h6>
+            </a>
+        </div>
+
+        <div class="fe-box">
+            <a href="produtos.html?categoria=Relaxamento">
+                <img src="img/aulaYoga.jpg" alt="">
+                <h6>Relaxamento</h6>
+            </a>
+        </div>
+
+        <div class="fe-box">
+            <a href="produtos.html?categoria=Gastronômico">
+                <img src="img/aulaCulinaria.png" alt="">
+                <h6>Gastronômico</h6>
+            </a>
+        </div>
+
+        <div class="fe-box">
+            <a href="produtos.html?categoria=Esporte">
+                <img src="img/aulaSurf.png" alt="">   
+                <h6>Esporte</h6>
+            </a>
+       </div>
+
+    </section>
+    
+    <section id="product1" class="section-p1">
+        <h2>Experiências em Destaque</h2>
+        <p>As atrações "queridinhas" do momento ( maiores avaliações )</p>
+
+        <div id="prodEspecifico-container"></div>
+
+    </section>
+   
+    <section id="banner" class="section-m1">
+        <h4>Experiências Exclusivas Criadas Para Momentos Inesquecíveis</h4>
+        <h2>Aproveite <span>até 70% de desconto</span> em nossas melhores vivências</h2>
+    <!-- <button class="normal">Explore more</button> -->
+    </section>
+
+
+    <section id="product1" class="section-p1">
+        <h2>Dia dos Namorados</h2>
+        <p>Não perca a oportunidade de aproveitar o momento com seu amor!</p>
+
+        <div id="prodEspecifico-container-2" ></div>
+      
+    </section>
+
+    <section id="sm-banner" class="section-p1">
+        <div class="banner-box">
+            <h4>O romance está no ar</h4>
+            <h2>Reserve 1 e Ganhe 1 Grátis</h2>
+            <span>Aproveite um picnic com seu amor</span>
+            <!-- <button class="white">Saiba Mais</button> -->
+        </div>
+
+    
+        <div class="banner-box banner-box2">
+            <h4>O romance está no ar</h4>
+            <h2>Reserve 1 e Ganhe 1 Grátis</h2>
+            <span>Aproveite um jantar à velas com seu amor</span>
+            <!-- <button class="white">Saiba Mais</button> -->
+        </div>
+    </section>
+    
+
+    <section id="banner3">
+        <div class="banner-box">
+            <h2>SEASONAL SALE</h2>
+            <h3>Experiências de Verão -50% OFF</h3>      
+        </div>
+
+        <div class="banner-box banner-box2">
+            <h2>SEASONAL SALE</h2>
+            <h3>Experiências de Verão -50% OFF</h3>      
+        </div>
+
+        <div class="banner-box banner-box3">
+            <h2>SEASONAL SALE</h2>
+            <h3>Experiências de Verão -50% OFF</h3>      
+        </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div id="newstesxt">
+            <h4>Sign Up For newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+
+    <!-- <div id="pro-container"></div> -->
+
+
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> R. Marquês de São Vicente, 225 - Gávea, Rio de Janeiro - RJ, 22793-260</p>
+            <p><strong>Phone:</strong> +21 12345-6789</p>
+            <p><strong>Hours:</strong> 15:00 - 18:00, Mon - Fri</p>
+           
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <a href=""><img src="img/icones/icon_instagran.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About us</a>
+            <a href="">Delivery Information</a>
+            <a href="">Privacy Policy</a>
+            <a href="">Terms & Condicions</a>
+            <a href="">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="">Sign In</a>
+            <a href="carrinho.html">View Cart</a>
+            <a href="">My WishList</a>
+            <a href="">Track My Order</a>
+            <a href="">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Secured Payment Gateway</h4>
+            <img src="img/icones/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <br>
+            <p>2024, Twist | Tecgraf - Ecommerce</p>
+        </div>
+    </footer>
+
+
+    <!-- <button onclick="window.location.href='carrinho.html'">Ver Carrinho</button> -->
+
+
+    <!-- Scripts JavaScript -->
+    <script src="js/model/produtosModel.js"></script>
+    <script src="js/model/carrinhoModel.js"></script>
+    <script src="js/model/favoritoModel.js"></script>
+    <script src="js/model/categEspecificaModel.js"></script>
+
+    <script src="js/view/favoritoView.js"></script>
+    <script src="js/view/produtosView.js"></script>
+    <script src="js/view/carrinhoButtonView.js"></script>
+    <script src="js/view/categEspecificaView.js"></script>
+    <script src="js/view/favoritoButtonView.js"></script>
+    <script src="js/view/carrinhoView.js"></script>
+
+    <script src="js/controller/carrinhoButtonController.js"></script>
+    <script src="js/controller/favoritoButtonController.js"></script>
+    <script src="js/controller/favoritoController.js"></script>
+    <script src="js/controller/produtosController.js"></script>
+    <script src="js/controller/categEspecificaController.js"></script>
+    <script src="js/controller/carrinhoController.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/infoProdDesc.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
