@@ -1,0 +1,182 @@
+/*fonte*/
+
+@font-face {
+    font-family: 'antiqua'; 
+    src: url('../fonts/Inknut_Antiqua/InknutAntiqua-SemiBold.ttf');
+}
+
+@keyframes animaBotao{
+
+    0%,100% {
+        transform: scale(1);
+        background-color: rgb(36, 35, 35);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        font-size: x-large;
+    }
+    50% {
+        transform: scale(1.1);
+        background-color: rgb(66, 65, 65);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        font-size: xx-large;
+    }
+}
+
+@keyframes animaLetraBaixo{
+    0%, 100% {
+        transform:translateY(-170%) rotate(0deg);
+        opacity: 1; 
+    }
+    25% {
+        transform:  translateY(-170%) rotate(-10deg);
+        opacity: 1; 
+    }
+    50% {
+        transform: translateY(-170%) rotate(10deg);
+        opacity: 1; 
+    }
+    75% {
+        transform: translateY(-170%) rotate(-10deg);
+        opacity: 1; 
+    }
+}  
+
+
+@keyframes animaLetraCima{
+    0%, 100% {
+        transform:translateY(-210%) rotate(0deg);
+        opacity: 1; 
+
+    }
+    25% {
+        transform:translateY(-210%) rotate(-10deg);
+        opacity: 1; 
+    }
+    50% {
+        transform:translateY(-210%) rotate(10deg);
+        opacity: 1; 
+    }
+    75% {
+        transform:translateY(-210%) rotate(-10deg);
+        opacity: 1; 
+    }
+}
+
+@keyframes quedaLetraCima {
+    0% {
+        opacity: 0; 
+        transform: translateY(-250%) rotate(0deg);     
+    }
+    100% {
+        opacity: 1; 
+        transform: translateY(-210%) rotate(0deg);    
+    }
+}
+
+@keyframes quedaLetraBaixo {
+    0% {
+        opacity: 0; 
+        transform: translateY(-250%) rotate(0deg);         
+    }
+    100% {
+        opacity: 1; 
+        transform: translateY(-170%) rotate(0deg); 
+    }
+}
+
+
+
+p {
+    display: inline-block;
+    font-size: 110px;
+    font-family: "antiqua";
+    animation-duration: 1s;
+    letter-spacing: 35px;
+    animation-fill-mode: forwards;
+    color: red;  
+    text-shadow: 0.2em 0.2em 0.04em black;
+    /* text-shadow: 0 0 0.7em rgb(5, 0, 0), 0 0 0.7em rgb(3, 0, 0), 0 0 0.7em rgb(5, 0, 0); */
+    z-index: 1002;
+}
+
+p.um {
+    opacity: 0;
+    animation:quedaLetraCima 1s ease-in-out, animaLetraCima 2s infinite ease-in-out;
+    animation-delay: 0s, 1s; 
+}
+
+
+p.dois {
+    transform: translateX(-10%) translateY(50%);
+    opacity: 0;
+    animation: quedaLetraBaixo 1s ease-in-out, animaLetraBaixo 2s infinite ease-in-out;
+    animation-delay: 0.5s, 1.5s;
+}
+
+p.tres {
+    opacity: 0;
+    animation: quedaLetraCima 1s ease-in-out, animaLetraCima 2s infinite ease-in-out;
+    animation-delay: 1s, 2s;
+}
+
+p.quatro {
+    opacity: 0;
+    transform: translateX(0%) translateY(50%);
+    animation: quedaLetraBaixo 1s ease-in-out, animaLetraBaixo 2s infinite ease-in-out;
+    animation-delay: 1.5s, 2.5s;
+}
+
+p.cinco {
+    opacity: 0;
+    animation: quedaLetraCima 1s ease-in-out, animaLetraCima 2s infinite ease-in-out;
+    animation-delay: 2s, 3s;
+}
+
+p.seis {
+    opacity: 0;
+    transform: translateX(10%) translateY(30%);
+    animation: quedaLetraBaixo 1s ease-in-out, animaLetraBaixo 2s infinite ease-in-out;
+    animation-delay: 2.5s, 3.5s; 
+}
+
+p.sete {
+    opacity: 0;
+    animation: quedaLetraCima 1s ease-in-out, animaLetraCima 2s infinite ease-in-out;
+    animation-delay: 3s, 4s; 
+}
+
+p.oito {
+    opacity: 0;
+    transform: translateX(10%) translateY(50%);
+    animation: quedaLetraBaixo 1s ease-in-out, animaLetraBaixo 2s infinite ease-in-out;
+    animation-delay: 3.5s, 4.5s; 
+}
+
+.gameover{
+    display:none;
+    text-align: center;
+    font-size: xx-large;
+    z-index: 1000;   
+}
+
+#gameoverBotoes{
+    display: none;
+    position: fixed;
+    bottom: 27%;
+    left: 27%;
+
+    button{
+        z-index: 1;
+        font-family: "antiqua";
+        font-size: larger;
+        background-color: rgba(0, 0, 0, 0);
+        border-color: #29637e00;
+        color: aliceblue;  
+        cursor: pointer;
+    }
+
+    #homeGameover{
+        position: fixed;
+        bottom: 27%;
+        left: 58%;
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Catálogo de Produtos</title>
+    <link rel="stylesheet" href="css/shop_categorias.css">
+</head>
+<body>
+    <header>
+        <h1>Catálogo de Produtos</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="produtos.html"> | Todos produtos </a>
+            <a href="aventura.html"> | Aventura</a>
+            <a href="relaxamento.html"> | Relaxamento</a>
+
+
+               
+        </nav>
+
+
+
+
+        <div id="botao-carrinho"></div>
+        <div id="botao-favorito"></div>
+
+
+    </header>
+
+
+    <main>
+        <section id="produtos-container">
+            <!-- Produtos renderizados dinamicamente -->
+        </section>
+
+
+        <button onclick="window.location.href='carrinho.html'">Ver Carrinho</button>
+
+
+    </main>
+
+
+    <footer>
+
+
+    </footer>
+
+
+
+
+    <!-- Scripts JavaScript -->
+    <script src="js/model/produtosModel.js"></script>
+    <script src="js/model/carrinhoModel.js"></script>
+    <script src="js/model/favoritoModel.js"></script>
+
+
+    <script src="js/view/favoritoView.js"></script>
+    <script src="js/view/produtosView.js"></script>
+    <script src="js/view/carrinhoButtonView.js"></script>
+    <script src="js/view/shopView.js"></script>
+    <script src="js/view/favoritoButtonView.js"></script>
+    <script src="js/view/carrinhoView.js"></script>
+
+
+    <script src="js/controller/carrinhoButtonController.js"></script>
+    <script src="js/controller/favoritoButtonController.js"></script>
+    <script src="js/controller/favoritoController.js"></script>
+    <script src="js/controller/produtosController.js"></script>
+    <script src="js/controller/ShopController.js"></script>
+    <script src="js/controller/carrinhoController.js"></script>
+
+
+
+    <script src="js/app.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/infoProdDesc.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="assets/style/telaJogo.css">
+    <link rel="stylesheet" href="assets/style/gameover.css".css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
+
+
+    <title>Tetris</title>
+  </head>
+  <header></header>
+
+
+
+
+  <nav>
+  </nav>  
+ 
+  <body>
+      <div class="overlay"></div>
+      <div class="content-container">
+        <div class="grid">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div class="filled"></div>
+          <div class="filled"></div>
+          <div class="filled"></div>
+          <div class="filled"></div>
+          <div class="filled"></div>
+          <div class="filled"></div>
+          <div class="filled"></div>
+          <div class="filled"></div>
+          <div class="filled"></div>
+          <div class="filled"></div>
+        </div>
+
+
+
+
+        <div id="estadoJogo">
+          <div id="popup" class="popup hidden">
+            <div class="popup-content">
+              <button id="restart-popup-button">RESTART</button>
+              <button id="resume-button">RESUME</button>
+              <button id="home-button">HOME</button>
+            </div>
+          </div>
+         
+          <div class="buttons-container">
+            <button id="start-button"><img class = "icone" src= "assets/img/play.png"></img></button>
+            <button id="pause-button" disabled><img class = "icone" src= "assets/img/pause.png"></img></button>
+          </div>
+
+
+
+
+          <div class="mini-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
+
+
+
+          <div class="h3">
+            <h3>
+              Pts:
+              <span class="score">0</span>
+            </h3>  
+           
+            <h3>
+              Linhas:
+              <span class="linhaQuebrada">0</span>
+            </h3>
+ 
+            <h3>
+              Nível:
+              <span class="nivel">1</span>
+            </h3>
+          </div>
+         
+
+
+
+
+          <div class="tela-buttons-container">
+            <div></div> <!-- para ocupar espaço de um botão, fazendo com que o de baixo fique no meio-->
+            <button class="rotate-button">
+              <span class="material-icons">rotate_right</span>
+            </button>
+            <div></div> <!-- para ocupar espaço de um botão, fazendo com que o de baixo fique no meio-->
+            <button class="left-button">
+              <span class="material-icons">arrow_back</span>
+            </button>
+   
+            <button class="down-button">
+              <span class="material-icons">arrow_downward</span>
+            </button>
+   
+            <button class="right-button">
+              <span class="material-icons">arrow_forward</span>
+            </button>
+         
+          </div>
+         
+        </div>
+       
+       
+       
+      </div>
+      <div id="gameOver" class="gameover">
+       <div class="game">
+        <p class="um">G</p>
+        <p class="dois">A</p>
+        <p class="tres">M</p>
+        <p class="quatro">E</p>
+      </div>
+      <div class="over">
+        <p class="cinco">O</p>
+        <p class="seis">V</p>
+        <p class="sete">E</p>
+        <p class="oito">R</p>
+      </div>
+        <div id="gameoverBotoes">
+          <button type="button" id="restartGameover">Restart</button>
+          <button type="button" id="homeGameover">Home</button>
+        </div>
+      </div>  
+
+
+     
+      <div class="mobile-buttons-container">
+        <div></div> <!-- para ocupar espaço de um botão, fazendo com que o de baixo fique no meio-->
+        <button class="rotate-button">
+          <span class="material-icons">rotate_right</span>
+        </button>
+        <div></div> <!-- para ocupar espaço de um botão, fazendo com que o de baixo fique no meio-->
+        <button class="left-button">
+          <span class="material-icons">arrow_back</span>
+        </button>
+
+
+
+
+        <button class="down-button">
+          <span class="material-icons">arrow_downward</span>
+        </button>
+
+
+
+
+        <button class="right-button">
+          <span class="material-icons">arrow_forward</span>
+        </button>
+     
+       
+      </div>
+     
+     
+  </body>
+  <script src="assets/scripts/jogo.js"></script>
+
+
+
+
+</html>
+
+
+

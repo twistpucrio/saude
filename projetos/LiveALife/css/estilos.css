@@ -1,0 +1,51 @@
+/* css/estilos.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#busca-container {
+    margin-bottom: 20px;
+}
+
+/* cada produto */
+.produto, .carrinho-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+/* título */
+.produto h3, .carrinho-item h3 {
+    margin: 0 0 5px 0;
+}
+
+/* descrição */
+.produto p, .carrinho-item p {
+    margin: 0 0 10px 0;
+}
+
+/* botão Add Carrinho */
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Carrinho de Compras */
+#carrinho-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#carrinho-container th, #carrinho-container td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+#carrinho-container input[type="number"] {
+    width: 60px;
+}

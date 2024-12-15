@@ -1,0 +1,335 @@
+
+
+@keyframes animaMenu{
+
+
+    0%,100% {
+        width: 30%;
+        height:20%;
+       
+        transform: scale(1);
+        color: rgb(255, 253, 253);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        font-size: 10px;
+    }
+    50% {
+        width: 60%;
+        height:20%;
+       
+        transform: scale(1.1);
+        color: rgb(247, 243, 243);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        font-size: 20px;
+    }
+}
+
+
+.off-screen-menu{
+    background-color: rgb(36, 35, 35);
+    height: 25vh;
+    width: 100%;
+    max-width: 250px;
+
+
+    position: fixed;
+    top: -300px;
+    right: 0px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+   
+   
+    transition: .5s ease;
+
+
+    button{
+        font-family: "antiqua";
+        color: white;
+        text-align: justify ;
+       
+        background-color: inherit;
+
+
+        margin: 0px;
+        padding: 0%;
+        margin-left: 20px;
+    }
+}
+
+
+.off-screen-menu.active {
+   
+    top: 50px;
+    margin-right: 20px;
+    margin-top: 25px;
+
+
+    background-color: rgb(36, 35, 35);
+    border: 2px solid white;
+    border-radius: 25px;
+
+
+
+
+
+
+    .btnRegras, .btnFontes, .btnJogabilidades{
+        font-size: 20px;
+        border-style: none;
+
+
+        width: 30%;
+        height:20%;
+       
+    }
+
+
+    .btnRegras:hover, .btnJogabilidades:hover, .btnFontes:hover{
+
+
+       
+        animation-duration: 2s;
+        animation-name: animaMenu;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+    }
+}
+
+
+
+
+
+
+.hamMenu{
+    height: 50px;
+    /* width: 50px; */
+    /* margin-left: auto; */
+
+
+    position: relative;
+}
+
+
+.hamMenu span{
+    height: 5px;
+    width: 50px;
+    background-color: rgb(139, 139, 139);
+    border-radius: 25px;
+
+
+    position: absolute;
+    /* top: 50%; */
+    /* left: 90%; */
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+
+
+.hamMenu span:nth-child(1){
+    top: 100%;
+}
+
+
+.hamMenu span:nth-child(2){
+    top: 75%;
+}
+
+
+.hamMenu span:nth-child(3){
+    top: 50%;
+}
+
+
+.hamMenu.active span:nth-child(2){
+    top: 100%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+
+.hamMenu.active span:nth-child(3){
+    opacity: 0;
+}
+
+
+.hamMenu.active span:nth-child(1){
+    top: 90%;
+    transform: translate(-50%, 50%) rotate(-45deg);
+}
+
+
+
+
+/* RESPONSIVIDADE */
+
+
+/* TABLET */
+@media screen and (min-width: 800px) and (max-width: 1023px){
+    .hamMenu{
+        height: 30px;
+    }
+
+
+    .hamMenu span{
+        height: 4px;
+        width: 40px;
+    }
+   
+    .off-screen-menu{
+        background-color: rgb(36, 35, 35);
+        height: 15vh;
+        width: 70%;
+        max-width: 200px;
+   
+        position: fixed;
+        top: -300px;
+        right: 50px;
+   
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around;
+       
+       
+        transition: .5s ease;
+   
+        button{
+            font-family: "antiqua";
+            color: white;
+            text-align: justify ;
+           
+            background-color: inherit;
+   
+            margin: 0px;
+            padding: 0%;
+            margin-left: 20px;
+        }
+    }
+
+
+    .off-screen-menu.active {  
+        top: -10px;
+        margin-right: 15px;
+        margin-top: 25px;
+
+
+        border-radius: 15px;
+
+
+        .btnRegras, .btnFontes, .btnJogabilidades{
+            font-size: 15px;
+            border-style: none;
+
+
+            margin-left: 20px;
+
+
+            width: 50%;
+            height: 23%;    
+        }
+   
+        .btnRegras:hover, .btnJogabilidades:hover, .btnFontes:hover{
+            animation-duration: 2s;
+            animation-name: animaMenu;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }
+    }
+
+
+    @keyframes animaMenu{
+
+
+        0%,100% {
+            width: 30%;
+            height:20%;
+           
+            transform: scale(1);
+            color: rgb(255, 253, 253);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+        }
+        50% {
+            width: 60%;
+            height:20%;
+           
+            transform: scale(1.1);
+            color: rgb(247, 243, 243);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            font-size: 18px;
+        }
+    }
+   
+}
+
+
+/* SMARTPHONE */
+@media screen and (min-width: 1px) and (max-width: 800px){
+    .hamMenu{
+        height: 20px;
+    }
+
+
+    .hamMenu span{
+        height: 2px;
+        width: 30px;
+    }
+   
+    .off-screen-menu{
+        background-color: rgb(36, 35, 35);
+        height: 18vh;
+        width: 80%;
+        max-width: 200px;
+   
+        position: fixed;
+        top: -300px;
+        right: 0px;
+   
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around;
+       
+       
+        transition: .5s ease;
+   
+        button{
+            font-family: "antiqua";
+            color: white;
+            text-align: justify ;
+           
+            background-color: inherit;
+   
+            margin: 0px;
+            padding: 0%;
+            margin-left: 20px;
+        }
+    }
+
+
+    .off-screen-menu.active {  
+        top: 10px;
+        margin-right: 15px;
+        margin-top: 25px;
+
+
+        border-radius: 20px;
+
+
+        .btnRegras, .btnFontes, .btnJogabilidades{
+            font-size: 15px;
+            border-style: none;
+   
+            width: 30%;
+            height:20%;    
+        }
+   
+        .btnRegras:hover, .btnJogabilidades:hover, .btnFontes:hover{
+            animation-duration: 2s;
+            animation-name: animaMenu;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }
+    }
+}
+   
+

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TETRIS</title>
+
+    <link rel="stylesheet" href="assets/style/inicial.css">
+    <link rel="stylesheet" href="assets/style/pop-up.css">
+    <link rel="stylesheet" href="assets/style/info.css">
+    <link rel="stylesheet" href="assets/style/conteudoPopup.css">
+
+    <script src="assets/scripts/popup.js"></script>
+
+</head>
+<body>
+    <div id="conteudo">      
+        
+        <div class="off-screen-menu fonte">
+            <!-- <ul>
+                <li class="regras">Regras</li>
+                <li class="howToPlay">How to play</li>
+                <li class="fontes">Fontes</li>
+            </ul> -->
+
+            <button type="button" id="btnRegras" name="btnRegras" class="btnRegras fonte">Regras</button> 
+            <button type="button" id="btnJogabilidades" name="btnJogabilidades" class="btnJogabilidades fonte">Jogabilidade</button>
+            <button type="button" id="btnFontes" name="btnFontes" class="btnFontes fonte">Fontes</button>
+
+        </div>
+
+        <nav class="hamMenu">
+
+            <span></span>
+            <span></span>
+            <span></span>
+           
+        </nav>
+     
+        
+        <section>
+            
+            <header>
+                <p class = "rosa">T</p >
+                    <p class = "azul">E</p>
+                    <p class = "yellow">T</p>
+                    <p class = "green">R</p>
+                    <p class = "roxo">I</p>
+                    <p class = "verm">S</p>
+            </header>
+
+            
+            <a class="btnStart" href="telaJogo.html">START GAME</a>
+
+        </section>
+       
+        <article  id="regras" class="popup hidden">
+            <div class = "linha_titulo">
+                <h1 class = "title fonte">Regras</h1>
+                <img class = "linha" src = "assets/img/linha_tetris.png" alt = "Linha de peças do tetris.">
+            </div>
+
+            <div class = "peca_titulo">
+                <img src = "assets/img/peca_amarelo.png" alt = "Peça do tetris amarela.">
+                <h2 class = "fonte">Goal</h2>
+            </div>
+           
+            <p class = "fonte">Use suas habilidades de organização para preencher a linha com os blocos a fim de completá-la e eliminá-la, avançando no jogo.</p>
+            
+            <div class = "peca_titulo">
+                <img src = "assets/img/peca_azul.png" alt = "Peça do tetris azul.">
+                <h2 class = "fonte">Score</h2>
+            </div>
+            <ul>
+                <li class="fonte">&#9734; 10 xp - por bloco</li>
+                
+                <li class = "fonte">&#9734; 100 xp - por linha completada</li>
+            </ul>
+            
+            <div class = "peca_titulo">
+                <img src = "assets/img/peca_roxo.png" alt = "Peça do tetris roxa.">
+                <h2 class = "fonte">GameOver</h2>
+            </div>    
+
+                <p class="fonte"> Empilhar os blocos até o limite superior da tela de jogo.</p>
+                
+            <button type="button" class="btnFechaRegra botao_fecha" id="btnFechaRegra" name="btnFechaRegras">X</button>
+        </article>
+
+        <article  id="jogabilidade" class="popup hidden">
+            <div class = "linha_titulo">
+                <h1 class = "title fonte">Como jogar</h1>
+                <img class = "linha" src = "assets/img/linha_tetris.png" alt = "Linha de peças do tetris.">
+            </div>
+            <img class="explicacao" src="assets/img/botoesExplicacao.png" alt="botoes de explicação do jogo: seta de cima rotaciona peça, seta da direita move para direita, seta da esquerda move para esquerda e seta para baixo desce a peça mais rápido.">  
+            <button type="button" class="btnFechaJogabilidade botao_fecha" id="btnFechaJogabilidade" name="btnFechaJogabilidade">X</button>
+                
+        </article>
+
+        
+        <article  id="fontes" class="popup hidden">
+            <div class = "linha_titulo">
+                <h1 class = "title fonte">Fontes Utilizadas</h1>
+                <img class = "linha" src = "assets/img/linha_tetris.png" alt = "Linha de peças do tetris.">
+            </div>
+
+            <ul>
+                <li class="fonte">&#9734;<a href = "https://codepen.io/challenges/2024/july/4"> Desafio Geometric Puzzels </a> </li>
+                <li class="fonte">&#9734;<a href = "https://youtu.be/F9AZkz9QPpA?si=XToVJ0ure9M6vQh-"> Código de Estudo/Base </a> </li>
+                <li class = "fonte">&#9734;<a href = "https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_transforms/Using_CSS_transforms"> CSS Transform</a> </li>
+                <li class = "fonte">&#9734;<a href = "https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient"> Gradiente Linear</a> </li>
+                <li class = "fonte">&#9734;<a href = "https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/radial-gradient"> Gradiente Radial</a> </li>
+                <li class = "fonte">&#9734;<a href = "https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_animations/Using_CSS_animations"> Animação</a> </li>
+                <li class = "fonte">&#9734;<a href = "https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_transitions/Using_CSS_transitions"> Transição</a> </li>
+                <li class = "fonte">&#9734; Design Responsivo:
+                    <a href = "https://developer.mozilla.org/pt-BR/docs/Learn/CSS/CSS_layout/Responsive_Design">1</a>&nbsp;-&nbsp;
+                    <a href = "https://www.devmedia.com.br/responsive-design-dicas-para-tornar-seu-site-acessivel-em-qualquer-resolucao/28316">2</a>&nbsp;-&nbsp;
+                    <a href = "https://www.freecodecamp.org/portuguese/news/como-tornar-seu-html-responsivo-adicionando-uma-unica-linha-de-css/">3</a>&nbsp;-&nbsp;
+                    <a href = "https://www.dio.me/articles/responsividade-no-css-entenda">4</a>
+                </li>
+
+                <li class = "fonte">&#9734; Orientação à objetos:
+                    <a href = "https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects">1</a>&nbsp;-&nbsp;
+                    <a href = "https://www.freecodecamp.org/portuguese/news/programacao-orientada-a-objetos-em-javascript-explicada-com-exemplos/">2</a>&nbsp;-&nbsp;
+                    <a href = "https://www.devmedia.com.br/poo-trabalhando-com-classes-e-objetos-em-javascript/28434">3</a>
+                </li>
+                
+            <button type="button" class="btnFechafonte botao_fecha" id="btnFechaFonte" name="btnFechaFonte">X</button>
+        </article>
+
+        <div id="overlay" class="overlay"></div>
+
+        <footer>
+            <p>Criado por:<br/>Hanna Epelboim - Judy Faria - Luísa Silveira<br/>Twist 2024.2</p>
+            <a href="https://github.com/twistpucrio/GeomtricPuzzle">
+                <img class="git" src="assets/img/github.png" alt="github">
+            </a>
+        </footer>
+
+    </div>
+
+    <script src="assets/scripts/inicial.js"></script>
+</body>
+</html>

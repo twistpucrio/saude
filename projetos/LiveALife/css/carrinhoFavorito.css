@@ -1,0 +1,259 @@
+ 
+#carrinho-container{
+    overflow-x: auto;
+}
+
+body.fav{
+    footer{
+        border: none;
+    }
+}
+
+#favorito-container{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    /* align-items: center; */
+
+    margin-top: 50px;
+    margin-bottom: 170px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+    margin-bottom: 50px;
+
+    .remover-button{
+        width: 30px;
+        height: 30px;
+        background-image: url("../img/icones/close.svg"); 
+        border: 1px solid #088178;
+        border-radius: 50%;
+        color: #088178;
+    }
+
+    .remover-button:hover{
+        color: red;
+        border: 1px solid red;
+    }
+
+    img{
+        width: 100px;
+    }
+
+    td:nth-child(1){
+        width: 100px;
+        text-align: center;
+    }
+
+    td:nth-child(2){
+        width: 250px;
+        text-align: center;
+    }
+
+    td:nth-child(3){
+        width: 170px;
+        text-align: center;
+    }
+
+    td:nth-child(4), td:nth-child(5), td:nth-child(6){
+        width: 170px;
+        text-align: center;
+    }
+
+    td:nth-child(4) .quantidade-input{
+        width: 60px;
+        padding: 10px 5px 10px 15px;
+    }
+
+    thead{
+        border: 1px solid #e2e9e1;
+        border-left: none;
+        border-right: none;
+
+
+        td{
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 15px;
+            padding: 18px 0;
+        }
+    }
+
+
+    tbody {
+        tr {
+            td{
+                padding-top: 20px;
+                font-size: 18px;
+            }
+        }
+        border-bottom: 1px solid #e2e9e1;
+    }
+}
+
+
+#cart-add{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    button:hover{
+        opacity: 0.9;
+    }
+
+    #coupon{
+        width: 50%;
+        margin-bottom: 30px;
+
+
+        h3{
+            padding-bottom: 10px;
+            font-size: 25px;
+        }
+
+
+
+        input{
+            padding: 10px 20px;
+            outline: none;
+            width: 70%;
+            margin-right: 10px;
+            border: 1px solid #e2e9e1;
+        }
+
+
+        button{
+            background-color: #088178;
+            color: #fff;
+            padding: 12px 20px;
+        }
+
+    }
+
+
+
+
+    #subtotal{
+        width: 50%;
+        margin-bottom: 30px;
+        border: 1px solid #e2e9e1;
+        padding: 30px;
+
+        h3{
+            padding-bottom: 15px;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+
+            td{
+                width: 50%;
+                border: 1px solid #e2e9e1;
+                padding: 10px;
+                font-size: 13px;
+
+                h3{
+                    padding-bottom: 0;
+                }
+            }
+           
+        }
+
+        button{
+            background-color: #088178;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+    }
+}
+
+#limpar-carrinho, #limpar-favorito{
+    color: #088178;
+    border: 1px solid #088178;
+    padding: 7px;
+    border-radius: 3px;
+    background: none;
+    margin-bottom: 20px;
+}
+
+
+#limpar-carrinho:hover, #limpar-favorito:hover{
+    background-color: #088178;
+    color: #e2e9e1;
+}
+
+#limpar-favorito{
+    width: 150px;
+    height: 30px;
+}
+
+
+footer{
+    border-top: 1px solid #e2e9e1;;
+}
+
+
+
+/* mensagem - Compra Finalizada */
+
+.mensagem-finalizacao {
+    text-align: center;
+    margin-top: 50px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.mensagem-finalizacao h2 {
+    font-size: 2.5rem;
+    color: #4CAF50; /* Cor verde para representar sucesso */
+}
+
+.mensagem-finalizacao p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-voltar-home {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Cor verde */
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-voltar-home a {
+    color: white;
+    text-decoration: none;
+}
+
+.btn-voltar-home:hover {
+    background-color: #45a049; /* Efeito hover */
+}

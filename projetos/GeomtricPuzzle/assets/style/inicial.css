@@ -1,0 +1,424 @@
+/*fonte*/
+
+
+@font-face {
+    font-family: 'antiqua';
+    src: url('../fonts/Inknut_Antiqua/InknutAntiqua-SemiBold.ttf');
+}
+
+
+@keyframes animaBotao{
+
+
+    0%,100% {
+        transform: scale(1);
+        background-color: rgb(36, 35, 35);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        font-size: x-large;
+    }
+    50% {
+        transform: scale(1.1);
+        background-color: rgb(66, 65, 65);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        font-size: xx-large;
+    }
+}
+
+
+@keyframes animaLetraBaixo{
+    0%, 100% {
+        transform:translateY(50%) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform:  translateY(50%) rotate(-10deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(50%) rotate(10deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translateY(50%) rotate(-10deg);
+        opacity: 1;
+    }
+}
+
+
+
+
+@keyframes animaLetraCima{
+    0%, 100% {
+        transform:rotate(0deg);
+        opacity: 1;
+
+
+    }
+    25% {
+        transform: rotate(-10deg);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(10deg);
+        opacity: 1;
+    }
+    75% {
+        transform:rotate(-10deg);
+        opacity: 1;
+    }
+}
+
+
+@keyframes quedaLetraCima {
+    0% {
+        opacity: 0;
+        transform: translateY(-150%) rotate(0deg);
+       
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+       
+    }
+}
+
+
+@keyframes quedaLetraBaixo {
+    0% {
+        opacity: 0;
+        transform: translateY(-150%) rotate(0deg);
+       
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(50%) rotate(0deg);
+    }
+}
+
+
+
+
+
+
+body{
+    margin: 0px;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+
+#conteudo{
+    background-image: url('../img/gettyimages-2112621265-612x612.jpg');
+}
+
+
+nav{
+    display: flex;
+    flex-direction: row-reverse;  
+    a{
+        margin: 10px;
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 100%;
+    }
+}
+
+
+section{
+    height: 88vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+   
+
+
+    header {
+        font-size: 50px;
+        margin-bottom: 250px;
+        line-height: 1.5;
+        position: relative;
+
+
+        p {
+            display: inline-block;
+            font-size: 110px;
+            font-family: "antiqua";
+            animation-duration: 1s;
+            letter-spacing: 35px;
+            animation-fill-mode: forwards;
+           
+           
+        }
+
+
+        .rosa {
+            color: hotpink;
+            opacity: 0;
+            animation:quedaLetraCima 1s ease-in-out, animaLetraCima 2s infinite ease-in-out;
+            animation-delay: 0s, 1s;
+        }
+
+
+        p.azul {
+            color: rgb(106, 196, 255);
+            transform: translateX(-10%) translateY(50%);
+            opacity: 0;
+            animation: quedaLetraBaixo 1s ease-in-out, animaLetraBaixo 2s infinite ease-in-out;
+            animation-delay: 0.5s, 1.5s;
+        }
+   
+        p.yellow {
+            color: rgb(255, 217, 0);
+            opacity: 0;
+            animation: quedaLetraCima 1s ease-in-out, animaLetraCima 2s infinite ease-in-out;
+            animation-delay: 1s, 2s;
+        }
+       
+        p.green {
+            color: rgb(16, 189, 16);
+            opacity: 0;
+            transform: translateX(0%) translateY(50%);
+            animation: quedaLetraBaixo 1s ease-in-out, animaLetraBaixo 2s infinite ease-in-out;
+            animation-delay: 1.5s, 2.5s;
+        }
+
+
+        p.roxo {
+            color: blueviolet;
+            opacity: 0;
+            animation: quedaLetraCima 1s ease-in-out, animaLetraCima 2s infinite ease-in-out;
+            animation-delay: 2s, 3s;
+        }
+
+
+        p.verm {
+            color: red;
+            opacity: 0;
+            transform: translateX(10%) translateY(50%);
+            animation: quedaLetraBaixo 1s ease-in-out, animaLetraBaixo 2s infinite ease-in-out;
+            animation-delay: 2.5s, 3.5s;
+        }
+
+
+    }
+
+
+
+
+
+
+    .btnStart{
+        border: 2px solid white;
+        border-radius: 70px;
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;  
+        margin-bottom: 100px;
+        color:white;
+        background-color: rgb(36, 35, 35);
+        font-family:"antiqua";
+        position: relative;
+        top: -10vh;
+        font-size: large;
+
+
+        animation-duration: 6s;
+        animation-name: animaBotao;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-delay: 1s;
+       
+
+
+    }
+
+
+}
+
+
+footer{
+    display: inline-block;
+    width: 100%;
+    background-color:black;
+    padding-top:1vh;
+    padding-bottom:1vh;
+    color:white;
+    text-align: center;
+
+
+    img{
+        width: 3%;
+    }
+}
+
+
+
+
+  /*  RESPONSIVIDADE  */
+
+
+  /* desktop -> min-width: 1024px */
+  /* tablet -> min-width: 768px e max-width: 1023px */
+  /* max-width: 767px */
+
+
+  /* DESKTOP */
+  @media screen and (min-width: 1024px) /* 1024 ou mais*/ {
+   
+    }
+ 
+  /* TABLET */
+  @media screen and (min-width: 800px) and (max-width: 1023px){
+    section{
+        height: 58.5vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 210px;
+   
+        header {
+   
+            p {
+                display: inline-block;
+                font-size: 90px;
+                font-family: "antiqua";
+                animation-duration: 1s;
+                letter-spacing: 35px;
+                animation-fill-mode: forwards;        
+            }        
+        }
+
+
+        .btnStart{
+            border: 2px solid rgb(0, 102, 255);
+            border-radius: 70px;
+            padding: 10px;
+            padding-left: 30px;
+            padding-right: 30px;  
+            /* margin-bottom: 50px; */
+            color:white;
+            background-color: rgb(36, 35, 35);
+            font-family:"antiqua";
+            position: relative;
+            top: -15vh;
+            font-size:large;
+   
+            animation-duration: 6s;
+            animation-name: animaBotao;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-delay: 1s;
+           
+        }
+    }
+
+
+    @keyframes animaBotao{
+
+
+        0%,100% {
+            transform: scale(1);
+            background-color: rgb(36, 35, 35);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            font-size: large;
+        }
+        50% {
+            transform: scale(1.1);
+            background-color: rgb(66, 65, 65);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            font-size: x-large;
+        }
+    }
+}
+
+
+
+
+  /* SMARTPHONE  -> enquanto a tela for menor que 767px*/
+ 
+
+
+  @media screen and (min-width: 1px) and (max-width: 800px){
+    section{
+        height: 67vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 150px;
+   
+        header {
+            font-size: 50px;
+            margin-bottom: 200px;
+            line-height: 1.5;
+            position: relative;
+   
+            p {
+                display: inline-block;
+                font-size: 55px;
+                font-family: "antiqua";
+                animation-duration: 1s;
+                letter-spacing: 35px;
+                animation-fill-mode: forwards;
+               
+               
+            }
+   
+           
+        }
+
+
+        .btnStart{
+            border: 2px solid rgb(220, 13, 13);
+            border-radius: 70px;
+            padding: 10px;
+            padding-left: 30px;
+            padding-right: 30px;  
+            /* margin-bottom: 50px; */
+            color:white;
+            background-color: rgb(36, 35, 35);
+            font-family:"antiqua";
+            position: relative;
+            top: -1vh;
+            font-size:large;
+   
+            animation-duration: 6s;
+            animation-name: animaBotao;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-delay: 1s;
+           
+        }
+    }
+
+
+    @keyframes animaBotao{
+
+
+        0%,100% {
+            transform: scale(1);
+            background-color: rgb(36, 35, 35);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            font-size: large;
+        }
+        50% {
+            transform: scale(1.1);
+            background-color: rgb(66, 65, 65);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            font-size: x-large;
+        }
+    }
+   
+}
+   
+
+
+
