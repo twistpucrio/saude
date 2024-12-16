@@ -22,25 +22,31 @@ window.addEventListener("load", function() {
 
     btnComoUsar.addEventListener("click", function() {
         mudarEstado("comoUsar");
+        document.getElementById('checkboxes').style.display = "none";
     });
 
     btnFechaComoUsar.addEventListener("click", function() {
         mudarEstado("comoUsar");
+        document.getElementById('checkboxes').style.display = "none";
     });
 
     btnEmergencia.addEventListener("click", function() {
         mudarEstado("emergencia");
+        document.getElementById('checkboxes').style.display = "none";
     });
 
     btnFechaEmergencia.addEventListener("click", function() {
         mudarEstado("emergencia");
+        document.getElementById('checkboxes').style.display = "none";
     });
 
     btnSobreNos.addEventListener("click", function() {
         mudarEstado("sobreNos");
+        document.getElementById('checkboxes').style.display = "none";
     });
 
     btnFechaSobreNos.addEventListener("click", function() {
         mudarEstado("sobreNos");
+        document.getElementById('checkboxes').style.display = "none";
     });
 });
