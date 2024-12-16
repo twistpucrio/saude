@@ -89,11 +89,11 @@ html, body {
 }
 #emergencia h1 {
     text-align: center;
-    font-size: 300%;
-    margin: 20px 0;
+    font-size: 3vw;
+    margin: 2% 0;
     color: white;
-    border-bottom: 3px solid #ffffff;
-    padding-bottom: 10px;
+    border-bottom: 0.3vw solid #ffffff;
+    padding-bottom: 1%;
 }
 
 #emergencia-header {
@@ -158,6 +158,179 @@ html, body {
     color: #555;
 }
 
+#comoUsar{
+    background-color: #2e2d2d ;
+}
+
+.comousar-content h2{
+    text-align: center;
+    font-size: 3vw;
+    margin: 2% 0;
+    color: white;
+    border-bottom: 0.3vw solid #ffffff;
+    padding-bottom: 1%;
+}
+
+#comoUsar .comousar-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    line-height: 2.0;
+    color: white;
+    list-style-position: inside; /* Números alinhados */
+    text-align: center; /* Centraliza os itens */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinha os itens no centro */
+    gap: 10px; /* Espaço entre as caixas */
+
+}
+
+#comoUsar .comousar-content ul li {
+    background-color: #3b3a3a; /* Cor de fundo das caixas */
+    border: 1px solid #555; /* Borda das caixas */
+    border-radius: 8px; /* Borda arredondada */
+    padding: 10px 20px;
+    width: 80%; /* Define a largura das caixas */
+    text-align: left; /* Alinha o texto dentro da caixa */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+#comoUsar .comousar-content ul li:hover {
+    transform: scale(1.02); /* Efeito de destaque ao passar o mouse */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#comoUsar .comousar-content ul li strong {
+    color: #00aced; /* Cor do texto destacado */
+    margin-left: 5px;
+}
+
+
+#sobreNos{
+    background-color: #2e2d2d ;
+}
+
+.sobreNos-header h2 {
+    text-align: center;
+    font-size: 3vw;
+    margin: 2% 0;
+    color: white;
+    border-bottom: 0.3vw solid #ffffff;
+    padding-bottom: 1%;
+}
+
+.sobreNos-header p {
+    font-size: 1.5vw;
+    color: #f0f0f0;
+    display: block;
+    text-align: justify;
+    line-height: 1.8;
+    margin: 2% auto;
+    max-width: 80%;
+    padding: 2%;
+    background-color: #3b3a3a; /* Cor de fundo das caixas */
+    border: 1px solid #555; /* Borda das caixas */
+    border-radius: 2%;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.3);
+}
+
+.desenvolvedoras h3 {
+    color: white;
+    text-align: center;
+    font-size: 2vw;
+    margin-top: 3%;
+}
+
+.cards-desenvolvedoras {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    margin: 3% 0;
+    flex-wrap: wrap;
+}
+
+.desenvolvedora-card {
+    text-align: center;
+    width: 25%;
+}
+
+.desenvolvedora-card img {
+    width: 50%;
+    /* height: 65%; */
+    object-fit: cover;
+    border-radius: 50%;
+    border: 0.2vw solid #ddd;
+    margin-bottom: 5%;
+
+}
+
+.luisa{
+    width: 40%;
+    height: 65%;
+}
+
+.desenvolvedora-card p {
+    font-size: 1.2vw;
+    color: #ffffff;
+}
+
+.desenvolvedora-card a {
+    color: #00aced;
+    text-decoration: none;
+}
+
+.desenvolvedora-card a:hover {
+    color: #72248a;
+}
+
+.projetos-passados h3 {
+    color: white;
+    text-align: center;
+    font-size: 2vw;
+    margin: 3% 0;
+}
+
+.projetos-cards {
+    display: flex;
+    gap: 2%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.projeto-card {
+    text-align: center;
+    width: 40%;
+    color: white;
+    font-size: 1.2vw;
+}
+
+.projeto-card .video {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2%;
+}
+
+.projeto-card video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.projeto-card p {
+    margin-top: 1%;
+    font-size: 1.2vw;
+}
 
 .infowindow{
     font-family: Arial, sans-serif;
@@ -177,6 +350,13 @@ html, body {
         border: none;
         border-radius: 4px;
         cursor: pointer;    
+
+        
+    }
+
+    #voltar{
+        width: 100%;
+        
     }
 
     .btn_infoWindow:hover {

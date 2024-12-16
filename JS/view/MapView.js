@@ -461,7 +461,7 @@ const MapView = (() => {
                 <button class="modoRota" id="transitRoute">
                     <img src="img/icons/bus.svg" alt="" title="Transporte Público">
                 </button>
-                <button id="voltar">Voltar</button>
+                <button class="btn_infoWindow" id="voltar">Voltar</button>
             </div>`
         );
     

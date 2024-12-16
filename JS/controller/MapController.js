@@ -44,6 +44,8 @@ const MapController = ((model, view) => {
     const init = () => {
         setupUserGeolocation();  // Chama a função para configurar o botão de geolocalização
 
+        document.getElementById('checkboxes').style.display = "none";
+
         const initialPosition = { lat: -22.969272265536834, lng: -43.21789775773896 }; // Tecgraf
         // -22.969272265536834, -43.21789775773896
         const mapElementId = "map";
