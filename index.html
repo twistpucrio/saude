@@ -20,20 +20,20 @@
                 <nav>
                     <div id="controls">
 
-                        <img class="logo_nav" src="img/logo_telaCheia.png" alt="">
+                        <img class="logo_nav" src="img/logo_telaCheia.png" alt="Logo do site SaudeFacil.com">
 
                         <div class="local">
 
                             <div class="input_pesquisa">
                                 <div class="caixa_input">
-                                    <input type="text" name="local" id="local" placeholder="Digite a localização">
-                                    <img src="img/icons/search_white.svg" alt="Pesquisar">
-                                    <button id="limparLocal">Limpar</button>
+                                    <input type="text" name="local" id="local" placeholder="Digite a localização" aria-label="Campo para inserir uma localização desejada">
+                                    <img src="img/icons/search_white.svg" alt="Ícone de busca" >
+                                    <button id="limparLocal" aria-label="Botão para limpar a localização digitada">Limpar</button>
                                 </div>                     
                             
-                                <div id="dropdown-localizacao" class="dropdown-localizacao">
-                                    <div id="use-user-geolocation" class="opcao-localizacao" onclick="usarGeolocalizacao()">
-                                        <img src="img/icons/my_location.svg" alt="">
+                                <div id="dropdown-localizacao" class="dropdown-localizacao" aria-label="Menu com opções de localização">
+                                    <div id="use-user-geolocation" class="opcao-localizacao" onclick="usarGeolocalizacao()" aria-label="Opção de usar minha localização atual">
+                                        <img src="img/icons/my_location.svg" alt="Ícone de localização atual">
                                         <p>Usar minha localização atual</p>
                                     </div>
                                     
@@ -44,14 +44,14 @@
                         </div>
                         
                         <form action="">
-                            <div class="multi_select">
-                                <div class="select_proced" onclick="NavController.showCheckboxes()">
+                            <div class="multi_select" aria-label="Seletor de procedimentos médicos">
+                                <div class="select_proced" onclick="NavController.showCheckboxes()" aria-label="Menu para selecionar procedimentos médicos">
                                     <select> 
                                         <option>Selecione procedimentos</option>
                                     </select>
                                     <div class="overSelect"></div> 
                                 </div>
-                                <div id="checkboxes">
+                                <div id="checkboxes" aria-label="Lista de opções de procedimentos">
                                     <label for="procedimento1">
                                         <input type="checkbox" name="procedimento" id="procedimento1">
                                         P1
@@ -71,29 +71,29 @@
                             
                         </form>
                         
-                        <button id="btnProc" onclick="MapController.buscarHospitais()">BuscarProc</button>
+                        <button id="btnProc" onclick="MapController.buscarHospitais()" aria-label="Botão para buscar hospitais com os procedimentos selecionados">Buscar</button>
                     </div>
-                    <div id="displayHospitaisEncontrados"></div>
+                    <div id="displayHospitaisEncontrados" aria-label="Seção onde serão exibidos os hospitais encontrados"></div>
                     
                 </nav>
             
                 <div id="main">
                 
-                    <section id="map"></section>
+                    <section id="map" aria-label="Mapa interativo para visualizar hospitais"></section>
                     
                     <footer>
                         <!-- <a href="">COMO USAR</a>
                         <a href="">EMERGÊNCIA</a>
                         <a href="">SOBRE NÓS</a> -->
 
-                        <button type="button" id="btnComoUsar" name="btnComoUsar" class="btnComoUsar fonte">COMO USAR</button> 
-                        <button type="button" id="btnEmergencia" name="btnEmergencia" class="btnEmergencia fonte">EMERGÊNCIA</button>
-                        <button type="button" id="btnSobreNos" name="btnSobreNos" class="btnSobreNos fonte">SOBRE NÓS</button>
+                        <button aria-label="Botão para acessar instruções de como usar o site" type="button" id="btnComoUsar" name="btnComoUsar" class="btnComoUsar fonte">COMO USAR</button> 
+                        <button aria-label="Botão para acessar números de emergência" type="button" id="btnEmergencia" name="btnEmergencia" class="btnEmergencia fonte">EMERGÊNCIA</button>
+                        <button aria-label="Botão para acessar informações sobre o projeto e as desenvolvedoras" type="button" id="btnSobreNos" name="btnSobreNos" class="btnSobreNos fonte">SOBRE NÓS</button>
                     </footer>
                 
                 </div>
 
-                <article id="comoUsar" class="popup" style="display: none;">
+                <article aria-label="Instruções de uso do site" id="comoUsar" class="popup" style="display: none;">
                     <div class="comousar-content">
                         <h2>Como Usar</h2>
                         <ul>
@@ -110,7 +110,7 @@
                 </article>
                 
 
-                <article id="emergencia" class="popup" style="display: none;">
+                <article aria-label="Números de emergência" id="emergencia" class="popup" style="display: none;">
                     <h1>Números de Emergências</h1>
 
                     <div id="emergencia-header">
@@ -148,7 +148,7 @@
 
                 </article>
 
-                <article id="sobreNos" class="popup" style="display: none;">
+                <article aria-label="Seção sobre o projeto e as desenvolvedoras" id="sobreNos" class="popup" style="display: none;">
                     <div class="sobreNos-header">
                         <h2>Sobre Nós</h2>
                         <p>O SaudeFacil.com foi desenvolvido com a missão de simplificar e otimizar a busca por hospitais e clínicas que realizam os procedimentos médicos desejados. Nosso foco é oferecer uma experiência prática e intuitiva, conectando você rapidamente às melhores opções de atendimento, economizando tempo e trazendo mais eficiência em momentos importantes.<br/><br/>
