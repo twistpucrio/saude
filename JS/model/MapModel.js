@@ -2,6 +2,7 @@
 
 const MapModel = (() => {
     let hospitals = [];
+    
 
     // Carrega os hospitais do arquivo JSON
     const carregarHospitais = () => {
@@ -20,6 +21,7 @@ const MapModel = (() => {
     const getHospitalsByProcedure = (procedureId) => {
         return hospitals.filter(hospital => hospital.procedimentos.includes(procedureId));
     };
+
 
     return {
         carregarHospitais,

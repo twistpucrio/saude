@@ -20,20 +20,20 @@
                 <nav>
                     <div id="controls">
 
-                        <img class="logo_nav" src="img/logo_telaCheia.png" alt="Logo do site SaudeFacil.com">
+                        <img class="logo_nav" src="img/logo_telaCheia.png" alt="">
 
                         <div class="local">
 
                             <div class="input_pesquisa">
                                 <div class="caixa_input">
-                                    <input type="text" name="local" id="local" placeholder="Digite a localização" aria-label="Campo para inserir uma localização desejada">
-                                    <img src="img/icons/search_white.svg" alt="Ícone de busca" >
-                                    <button id="limparLocal" aria-label="Botão para limpar a localização digitada">Limpar</button>
+                                    <input type="text" name="local" id="local" placeholder="Digite a localização">
+                                    <img id="imgPesquisa" src="img/icons/search_white.svg" alt="Pesquisar">
+                                    <button style="display: none;" id="limparLocal">X</button>
                                 </div>                     
                             
-                                <div id="dropdown-localizacao" class="dropdown-localizacao" aria-label="Menu com opções de localização">
-                                    <div id="use-user-geolocation" class="opcao-localizacao" onclick="usarGeolocalizacao()" aria-label="Opção de usar minha localização atual">
-                                        <img src="img/icons/my_location.svg" alt="Ícone de localização atual">
+                                <div id="dropdown-localizacao" class="dropdown-localizacao">
+                                    <div id="use-user-geolocation" class="opcao-localizacao">
+                                        <img src="img/icons/my_location.svg" alt="">
                                         <p>Usar minha localização atual</p>
                                     </div>
                                     
@@ -43,74 +43,76 @@
                            
                         </div>
                         
-                        <form action="">
-                            <div class="multi_select" aria-label="Seletor de procedimentos médicos">
-                                <div class="select_proced" onclick="NavController.showCheckboxes()" aria-label="Menu para selecionar procedimentos médicos">
-                                    <select> 
-                                        <option>Selecione procedimentos</option>
-                                    </select>
-                                    <div class="overSelect"></div> 
+                        <div class="form">
+                            <form action="">
+                                <div class="multi_select">
+                                    <div class="select_proced" onclick="NavController.showCheckboxes()">
+                                        <select> 
+                                            <option>Selecione procedimentos</option>
+                                        </select>
+                                        <div class="overSelect"></div> 
+                                    </div>
+                                    <div id="checkboxes">
+                                        <label for="procedimento1">
+                                            <input type="checkbox" name="procedimento" id="procedimento1">
+                                            P1
+                                        </label>
+            
+                                        <label for="procedimento2">
+                                            <input type="checkbox" name="procedimento" id="procedimento2">
+                                            P2
+                                        </label>
+            
+                                        <label for="procedimento4">
+                                            <input type="checkbox" name="procedimento" id="procedimento4">
+                                            P3
+                                        </label>
+                                    </div>
                                 </div>
-                                <div id="checkboxes" aria-label="Lista de opções de procedimentos">
-                                    <label for="procedimento1">
-                                        <input type="checkbox" name="procedimento" id="procedimento1">
-                                        P1
-                                    </label>
-        
-                                    <label for="procedimento2">
-                                        <input type="checkbox" name="procedimento" id="procedimento2">
-                                        P2
-                                    </label>
-        
-                                    <label for="procedimento3">
-                                        <input type="checkbox" name="procedimento" id="procedimento3">
-                                        P3
-                                    </label>
-                                </div>
-                            </div>
+                                
+                            </form>
                             
-                        </form>
+                            <button id="btnProc" onclick="MapController.buscarHospitais()">Buscar</button>
+                        </div>
                         
-                        <button id="btnProc" onclick="MapController.buscarHospitais()" aria-label="Botão para buscar hospitais com os procedimentos selecionados">Buscar</button>
                     </div>
-                    <div id="displayHospitaisEncontrados" aria-label="Seção onde serão exibidos os hospitais encontrados"></div>
+                    
+                    <div id="route-options" class="route-options-container">
+                        <!-- As opções de rota serão adicionadas aqui dinamicamente -->
+                    </div>
+
+                    <div id="displayHospitaisEncontrados"></div>
                     
                 </nav>
             
                 <div id="main">
                 
-                    <section id="map" aria-label="Mapa interativo para visualizar hospitais"></section>
+                    <section id="map">
+                        
+                    </section>
                     
                     <footer>
                         <!-- <a href="">COMO USAR</a>
                         <a href="">EMERGÊNCIA</a>
                         <a href="">SOBRE NÓS</a> -->
 
-                        <button aria-label="Botão para acessar instruções de como usar o site" type="button" id="btnComoUsar" name="btnComoUsar" class="btnComoUsar fonte">COMO USAR</button> 
-                        <button aria-label="Botão para acessar números de emergência" type="button" id="btnEmergencia" name="btnEmergencia" class="btnEmergencia fonte">EMERGÊNCIA</button>
-                        <button aria-label="Botão para acessar informações sobre o projeto e as desenvolvedoras" type="button" id="btnSobreNos" name="btnSobreNos" class="btnSobreNos fonte">SOBRE NÓS</button>
+                        <button type="button" id="btnComoUsar" name="btnComoUsar" class="btnComoUsar fonte">COMO USAR</button> 
+                        <button type="button" id="btnEmergencia" name="btnEmergencia" class="btnEmergencia fonte">EMERGÊNCIA</button>
+                        <button type="button" id="btnSobreNos" name="btnSobreNos" class="btnSobreNos fonte">SOBRE NÓS</button>
                     </footer>
                 
                 </div>
 
-                <article aria-label="Instruções de uso do site" id="comoUsar" class="popup" style="display: none;">
-                    <div class="comousar-content">
-                        <h2>Como Usar</h2>
-                        <ul>
-                            <li>1. Insira a <strong>localização</strong> (atual ou outra).</li>
-                            <li>2. Escolha qual ou quais <strong>procedimentos</strong> procura.</li>
-                            <li>3. Clique em <strong>Buscar</strong>.</li>
-                            <li>4. Clique em um <strong>pin</strong> do hospital ou em um hospital da <strong>lista</strong>.</li>
-                            <li>5. Veja os <strong>detalhes</strong> ou a <strong>rota</strong> até o hospital.</li>
-                            <li>6. Clique em <strong>Emergência</strong> para ver os números de emergência.</li>
-                            <li>7. Clique em <strong>Sobre Nós</strong> para saber mais sobre o projeto e as desenvolvedoras.</li>
-                        </ul>
+                <article id="comoUsar" class="popup" style="display: none;">
+                    <div>
+                        <h2>pop up Como Usar</h2>
                     </div>
-                    <button type="button" class="btnFechaComoUsar botao_fecha" id="btnFechaComoUsar" name="btnFechaComoUsar">X</button>
-                </article>
-                
 
-                <article aria-label="Números de emergência" id="emergencia" class="popup" style="display: none;">
+                    <button type="button" class="btnFechaComoUsar botao_fecha" id="btnFechaComoUsar" name="btnFechaComoUsar">X</button>
+
+                </article>
+
+                <article id="emergencia" class="popup" style="display: none;">
                     <h1>Números de Emergências</h1>
 
                     <div id="emergencia-header">
@@ -148,60 +150,44 @@
 
                 </article>
 
-                <article aria-label="Seção sobre o projeto e as desenvolvedoras" id="sobreNos" class="popup" style="display: none;">
-                    <div class="sobreNos-header">
-                        <h2>Sobre Nós</h2>
-                        <p>O SaudeFacil.com foi desenvolvido com a missão de simplificar e otimizar a busca por hospitais e clínicas que realizam os procedimentos médicos desejados. Nosso foco é oferecer uma experiência prática e intuitiva, conectando você rapidamente às melhores opções de atendimento, economizando tempo e trazendo mais eficiência em momentos importantes.<br/><br/>
+                <article id="sobreNos" class="popup" style="display: none;">
+                    <div>
+                        <h2>pop up Sobre Nos</h2>
+                    </div>
 
-                            Sabemos o quanto é fundamental ter acesso rápido e confiável à informação médica, por isso buscamos proporcionar uma plataforma clara, precisa e acessível, ajudando pacientes, familiares e profissionais de saúde em suas jornadas.<br/><br/>
-                            
-                            Com o SaudeFacil.com, encontrar o hospital com o procedimento desejado nunca foi tão fácil! <br/><br/>
-                        
-                        </p>
-                    </div>
-                
-                    <div class="desenvolvedoras">
-                        <h3>Desenvolvedoras</h3>
-                        <div class="cards-desenvolvedoras">
-                            <div class="desenvolvedora-card">
-                                <img src="img/hanna.jpg" alt="Hanna">
-                                <p>Hanna - <a href="https://github.com/HannaEpelboim" target="_blank">GitHub</a> | 
-                                <a href="https://br.linkedin.com/in/hanna-epelboim-assun%C3%A7%C3%A3o-037284257" target="_blank">LinkedIn</a></p>
-                            </div>
-                            <div class="desenvolvedora-card">
-                                <img src="img/judy.jpg" alt="Judy">
-                                <p>Judy - <a href="https://github.com/JudyFaria" target="_blank">GitHub</a> | 
-                                <a href="https://www.linkedin.com/in/judy-faria-480b6819b/" target="_blank">LinkedIn</a></p>
-                            </div>
-                            <div class="desenvolvedora-card">
-                                <img src="img/luisa.jpg" alt="Luísa">
-                                <p>Luísa - <a href="https://github.com/LuisaSilveira" target="_blank">GitHub</a> | 
-                                <a href="https://www.linkedin.com/in/lu%C3%ADsa-silveira-340b26258/" target="_blank">LinkedIn</a></p>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="projetos-passados">
-                        <h3>Projetos Passados</h3>
-                        <div class="projetos-cards">
-                            <a href="projetos/GeomtricPuzzle" target="_blank" class="projeto-card">
-                                <div class="video">
-                                    <video autoplay muted loop src="img/video_tetris.mp4"></video>
-                                </div>
-                                <p>Geometric Puzzle</p>
-                            </a>
-                            <a href="projetos/LiveALife" target="_blank" class="projeto-card">
-                                <div class="video">
-                                    <video autoplay muted loop src="img/video_livealife.mp4"></video>
-                                </div>
-                                <p>Live a Life</p>
-                            </a>
-                        </div>
-                    </div>
-                
                     <button type="button" class="btnFechaSobreNos botao_fecha" id="btnFechaSobreNos" name="btnFechaSobreNos">X</button>
+
+                    <a href="projetos/HannaPortifolio" target="_blank">
+                        <img src="img/Hanna" alt="Hanna"> 
+                        <p>Clique para ver mais</p>
+                    </a>
+
+                    <a href="" target="_blank">
+                        <img src="img/Judy" alt="Judy"> 
+                        <p>Clique para ver mais</p>
+
+                    </a>
+
+                    <a href="projetos/ProjetoSobreMim_LuisaSilveira" target="_blank">
+                        <img src="img/Luísa" alt="Luísa"> 
+                        <p>Clique para ver mais</p>
+                    </a>
+
+                    <a href="projetos/GeomtricPuzzle" target="_blank">
+                        <div class="video">
+                            <video autoplay muted loop src="img/video_tetris.mp4" width="10%"></video>
+                       </div>
+                        <p>Clique para ver mais</p>
+                    </a>
+
+                    <a href="projetos/LiveALife" target="_blank">
+                        <div class="video">
+                            <video autoplay muted loop src="img/video_livealife.mp4" width="10%"></video>
+                       </div>
+                        <p>Clique para ver mais</p>
+                    </a>
+
                 </article>
-                
 
 
             

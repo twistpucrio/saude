@@ -7,12 +7,35 @@ const MapController = ((model, view) => {
         const selectedProcedures = Array.from(document.querySelectorAll("input[name='procedimento']:checked"))
             .map(checkbox => checkbox.id);
 
+        // Armazena os checkboxes selecionados no localStorage
+        localStorage.setItem("selectedProcedures", JSON.stringify(selectedProcedures));
+
         model.carregarHospitais().then(() => {
             const hospitals = selectedProcedures.flatMap(procedureId => model.getHospitalsByProcedure(procedureId));
             localStorage.removeItem("hospitaisFiltrados");
             localStorage.setItem("hospitaisFiltrados", JSON.stringify(hospitals));
             NavView.displayHospitalsNav(hospitals);
             view.addHospitalMarkers(hospitals);
+            removeRoute();
+        });
+
+        document.getElementById('checkboxes').style.display = "none";
+
+    };
+
+    const renderizaResultados = () => {
+        const selectedProcedures = Array.from(document.querySelectorAll("input[name='procedimento']:checked"))
+            .map(checkbox => checkbox.id);
+
+        // Armazena os checkboxes selecionados no localStorage
+    localStorage.setItem("selectedProcedures", JSON.stringify(selectedProcedures));
+
+        model.carregarHospitais().then(() => {
+            const hospitals = selectedProcedures.flatMap(procedureId => model.getHospitalsByProcedure(procedureId));
+            localStorage.removeItem("hospitaisFiltrados");
+            localStorage.setItem("hospitaisFiltrados", JSON.stringify(hospitals));
+            NavView.displayHospitalsNav(hospitals);
+            // view.addHospitalMarkers(hospitals);
         });
 
     };
@@ -21,12 +44,25 @@ const MapController = ((model, view) => {
     const init = () => {
         setupUserGeolocation();  // Chama a função para configurar o botão de geolocalização
 
-        const initialPosition = { lat: -22.92799529134749, lng: -43.231810558948794 }; // Tecgraf
+        const initialPosition = { lat: -22.969272265536834, lng: -43.21789775773896 }; // Tecgraf
+        // -22.969272265536834, -43.21789775773896
         const mapElementId = "map";
 
         view.initMap(initialPosition, mapElementId);
 
         initAutocomplete();
+
+        // Restaurar checkboxes selecionados
+        const storedProcedures = localStorage.getItem("selectedProcedures");
+        if (storedProcedures) {
+            const selectedProcedures = JSON.parse(storedProcedures);
+            selectedProcedures.forEach(id => {
+                const checkbox = document.getElementById(id);
+                if (checkbox) {
+                    checkbox.checked = true;
+                }
+            });
+        }
 
          // Verifica se há hospitais salvos no localStorage
         const hospitaisSalvos = localStorage.getItem("hospitaisFiltrados");
@@ -51,6 +87,7 @@ const MapController = ((model, view) => {
         }
  
         // document.getElementById("btnBusca").addEventListener("click", buscaPorTexto);
+        
     };
 
 
@@ -145,6 +182,7 @@ const MapController = ((model, view) => {
         
         btnUseUserLocation.addEventListener("click", () => {
             getUserLocation();
+            NavView.alterarDropdown(false)
         })
     }
 
@@ -193,19 +231,31 @@ const MapController = ((model, view) => {
             const inputValue = locationInput.value;
 
             if (!inputValue) {
+
                 // Exibe a sugestão quando o campo está vazio
                 locationInput.value = defaultSuggestion;
             }
         });
 
-        document.getElementById('limparLocal').addEventListener('click', limpaLoc);
+        // document.getElementById('limparLocal').addEventListener('click', limpaLoc);
 
 
     };
 
     const limpaLoc = () => {
         const campoLocal = document.getElementById('local');
+        console.log("antes de limpar: ",campoLocal.value)
         campoLocal.value = '';
+        console.log("depois de limpar: ",campoLocal.value)
+
+        // Garantir que o input está focado
+        campoLocal.focus();
+        // Disparar o evento de clique programaticamente
+        campoLocal.dispatchEvent(new Event('click'));
+
+        // Mostrar o dropdown explicitamente
+        NavView.alterarDropdown(true);
+
     }
 
     const iniciarRotaParaHospital = async (hospitalPosition, travelMode = 'WALKING') => {
@@ -242,6 +292,8 @@ const MapController = ((model, view) => {
         });
     };
 
+    
+
     return {
         buscarHospitais,
         buscaPorTexto,
@@ -250,6 +302,8 @@ const MapController = ((model, view) => {
         limpaLoc,
         init,
         addClickEventToHospitalMarker,
-        iniciarRotaParaHospital
+        iniciarRotaParaHospital,
+
+        renderizaResultados
     };
 })(MapModel, MapView);

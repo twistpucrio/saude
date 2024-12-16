@@ -1,99 +1,54 @@
-/* Configuração Geral */
-body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #2c3e50, #4ca1af);
-    color: #f5f5f5;
+/* document.getElementById('details').innerHTML = `
+            <h2>${hospital.nome}</h2>
+            <p><strong>Endereço:</strong> ${hospital.endereco}</p>
+            <p><strong>Bairro:</strong> ${hospital.bairro.join(", ")}</p>
+            <p><strong>Procedimentos:</strong> ${hospital.procedimentos.join(", ")}</p>
+            <p><strong>Descrição:</strong> ${hospital.descricao}</p>
+        `; */
+
+#hospital-details{
+    background-color: #404040;
+    padding-bottom: 200%;
 }
 
-/* Estilo do contêiner principal */
-#hospital-details {
-    background-color: #1B1B1B;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    padding: 2%;
-    max-width: 70%;
-    margin: 3% auto;
-    color: #fff;
-}
-
-/* Título Principal */
-h1 {
-    color: #ffffff;
+h1{
+    color: #0CBFF5;
+    font-size: 300%;
     text-align: center;
-    margin-bottom: 2%;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    padding: 3%;
 }
 
-/* Detalhes do Hospital */
-#details {
-    padding: 2%;
+#details{
+    #det{
+        display: flexbox;
+        justify-content: center;
+        padding: 3%;
+        padding-left: 25%;
+    }
+
+    h2{
+        color: #0CBFF5;
+        font-size: 250%;
+        text-align: center;
+    }
+
+    p{
+        color: #0CBFF5;
+        font-size: 200%;
+    }
 }
 
-#det {
-    display: flex;
-    flex-direction: column;
-    gap: 2%;
-    padding: 2%;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-
+img{
+    width: 10%;
+    height: 10%; 
+    padding: 0%; 
+    margin: 0%;
 }
 
-/* Subtítulos e Texto */
-h2 {
-    font-size: 150%;
-    color: #ffffff;
-    text-align: center;
-}
-
-p {
-    font-size: 120%;
-    line-height: 0.3;
-    color: #ffffff;
-}
-
-p strong{
-    color:#3bd0eb;
-}
-
-
-
-/* Imagem */
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin:  auto;
-}
-
-/* Botão "Voltar" */
-#volta {
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-    padding: 2% 3%;
-    background: #4ca1af;
-    color: #000;
-    font-size: 100%;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-}
-
-#volta:hover {
-    background: linear-gradient(45deg, #007cff, #00d9ff);
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Logo */
-#logoA img {
-    width: 20%;
-    height: 20%;
+a{
+    font-size: larger;
+    padding: 0.5%;
+    background-color: #0CBFF5;
+    color: black;
+    margin-left: 2%; 
 }
