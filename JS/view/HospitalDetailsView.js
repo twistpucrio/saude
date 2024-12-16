@@ -2,7 +2,7 @@ const HospitalDetailsView = (() => {
     const displayHospitalDetails = (hospital) => {
         document.getElementById('details').innerHTML = `
             <h2>${hospital.nome}</h2>
-            <div id="det">
+            <div id="det" aria-label="Detalhes do hospital">
             <p><strong>Endereço:</strong> ${hospital.endereco}</p><br>
             <p><strong>Bairro:</strong> ${hospital.bairro.join(", ")}</p><br>
             <p><strong>Procedimentos:</strong> ${hospital.procedimentos.join(", ")}</p><br>
