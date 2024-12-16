@@ -1,0 +1,156 @@
+body{
+    background-color: rgb(65, 66, 66);
+        scroll-behavior: smooth; /*rolagem suave*/
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+        color: #000;
+}
+
+.story{
+    width: 380px;
+    height: 550px;
+
+    margin: 20px auto; /* 20px - top e bottom / auto - right e left */
+
+    box-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+
+}
+
+
+
+.story img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+
+    width: inherit;
+    height: inherit;
+    border-radius: 5px;
+}
+
+.story .itens-story{
+    width: inherit;
+    height: inherit;
+
+    position: relative;
+    
+    
+    /*overflow: hidden;*/
+
+}
+
+.itens-story > *{  
+    top: 0px;
+    position: absolute;
+    opacity: 0; /* esconde */
+    pointer-events: none;
+
+}
+
+.itens-story > .ativo{
+    
+    
+    /*position: relative;*/
+    opacity: 1; /* aparece */
+    pointer-events: initial;
+    
+    opacity: 0.8;
+}
+
+/* Barrinha de navegação (qtd e tempo de cada slide do story)*/
+.barra-nav{
+    display: flex;
+    position: relative;
+}
+
+.barra-nav > article{
+    flex: 1; /* expandsi o máximo que conseguirem*/
+    /*display: block;*/
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin: 5px;
+    border-radius: 3px;
+    overflow: hidden; 
+}
+
+.barra-nav > article.ativo::after{
+    content: "";
+    display: block;
+    height: inherit;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 3px;
+    transform: translateX(-100%);
+    animation: barrinha 5s forwards linear;
+}
+
+/* ANIMAÇÃO */
+@keyframes barrinha{
+    to{
+        transform: initial;
+    }
+}
+
+/* perfil */
+.perfilInStory{
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+.perfilInStory img{
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    margin-right: 0.5rem;
+}
+
+.info-perfil{
+    font-size: 15px;
+    color: #000;
+    margin: 0.2rem 0rem;
+}
+
+/* BOTÕES */
+/*class="story-next" - class="story-prev"*/
+#navigator{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.story-next{
+    width: 50px;
+    height: 50px;
+    background-color: rgba(128, 128, 128, 0.2);
+    text-align: center;
+    line-height: 10px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.story-prev{
+    width: 50px;
+    height: 50px;
+    background-color: rgba(128, 128, 128, 0.2);
+    text-align: center;
+    line-height: 10px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+a{
+    color: aliceblue;
+    font-size: 20px;
+    text-decoration: none;
+
+    border: 2px #fff solid;
+    border-radius: 10px;
+
+    padding: 2px 7px;
+}

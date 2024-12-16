@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas</title>
+
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div id="conteudo">
+        <header id="header"><b>Perguntas</b></header>
+        <nav id="navigator">
+            <a href="/index.html" class="Voltar">Voltar</a>
+        </nav>
+        <section id="main">
+            <h1>Cadastro</h1>
+            <form action="" method="get">
+                <fieldset>
+                    <legend>Foto Perfil</legend>
+                    <label for="arq">Arquivo: </label><input type="file" name="arq" id="arq">
+                </fieldset>
+
+                <fieldset>
+                    
+                    <legend> Dados Pessoais </legend>
+                        <label for="nome">Nome: </label><input type="text" name="nome" id="nome"
+                               size="50" maxlength="100" required>
+                        <label for="idade">Idade: </label><input type="number" name="idade" id="idade"
+                                size="2" maxlength="3" required autofocus="autofocus">
+                        <label for="cpf">CPF: </label><input type="text" name="cpf" id="cpf"
+                                pattern="[0-9]{9}+-[0-9]{2}" size="10" maxlength="12" placeholder="XXXXXXXX-XX"><br/><br/>
+                        <label for="profissao">Profissão: </label><input type="text" name="profissao" id="profissao"
+                                size="50"
+                                size="2" maxlength="3" required autofocus="autofocus">
+                </fieldset>
+                <br/>
+                <fieldset>
+                    <legend> Contato </legend>
+                        <label for="cel">Celular: </label><input type="text" name="cel" id="cel"
+                                placeholder=" (XX) XXXXX-XXXX"><br/><br/>
+                    
+                        <label for="email">Email: </label><input type="text" name="emial" id="email">
+
+                </fieldset>
+                <br/><br/>
+                <input type="button" value="Salvar">
+                <br/><br/><br/><br/>
+
+                <h2>Perguntas Gerais</h2>
+                <fieldset>
+                    <legend>Comida e Bebida</legend>
+                        <label for="preferida">Fruta Preferida: </label>
+                            <input list="fruta" name="preferida">
+                            <datalist id="fruta"> 
+                                <option value="banana">Banana</option>
+                                <option value="maça">Maça</option>
+                                <option value="uva">Uva</option>
+                                <option value="mamão">Mamão</option>
+                            </datalist>
+                        
+                        &nbsp;
+                        <label for="preferida">Comida Preferida: </label>
+                            <select id="comida">
+                                <option value=""></option>
+                                <option value="Sushi">Suchi</option>
+                                <option value="Churrasco">Churrasco</option>
+                                <option value="Pastel">Pastel</option>
+                                <option value="Macarrão">Macarrão</option>
+                                <option value="Lasanha">Lasanha</option>
+                            </select>    
+
+                        &nbsp;
+                        <label for="bebida"> Bebida </label>
+                        <select id="bebida">
+                            <option value=""></option>
+                            <optgroup label="Refrigerante">
+                                <option value="Coca-Cola">Coca-Cola</option>
+                                <option value="Guaraná">Guaraná</option>
+                                <option value="Fanta">Fanta</option>
+                            </optgroup>
+
+                            <optgroup label="Suco">
+                                <option value="Maça">Maça</option>
+                                <option value="Laranja">Laranja</option>
+                                <option value="Maracujá">Maracujá</option>
+                            </optgroup>
+                        </select>                         
+                </fieldset>
+
+                <fieldset>
+                    <legend>Esporte</legend>
+                        <label for="pratica">Pratica algum esporte: </label>
+                            <label for="pratica">Sim</label><input type="radio" id="pratica">
+                            <label for="pratica">Não</label><input type="radio" id="pratica">
+                        
+                        &nbsp;<br/><br/>
+                        <label for="preferida">Melhor Esporte (dentre estes): </label>
+                            <select id="comida">
+                                <option value=""></option>
+                                <option value="natacao">Natação</option>
+                                <option value="corrida">Corrida</option>
+                                <option value="futebol">Futebol</option>
+                                <option value="volei">Volêi</option>
+                                <option value="handbol">Handbol</option>
+                            </select>    
+
+                        &nbsp;<br/><br/>
+                        <label for="atleta"> Atleta </label>
+                        <select id="atleta">
+                            <option value=""></option>
+                            <optgroup label="Ginástica">
+                                <option value="rebecca">Rebecca Andrade</option>
+                                <option value="jade">Jade Barbosa</option>
+                                <option value="flavia">Flávia Saraiva</option>
+                            </optgroup>
+
+                            <optgroup label="Futebol">
+                                <option value="cr7">Cristiano Ronaldo</option>
+                                <option value="messi">Messi</option>
+                                <option value="r10">Ronaldinho Gaúcho</option>
+                            </optgroup>
+
+                            <optgroup label="Volei">
+                                <option value="gabi">Gabi</option>
+                                <option value="feGarai">Fe Garay</option>
+                                <option value="fabi">Fabi</option>
+                            </optgroup>
+                        </select>                         
+                </fieldset>
+                <br/><br/>
+
+                <label>Escreva sua opnião sobre o site: </label><br/>
+                <textarea name="opiniao" id="ipniao" cols="100" rows="6"></textarea>
+
+                <input type="submit" value="Salvar">
+            </form>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+</body>
+</html>

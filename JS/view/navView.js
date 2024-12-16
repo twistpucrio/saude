@@ -12,15 +12,19 @@ const NavView = (() => {
     };
 
 
-
-       // Exibe a lista de hospitais na navegação lateral
-       const displayHospitalsNav = (hospitals, handleHospitalNavClick) => {
+    // Exibe a lista de hospitais na navegação lateral
+    const displayHospitalsNav = (hospitals, handleHospitalNavClick) => {
         const displayHospitaisEncontrados = document.getElementById('displayHospitaisEncontrados');
+        
         if (!displayHospitaisEncontrados) {
             console.error("Elemento 'displayHospitaisEncontrados' não encontrado.");
             return;
         }
+        // Define overflow-y como auto
+        displayHospitaisEncontrados.style.overflowY = 'auto'; /* Correto uso de style */
 
+        // Salva a lista de hospitais no localStorage
+        localStorage.setItem('hospitalsList', JSON.stringify(hospitals));
        
         // Limpa os hospitais anteriores
         displayHospitaisEncontrados.innerHTML = '';
@@ -47,12 +51,29 @@ const NavView = (() => {
         });
     };
 
+    const restoreHospitalsFromStorage = (handleHospitalNavClick) => {
+        const storedHospitals = localStorage.getItem('hospitalsList');
+        
+        if (storedHospitals) {
+            try {
+                const hospitals = JSON.parse(storedHospitals);
+                displayHospitalsNav(hospitals, handleHospitalNavClick);
+            } 
+            catch (error) {
+                console.error("Erro ao restaurar hospitais do localStorage:", error);
+            }
+
+        }
+    };
+
+
     // Mostra ou esconde o dropdown de localização
     const alterarDropdown = (visible) => {
         const dropdown = document.getElementById('dropdown-localizacao');
         if (dropdown) {
             dropdown.style.display = visible ? 'block' : 'none';
-        } else {
+        } 
+        else {
             console.error("Elemento 'dropdown-localizacao' não encontrado.");
         }
     };
@@ -72,6 +93,7 @@ const NavView = (() => {
         displayHospitalsNav,
         alterarDropdown,
         setInputValue,
+        restoreHospitalsFromStorage
     };
 })();
 
